@@ -1,0 +1,66 @@
+# Compiled files
+*.o
+*.class
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Language-specific ignores
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+node_modules/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+*.jar
+*.war
+*.ear
+target/
+*.iml
+.idea/
+.vscode/
+
+Cargo.lock
+/target/
+
+*.hi
+*.o
+*.exe
+
+*.beam
+_build/
+deps/
+.rebar3/
+
+*.jl.cov
+*.jl.*.cov
+*.jl.mem
+
+# Environment variables
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vim/
+
+# Advent of Code session (keep this private!)
+aoc_session.txt

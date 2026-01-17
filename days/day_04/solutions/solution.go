@@ -10,6 +10,7 @@ import (
 func solve(inputData string) (string, string) {
 	fmt.Println("Day 4 Go placeholder")
 	lines := strings.Split(strings.TrimSpace(inputData), "\n")
+	fmt.Println("Lines:", lines)
 	
 	// Part 1
 	part1Result := "TODO"

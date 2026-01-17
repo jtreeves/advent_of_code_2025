@@ -4,6 +4,7 @@ import java.io.File
 fun solve(inputData: String): Pair<String, String> {
     println("Day 01 Kotlin placeholder")
     val lines = inputData.trim().split("\n")
+    println("Lines: $lines")
     
     // Part 1
     val part1Result = "TODO"

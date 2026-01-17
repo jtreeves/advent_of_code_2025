@@ -4,6 +4,7 @@ use std::fs;
 fn solve(input_data: &str) -> (String, String) {
     println!("Day 5 Rust placeholder");
     let lines: Vec<&str> = input_data.trim().lines().collect();
+    println!("Lines: {:?}", lines);
     
     // Part 1
     let part1_result = "TODO".to_string();

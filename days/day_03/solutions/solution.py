@@ -5,6 +5,7 @@ def solve(input_data: str) -> Tuple[str, str]:
     """Solve Day 3 parts 1 and 2."""
     print("Day 3 Python placeholder")
     lines = input_data.strip().split('\n')
+    print(f"Lines: {lines}")
     
     # Part 1
     part1_result = "TODO"

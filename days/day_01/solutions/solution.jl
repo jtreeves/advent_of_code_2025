@@ -2,6 +2,7 @@
 function solve(input_data::String)::Tuple{String, String}
     println("Day 01 Julia placeholder")
     lines = split(strip(input_data), '\n')
+    println("Lines: ", lines)
     
     # Part 1
     part1_result = "TODO"

@@ -3,6 +3,7 @@ defmodule Solution do
   def solve(input_data) do
     IO.puts("Day 4 Elixir placeholder")
     lines = input_data |> String.trim() |> String.split("\n")
+    IO.inspect(lines, label: "Lines")
     
     # Part 1
     part1_result = "TODO"

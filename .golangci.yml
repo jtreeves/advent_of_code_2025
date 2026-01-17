@@ -1,0 +1,20 @@
+linters-settings:
+  nolintlint:
+    allow-unused: false
+    allow-no-explanation: false
+
+run:
+  skip-dirs:
+    - vendor
+  skip-files:
+    - ".*\\.c$"  # Skip C files
+    - ".*\\.h$"  # Skip header files
+
+linters:
+  enable:
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused

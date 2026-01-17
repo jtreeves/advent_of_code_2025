@@ -2,6 +2,7 @@
 def solve(input_data)
   puts "Day 3 Ruby placeholder"
   lines = input_data.strip.split("\n")
+  puts "Lines: #{lines}"
   
   # Part 1
   part1_result = "TODO"

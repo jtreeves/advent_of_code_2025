@@ -3,10 +3,11 @@ import java.nio.file.*;
 import java.util.*;
 
 // Placeholder for Day 8 Java solution
-public class Solution {
+class Solution {
     public static String[] solve(String inputData) {
         System.out.println("Day 8 Java placeholder");
         String[] lines = inputData.trim().split("\n");
+        System.out.println("Lines: " + java.util.Arrays.toString(lines));
         
         // Part 1
         String part1Result = "TODO";

@@ -5,6 +5,7 @@ import * as path from 'path';
 function solve(inputData: string): [string, string] {
     console.log("Day 7 TypeScript placeholder");
     const lines = inputData.trim().split('\n');
+    console.log("Lines:", lines);
     
     // Part 1
     const part1Result = "TODO";

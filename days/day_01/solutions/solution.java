@@ -1,17 +1,14 @@
-import java.io.IOException;
-import java.util.List;
+import java.io.*;
+import java.nio.file.*;
+import java.util.*;
 
 class Solution {
-    public static void main(String[] args) {
-        try {
-            List<String> lines = GetInput.getInput(1);
-            int[] results = solve(lines);
-            System.out.println("Part 1: " + results[0]);
-            System.out.println("Part 2: " + results[1]);
-        } catch (IOException e) {
-            System.err.println("Error reading input: " + e.getMessage());
-            System.exit(1);
-        }
+    public static void main(String[] args) throws IOException {
+        Path inputPath = Paths.get("../data/input.txt");
+        List<String> lines = Files.readAllLines(inputPath);
+        int[] results = solve(lines);
+        System.out.println("Part 1: " + results[0]);
+        System.out.println("Part 2: " + results[1]);
     }
     
     private static int[] solve(List<String> lines) {

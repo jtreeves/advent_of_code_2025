@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../../utilities/c/get_input.h"
+#include "../../../utilities/c/get_input.h"
 
 void solve(InputLines* lines, int* part1_result, int* part2_result) {
     // Part 1: Count times dial ends at 0 after a rotation

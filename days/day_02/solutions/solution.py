@@ -1,5 +1,6 @@
 from typing import List, Tuple
 
+
 def is_invalid_part1(id_str: str) -> bool:
     """Check if ID is invalid for Part 1: exactly two identical sequences."""
     n = len(id_str)
@@ -9,6 +10,7 @@ def is_invalid_part1(id_str: str) -> bool:
     # Split in half and check if halves are identical
     half = n // 2
     return id_str[:half] == id_str[half:]
+
 
 def is_invalid_part2(id_str: str) -> bool:
     """Check if ID is invalid for Part 2: sequence repeated 2+ times."""
@@ -23,9 +25,10 @@ def is_invalid_part2(id_str: str) -> bool:
                 return True
     return False
 
+
 def parse_ranges(line: str) -> List[Tuple[int, int]]:
     """Parse a line of comma-separated ranges like 'start-end, start-end'."""
-    ranges = []
+    ranges: List[Tuple[int, int]] = []
     for range_str in line.split(','):
         range_str = range_str.strip()
         if '-' in range_str:
@@ -33,32 +36,34 @@ def parse_ranges(line: str) -> List[Tuple[int, int]]:
             ranges.append((start, end))
     return ranges
 
+
 def solve(input_data: str) -> Tuple[str, str]:
     """Solve Day 2 parts 1 and 2."""
     lines = input_data.strip().split('\n')
-    
+
     part1_sum = 0
     part2_sum = 0
-    
+
     for line in lines:
         if not line.strip():
             continue
         ranges_list = parse_ranges(line)
-        
+
         for start, end in ranges_list:
             # Iterate through all IDs in the range (inclusive)
             for num in range(start, end + 1):
                 id_str = str(num)
-                
+
                 # Part 1: exactly two identical sequences
                 if is_invalid_part1(id_str):
                     part1_sum += num
-                
+
                 # Part 2: sequence repeated 2+ times (includes Part 1 cases)
                 if is_invalid_part2(id_str):
                     part2_sum += num
-    
+
     return str(part1_sum), str(part2_sum)
+
 
 if __name__ == "__main__":
     with open("../data/input.txt", "r") as f:

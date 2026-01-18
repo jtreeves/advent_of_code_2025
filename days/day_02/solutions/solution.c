@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../../utilities/c/get_input.h"
+#include "../../../utilities/c/get_input.h"
 
 // Check if ID is invalid for Part 1: exactly two identical sequences
 int is_invalid_part1(const char* id_str) {

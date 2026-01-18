@@ -20,8 +20,9 @@ This command orchestrates the following workflow:
 
 2. **Run Solutions** (`/run_solutions`):
    - Runs all 12 solution files for both Part 1 and Part 2
+   - **CRITICAL**: Measures execution times using `.specify/scripts/bash/time_solution.sh` (mandatory, cannot be skipped)
    - Extracts answers and updates README
-   - Updates ANALYSIS.md with execution times
+   - Updates ANALYSIS.md with execution times (performance tables)
    - Cleans up nonsense files from solutions folder
 
 3. **Sync Specs** (`/sync_specs`):

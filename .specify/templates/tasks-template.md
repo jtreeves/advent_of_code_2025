@@ -33,4 +33,3 @@
     - [ ] Update spec files to match actual code implementations
     - [ ] Mark completed tasks in tasks file
 - [ ] Flesh out ANALYSIS.md comparing language implementations
-- [ ] Add, commit, and push to Git (manual)

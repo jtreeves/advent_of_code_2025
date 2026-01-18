@@ -148,4 +148,4 @@ Memory management differences are minimal here since we process banks one at a t
 
 ## Notes
 
-[To be filled by dev personally]
+Very kludgy.

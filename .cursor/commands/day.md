@@ -49,7 +49,12 @@ The following steps are **MANDATORY** and must not be skipped:
 
 ### Step 5: Run Solutions
 - **MUST** run all 12 solution files against `data/input.txt` for both Part 1 and Part 2
-- **CRITICAL**: **MUST ALWAYS** capture execution times in milliseconds for each language using timing tools (`/usr/bin/time`, `date +%s%3N`, Python's `time.time()`, etc.)
+- **CRITICAL**: **MUST ALWAYS** capture execution times in milliseconds for each language - **THIS CANNOT BE SKIPPED**
+  - **MUST** use the reusable timing script: `.specify/scripts/bash/time_solution.sh <day> <language>`
+  - The script handles all 12 languages (c, clj, ex, go, hs, java, jl, kt, py, rb, rs, ts)
+  - Run the script multiple times (e.g., 3 runs) and average the results for accuracy
+  - Example: `bash .specify/scripts/bash/time_solution.sh 5 py` for Python on Day 5
+  - **DO NOT** leave placeholder values like `[To be measured]` or `[C_EXECUTION_TIME]` - these are errors
 - **MUST** update `ANALYSIS.md` in a single operation with:
   - Solutions tables: Part 1 results for each language
   - Solutions tables: Part 2 results for each language

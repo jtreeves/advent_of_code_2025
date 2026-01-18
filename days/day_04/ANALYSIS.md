@@ -131,4 +131,4 @@ The core algorithm involves neighbor counting using 8-directional checks (N, S, 
 
 ## Notes
 
-[To be filled by dev personally]
+Still annoyingly kludgy.

@@ -2,130 +2,154 @@
 
 ## Overall Approach
 
-[Explanation of overall approach used to solve the problem, including discussion algorithms used, which will be kept in brief, since the longer explanation will appear in the specs]
+The problem requires processing ingredient ID ranges and specific IDs to check freshness. For Part 1, we check each specific ID against all ranges to see if it falls within any range (inclusive on both ends). For Part 2, we merge overlapping and adjacent ranges, then count the total number of unique IDs covered by all merged ranges.
+
+The core algorithm involves: (1) parsing input split by a blank line into ranges and IDs, (2) for Part 1, checking each ID against all ranges with a nested loop, (3) for Part 2, sorting ranges by start value, then merging overlapping/adjacent ranges in a single pass, and (4) summing the lengths of merged ranges to get total coverage.
 
 **Clues**
 
-[Bulleted list of clues from the wording of the question that indicated the above solution was necessary]
-
-- [Clue 1]
-- [Clue 2]
+- The problem states ranges are "inclusive on both ends" (e.g., `3-5` means 3, 4, 5 are all fresh), indicating we need inclusive range checks: `start <= ID <= end`
+- Part 2's requirement to find "total number of unique IDs covered" combined with ranges that "may overlap heavily" indicates we need to merge overlapping ranges rather than naively summing lengths
+- The phrase "overlapping ranges must be merged" confirms the need for interval merging algorithm
+- The note about ranges being "much larger" than can be handled by expanding into memory suggests we need interval-based logic, not set-based expansion
 
 ## Complexity Analysis
 
-- **Time Complexity**: O(...)
-- **Space Complexity**: O(...)
+- **Time Complexity**: 
+  - Part 1: O(n × m) where n = number of IDs to check, m = number of ranges. For each ID, we check all ranges until finding a match (early break on first match).
+  - Part 2: O(m log m) - dominated by sorting ranges. The merge pass is O(m) after sorting. Total is O(m log m).
+- **Space Complexity**: O(m + n) - storage for ranges (tuples/pairs) and IDs (integers). The merged ranges list is at most O(m) in worst case (no overlaps).
 
 ## Solutions
 
 ### Part 1
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          | [C_SOLUTION]          |
-| Clojure    | [CLOJURE_SOLUTION]    |
-| Elixir     | [ELIXIR_SOLUTION]     |
-| Go         | [GO_SOLUTION]         |
-| Haskell    | [HASKELL_SOLUTION]    |
-| Java       | [JAVA_SOLUTION]       |
-| Julia      | [JULIA_SOLUTION]      |
-| Kotlin     | [KOTLIN_SOLUTION]     |
-| Python     | [PYTHON_SOLUTION]     |
-| Ruby       | [RUBY_SOLUTION]       |
-| Rust       | [RUST_SOLUTION]       |
-| TypeScript | [TYPESCRIPT_SOLUTION] |
+| Language   | Initial Solution |
+|------------|------------------|
+| C          | 525              |
+| Clojure    | 525              |
+| Elixir     | 525              |
+| Go         | 525              |
+| Haskell    | 525              |
+| Java       | 525              |
+| Julia      | 525              |
+| Kotlin     | 525              |
+| Python     | 525              |
+| Ruby       | 525              |
+| Rust       | 525              |
+| TypeScript | 525              |
 
 ### Part 2
 | Language   | Initial Solution      |
 |------------|-----------------------|
-| C          | [C_SOLUTION]          |
-| Clojure    | [CLOJURE_SOLUTION]    |
-| Elixir     | [ELIXIR_SOLUTION]     |
-| Go         | [GO_SOLUTION]         |
-| Haskell    | [HASKELL_SOLUTION]    |
-| Java       | [JAVA_SOLUTION]       |
-| Julia      | [JULIA_SOLUTION]      |
-| Kotlin     | [KOTLIN_SOLUTION]     |
-| Python     | [PYTHON_SOLUTION]     |
-| Ruby       | [RUBY_SOLUTION]       |
-| Rust       | [RUST_SOLUTION]       |
-| TypeScript | [TYPESCRIPT_SOLUTION] |
+| C          | 333892124923577       |
+| Clojure    | 333892124923577       |
+| Elixir     | 333892124923577       |
+| Go         | 333892124923577       |
+| Haskell    | 333892124923577       |
+| Java       | 333892124923577       |
+| Julia      | 333892124923577       |
+| Kotlin     | 333892124923577       |
+| Python     | 333892124923577       |
+| Ruby       | 333892124923577       |
+| Rust       | 333892124923577       |
+| TypeScript | 333892124923577       |
 
 ## Performance
 
 ### Part 1
-| Language   | Execution Time (ms)         |
-|------------|-----------------------------|
-| C          | [C_EXECUTION_TIME]          |
-| Clojure    | [CLOJURE_EXECUTION_TIME]    |
-| Elixir     | [ELIXIR_EXECUTION_TIME]     |
-| Go         | [GO_EXECUTION_TIME]         |
-| Haskell    | [HASKELL_EXECUTION_TIME]    |
-| Java       | [JAVA_EXECUTION_TIME]       |
-| Julia      | [JULIA_EXECUTION_TIME]      |
-| Kotlin     | [KOTLIN_EXECUTION_TIME]     |
-| Python     | [PYTHON_EXECUTION_TIME]     |
-| Ruby       | [RUBY_EXECUTION_TIME]       |
-| Rust       | [RUST_EXECUTION_TIME]        |
-| TypeScript | [TYPESCRIPT_EXECUTION_TIME] |
+| Language   | Execution Time (ms) |
+|------------|---------------------|
+| C          | 202                |
+| Clojure    | 516                |
+| Elixir     | 364                |
+| Go         | 396                |
+| Haskell    | 352                |
+| Java       | 73                 |
+| Julia      | 511                |
+| Kotlin     | 99                 |
+| Python     | 55                 |
+| Ruby       | 105                |
+| Rust       | 267                |
+| TypeScript | 1412               |
 
 ### Part 2
-| Language   | Execution Time (ms)         |
-|------------|-----------------------------|
-| C          | [C_EXECUTION_TIME]          |
-| Clojure    | [CLOJURE_EXECUTION_TIME]    |
-| Elixir     | [ELIXIR_EXECUTION_TIME]     |
-| Go         | [GO_EXECUTION_TIME]         |
-| Haskell    | [HASKELL_EXECUTION_TIME]    |
-| Java       | [JAVA_EXECUTION_TIME]       |
-| Julia      | [JULIA_EXECUTION_TIME]      |
-| Kotlin     | [KOTLIN_EXECUTION_TIME]     |
-| Python     | [PYTHON_EXECUTION_TIME]     |
-| Ruby       | [RUBY_EXECUTION_TIME]       |
-| Rust       | [RUST_EXECUTION_TIME]        |
-| TypeScript | [TYPESCRIPT_EXECUTION_TIME] |
+| Language   | Execution Time (ms) |
+|------------|---------------------|
+| C          | 202                |
+| Clojure    | 516                |
+| Elixir     | 364                |
+| Go         | 396                |
+| Haskell    | 352                |
+| Java       | 73                 |
+| Julia      | 511                |
+| Kotlin     | 99                 |
+| Python     | 55                 |
+| Ruby       | 105                |
+| Rust       | 267                |
+| TypeScript | 1412               |
+
+**Note**: Execution times for compiled languages (C, Rust, Haskell, Kotlin, Java) include compilation time. For interpreted languages (Python, Ruby, TypeScript, Clojure, Elixir, Julia), times represent pure execution. Go times include compilation via `go run`.
 
 ## Implementation Differences
 
 ### C
-[How the C implementation differs (e.g., manual memory management, pointers)]
+The C implementation uses manual memory management with dynamic allocation (`malloc`, `realloc`) for ranges and IDs arrays. String parsing manually splits lines by iterating through content and replacing newlines with null terminators to preserve blank lines (since `strtok` skips them). Uses `qsort` with a custom comparator for range sorting. Range merging modifies ranges in-place using pointers (`&merged[merged_count - 1]`). Uses `strtoll` for parsing large integers to `long long` (64-bit). Manual cleanup with `free()` for all allocated memory.
 
 ### Clojure
-[How the Clojure implementation differs (e.g., immutable data structures, macros)]
+Clojure uses immutable data structures and a pure functional approach. The merge logic uses `loop/recur` for tail-recursive range merging, building immutable vectors. Range parsing uses threading macros (`->>`) with `map` and `filter`. Part 1 uses `count` with `filter` and `some` to check ID membership. The `merge-ranges` function is extracted as a separate pure function. All transformations are lazy/eager depending on operations, with no mutable state.
 
 ### Elixir
-[How the Elixir implementation differs (e.g., pattern matching, processes)]
+Elixir uses Enum pipelines extensively for processing ranges and IDs. Pattern matching extracts ranges with tuple destructuring `{start, e}`. The merge operation uses `Enum.reduce` with an accumulator `{acc, last}` pattern, which is somewhat complex due to needing to track both the accumulator list and the last range. Uses `String.split/2` for parsing and `String.to_integer/1` for conversion. The `Code.load_file` warning indicates it should use `Code.require_file` instead (deprecated API).
 
 ### Go
-[How the Go implementation differs (e.g., goroutines, channels)]
+Go uses simple imperative style with `Range` struct and slices. Uses `sort.Slice` with a closure comparator for sorting. Range merging modifies slices in-place using pointer references (`&merged[len(merged)-1]`). Parsing uses `strconv.ParseInt` with 64-bit integers. The implementation is straightforward with explicit type declarations and error handling via blank identifier `_` to ignore parse errors. Uses `utils.ReadInputRaw` for file I/O.
 
 ### Haskell
-[How the Haskell implementation differs (e.g., functional style, laziness)]
+Haskell uses pure functional recursion with `mergeRanges` implemented as a recursive function pattern matching on list structure. Range parsing uses `words` after mapping `-` to spaces, then `read` for integer conversion. Part 1 uses `length` with `filter` and `any` to count matching IDs. The merge function recursively processes ranges, building a new list. Uses `Integer` type for arbitrary-precision integers. Pattern matching on function heads handles base cases elegantly.
 
 ### Java
-[How the Java implementation differs (e.g., object-oriented approach, collections)]
+Java uses `List<long[]>` for ranges (arrays of two longs) and `List<Long>` for IDs. Sorting uses `Collections.sort` with a lambda comparator `(a, b) -> Long.compare(a[0], b[0])`. Range merging modifies arrays in-place by directly updating `last[1] = Math.max(...)`. Uses `Long.parseLong` for 64-bit integer parsing. The implementation is straightforward OOP style with ArrayList collections and standard library methods.
 
 ### Julia
-[How the Julia implementation differs (e.g., multiple dispatch, performance)]
+Julia uses 1-based indexing for arrays (`1:blank_idx`). Range tuples are stored in arrays. The merge logic modifies arrays in-place (`last[2] = max(...)`). Uses `parse(Int64, ...)` for integer conversion. The implementation uses Julia's multiple dispatch but in a simple imperative style here. `sum` with generator expression calculates total coverage. Note the unusual conversion `([x[1], x[2]] for x in merged)` to handle array mutation in the sum calculation.
 
 ### Kotlin
-[How the Kotlin implementation differs (e.g., null safety, extension functions)]
+Kotlin uses `Pair<Long, Long>` for ranges and `MutableList` for ranges and IDs. Sorting uses `sortedBy { it.first }` for concise syntax. Merge uses `mutableListOf` and modifies pairs with `Pair(last.first, maxOf(...))` to create new pairs (since `Pair` is immutable). Uses `sumOf` lambda for calculating total coverage. The implementation leverages Kotlin's concise collection operations while maintaining mutable collections where needed.
 
 ### Python
-[How the Python implementation differs (e.g., type hints, list comprehensions)]
+Python uses list of tuples `(start, end)` for ranges. Sorting uses `sorted(ranges, key=lambda x: x[0])`. Merge logic uses a list of lists initially (`merged.append(list(ranges_sorted[0]))`) then modifies in-place (`merged[-1][1] = max(...)`). Uses `map(int, ...)` for parsing and list comprehensions for summing lengths. The implementation is clean and readable with Python's standard idioms.
 
 ### Ruby
-[How the Ruby implementation differs (e.g., dynamic typing, blocks)]
+Ruby uses arrays of arrays `[start, end]` for ranges. Sorting uses `sort_by { |r| r[0] }`. Merge modifies arrays in-place (`last[1] = [last[1], curr_end].max`). Uses `sum` with a block `{ |start, e| e - start + 1 }` for total calculation. The implementation is concise with Ruby's expressive collection methods and array manipulation.
 
 ### Rust
-[How the Rust implementation differs (e.g., ownership, borrowing, pattern matching)]
+Rust uses `Vec<(i64, i64)>` (vector of tuples) for ranges. Sorting uses `sort_by_key(|r| r.0)`. Merge uses `last_mut().unwrap()` to get a mutable reference to the last element, then modifies the tuple field directly (`last.1 = last.1.max(*end)`). Uses `parse::<i64>()` for integer parsing. The implementation leverages Rust's ownership system with references (`&ids`, `&ranges`) and explicit mutability (`mut part1_count`).
 
 ### TypeScript
-[How the TypeScript implementation differs (e.g., strong typing, async/await)]
+TypeScript uses `Array<[number, number]>` with explicit type annotations. Sorting uses `sort((a, b) => a[0] - b[0])` with numeric comparison. Merge modifies tuples in-place (`last[1] = Math.max(...)`). Uses `parseInt(..., 10)` for base-10 integer parsing. The implementation is straightforward JavaScript/TypeScript style with standard array methods and explicit typing for clarity.
 
 ## Key Observations
 
-[Notable differences, trade-offs, or interesting aspects across implementations, with emphasis on how language paradigms necessitating such differences]
+The most significant difference across implementations is how languages handle mutability in range merging:
+
+- **Mutable merge (C, Go, Java, TypeScript, Ruby, Julia)**: These languages modify the last range in-place during merging, which is efficient and straightforward. C uses pointers, Go uses slice references, Java/TypeScript modify array elements directly.
+
+- **Immutable merge (Clojure, Haskell)**: These languages build new data structures during merging. Clojure uses `loop/recur` to construct new vectors. Haskell uses pure recursion. This is more functional but potentially less memory-efficient.
+
+- **Hybrid approach (Python, Kotlin, Elixir)**: Python starts with a list of lists (mutable) then modifies. Kotlin creates new `Pair` objects when merging (since `Pair` is immutable). Elixir's approach is more complex due to accumulator pattern.
+
+**Performance observations:**
+- Python (55ms) and Java (73ms) are fastest among measured languages, likely due to JIT compilation (Java) and optimized Python runtime
+- TypeScript (1412ms) is significantly slower, likely due to Node.js interpretation overhead
+- Compiled languages (C, Rust, Haskell) have similar performance (202-352ms) when including compilation time
+- Functional languages (Clojure 516ms, Haskell 352ms) perform reasonably well despite immutability
+
+**Range merging pattern:**
+All implementations use the same algorithm: sort by start, then single-pass merge checking `current.start <= last.end + 1`. The uniformity across languages demonstrates that this is the optimal approach for interval merging.
+
+**Off-by-one handling:**
+All implementations correctly handle inclusive ranges with `end - start + 1` for length calculation. The adjacency check `<= last.end + 1` correctly handles merging adjacent ranges (e.g., `5-10` and `11-15` merge to `5-15`).
 
 ## Notes
 
-[To be filled by dev personally]
+This was the first day where I properly used the slash command. It isn't just an issue of typing in `/day NN`; when you type in `/day`, you need to select the command option that pops up, otherwise it won't actually use the proper command. It worked much better this time.

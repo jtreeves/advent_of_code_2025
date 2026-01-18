@@ -40,7 +40,9 @@ Contains utility scripts for automation:
 - **`bash/get_session_cookie.sh`**: Manages AOC session cookie with smart fallback logic
 - **`bash/get_problem_description.sh`**: Fetches problem description and updates README.md
 - **`bash/get_input.sh`**: Downloads input for a specific day
+- **`bash/time_solution.sh`**: **CRITICAL** - Measures execution time in milliseconds for all 12 languages. **MUST** be used when running solutions (Step 5 of `/day` workflow). This script is mandatory and cannot be skipped - timing measurements are required for ANALYSIS.md performance tables.
 - **`bash/submit_answer.sh`**: Submits answers to AOC (handles Part 1/Part 2 automatically)
+- **`bash/README.md`**: Documentation for all bash scripts, including detailed usage for `time_solution.sh`
 
 #### `.specify/templates/`
 Contains templates used when generating new files:

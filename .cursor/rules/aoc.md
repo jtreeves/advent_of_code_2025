@@ -38,7 +38,12 @@ Each day uses all 12 language:
    - Design Part 1 with Part 2 efficiency in mind
    - Prioritize efficient algorithms and data structures from the start
    - Use minimal external dependencies
-6. Write ANALYSIS.md comparing implementations
+6. Run solutions and measure performance
+   - **CRITICAL**: Execution time measurements (in milliseconds) are **mandatory** and **cannot be skipped**
+   - **MUST** use `.specify/scripts/bash/time_solution.sh` for all timing measurements
+   - Update ANALYSIS.md performance tables with actual measurements (not placeholders)
+   - See `.cursor/commands/run_solutions.md` and `.cursor/commands/day.md` for detailed requirements
+7. Write ANALYSIS.md comparing implementations
 
 ## Efficiency Requirements
 

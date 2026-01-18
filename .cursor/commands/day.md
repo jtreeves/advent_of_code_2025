@@ -19,10 +19,10 @@ When invoked with a day number (e.g., `/day 01`), this command should:
    - `data/input.txt` - Placeholder for official input
    - `data/test_input.txt` - Placeholder for test input
    - `solutions/` - Solution files for all 12 languages
-3. Initialize spec-kit artifacts:
-   - `specs/day_NN_spec.md` - Specification for the day
-   - `specs/day_NN_plan.md` - Technical plan
-   - `specs/day_NN_tasks.md` - Task breakdown
+3. Initialize spec-kit artifacts in `days/day_NN/specs/`:
+   - `day_NN_spec.md` - Specification for the day
+   - `day_NN_plan.md` - Technical plan
+   - `day_NN_tasks.md` - Task breakdown
 4. Update the project structure as needed
 
 ## Integration with AOC

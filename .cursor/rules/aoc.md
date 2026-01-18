@@ -5,7 +5,12 @@
 - Each day has its own folder: `days/day_NN/`
 - Solutions are in `days/day_NN/solutions/` with one file per language
 - Data files are in `days/day_NN/data/`
-- Specs live in `specs/` folder (spec-kit convention)
+  - `input.txt` - Official input (gitignored, user-specific)
+  - `test_input.txt` - Test input (gitignored, user-specific)
+- Specs live in `days/day_NN/specs/` folder (per-day specs)
+  - `day_NN_spec.md` - Specification for the day
+  - `day_NN_plan.md` - Technical plan
+  - `day_NN_tasks.md` - Task breakdown
 
 ## Language Assignment
 

@@ -13,21 +13,44 @@ YEAR=2025
 ENV_FILE="$(git rev-parse --show-toplevel)/.env"
 STATE_KEY="AOC_SESSION"
 
-# Function to get cookie from Chrome (macOS)
+# Function to get cookie from browser (macOS - Safari)
 get_cookie_from_chrome() {
     local domain="adventofcode.com"
     
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        # macOS Chrome
-        COOKIE_PATH="$HOME/Library/Application Support/Google/Chrome/Default/Cookies"
-        if [ -f "$COOKIE_PATH" ]; then
-            # Try to extract session cookie from Chrome's SQLite database
-            # This requires sqlite3 to be installed
-            if command -v sqlite3 &> /dev/null; then
-                # Chrome encrypts cookies on macOS, so this may not work directly
-                # Fallback: prompt user to copy from browser
-                echo "Chrome cookie extraction requires manual intervention on macOS."
-                return 1
+        # Try Safari first using browser_cookie3
+        if command -v python3 &> /dev/null; then
+            local cookie=$(python3 -c "
+import sys
+try:
+    import browser_cookie3
+    # Try Safari first
+    try:
+        cj = browser_cookie3.safari(domain_name='${domain}')
+        for cookie in cj:
+            if cookie.name == 'session':
+                print(cookie.value)
+                sys.exit(0)
+    except Exception as e:
+        pass
+    
+    # Fallback to Chrome if Safari doesn't work
+    try:
+        cj = browser_cookie3.chrome(domain_name='${domain}')
+        for cookie in cj:
+            if cookie.name == 'session':
+                print(cookie.value)
+                sys.exit(0)
+    except Exception as e:
+        pass
+    sys.exit(1)
+except ImportError:
+    sys.exit(1)
+" 2>/dev/null)
+            
+            if [ -n "$cookie" ] && [ "$cookie" != "" ]; then
+                echo "$cookie"
+                return 0
             fi
         fi
     fi

@@ -1,7 +1,6 @@
-import * as fs from 'fs';
-import * as path from 'path';
-
 // Placeholder for Day 01 TypeScript solution
+import { readInputRaw } from '../../../utilities/typescript/get_input';
+
 function solve(inputData: string): [string, string] {
     console.log("Day 01 TypeScript placeholder");
     const lines = inputData.trim().split('\n');
@@ -17,8 +16,8 @@ function solve(inputData: string): [string, string] {
 }
 
 function main(): void {
-    const inputPath = path.join(__dirname, '../data/input.txt');
-    const data = fs.readFileSync(inputPath, 'utf-8');
+    // Use utility function to get input
+    const data = readInputRaw("../data/input.txt");
     const [part1, part2] = solve(data);
     console.log(`Part 1: ${part1}`);
     console.log(`Part 2: ${part2}`);

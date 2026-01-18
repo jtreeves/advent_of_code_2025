@@ -67,4 +67,3 @@ aoc_session.txt
 
 # Advent of Code input files (user-specific, should not be in repo)
 days/day_*/data/input.txt
-days/day_*/data/test_input.txt

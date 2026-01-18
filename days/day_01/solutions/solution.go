@@ -1,8 +1,8 @@
 package main
 
 import (
+	utils "advent_of_code_2025/utilities/go"
 	"fmt"
-	"io/ioutil"
 	"strings"
 )
 
@@ -22,11 +22,12 @@ func solve(inputData string) (string, string) {
 }
 
 func main() {
-	data, err := ioutil.ReadFile("../data/input.txt")
+	// Use utility function to get input
+	data, err := utils.ReadInputRaw("../data/input.txt")
 	if err != nil {
 		panic(err)
 	}
-	part1, part2 := solve(string(data))
+	part1, part2 := solve(data)
 	fmt.Printf("Part 1: %s\n", part1)
 	fmt.Printf("Part 2: %s\n", part2)
 }

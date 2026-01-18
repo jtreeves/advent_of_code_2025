@@ -1,6 +1,6 @@
 # /run_solutions Command
 
-Runs all solution files for a day, extracts answers, and updates the README with results.
+Runs all solution files for a day, extracts answers, and updates the README with results. Use 12 separate agents for each language. If agents previously created for generating solutions are already available, then use those.
 
 ## Usage
 
@@ -17,9 +17,12 @@ If no day number is provided, uses the current day (based on date).
    - Runs the solution with `data/input.txt`
    - Captures the output (Part 1 and Part 2 answers)
    - Handles errors gracefully
-2. Updates `days/day_NN/README.md`:
-   - Sets "Part 1 Answer" section with the result
-   - Sets "Part 2 Answer" section with the result (if available)
+2. Updates `days/day_NN/ANALYSIS.md`:
+   - Fills in its portion of the solutions and performance tables with its results and execution time for part 1 (then part 2)
+   - Preserves other ANALYSIS content and does not block other agents from simultaneously updating the same file
+3. Updates `days/day_NN/README.md`:
+   - ONLY IF all languages yield the same result in the solutions table, set "Part 1 Solution" section with the result (then part 2)
+   - IF a discrepancy occurs, then describe that in the "Part 1[OR 2] Solution" section
    - Preserves other README content
 
 ## Output Format
@@ -36,10 +39,12 @@ Or:
 <answer2>
 ```
 
+They should also output execution time in ms.
+
 ## Error Handling
 
 - If a solution fails to compile or run, logs the error but continues with other languages
-- Missing answers are noted in the README
+- Missing answers are noted in the ANALYSIS
 
 ## Example
 
@@ -47,4 +52,4 @@ Or:
 /run_solutions 05
 ```
 
-This runs all solutions for Day 05 and updates the README with answers.
+This runs all solutions for Day 05 and updates the ANALYSIS and README with answers.

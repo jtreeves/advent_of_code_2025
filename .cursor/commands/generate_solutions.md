@@ -17,8 +17,8 @@ If no day number is provided, uses the current day (based on date).
    - Uses specifications from `days/day_NN/specs/` as guidance
    - Follows language-specific idioms and best practices
 2. Each language solution should:
-   - Read from `data/input.txt`
-   - Solve both Part 1 and Part 2 if possible
+   - Read from `data/input.txt` and other test files
+   - Solve Part 1 initially and then Part 2 when available
    - Output answers in a format that can be parsed
    - Follow the project's code standards
 

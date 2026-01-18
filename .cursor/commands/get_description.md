@@ -15,7 +15,7 @@ If no day number is provided, uses the current day (based on date).
 1. Calls `get_problem_description.sh` script to fetch problem description from AOC
 2. Updates `days/day_NN/README.md` with the problem description
 3. Handles Part 1 initially, then Part 2 when available
-4. Preserves existing README structure (Usage section, etc.)
+4. Preserves existing README structure
 
 ## Prerequisites
 

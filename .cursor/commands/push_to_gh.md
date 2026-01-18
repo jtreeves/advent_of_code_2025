@@ -8,7 +8,7 @@ Pushes code to GitHub repository.
 /push_to_gh [commit_message] [branch]
 ```
 
-If no commit message is provided, uses a default message.
+If no commit message is provided, uses a default message based on the status of the workflow and the rules defined for commit messages.
 If no branch is provided, uses the current branch.
 
 ## Behavior
@@ -21,27 +21,10 @@ If no branch is provided, uses the current branch.
    - Branch conflicts
    - No changes to commit
 
-## Commit Message Convention
-
-Suggested format:
-```
-Day NN: [brief description]
-
-- Implemented solutions in all 12 languages
-- Added analysis document
-- Updated documentation
-```
-
-## Safety
-
-- Does not force push
-- Does not push to `main`/`master` without explicit branch specification
-- Excludes input files (gitignored)
-
 ## Example
 
 ```
-/push_to_gh "Day 05: Implemented all solutions"
+/push_to_gh "Solve day 5, part 1"
 ```
 
-This commits and pushes all changes for Day 05.
+This commits and pushes the solution for part 1 for Day 05.

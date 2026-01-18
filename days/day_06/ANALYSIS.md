@@ -2,125 +2,161 @@
 
 ## Overall Approach
 
-[Explanation of overall approach used to solve the problem, including discussion algorithms used, which will be kept in brief, since the longer explanation will appear in the specs]
+The problem requires parsing a math worksheet with cephalopod math notation. For Part 1, numbers are read horizontally in rows, with problems separated by space columns. For Part 2, numbers are read vertically in columns (right-to-left), with digits stacked (most significant at top). Each problem has an operator (`+` or `*`) applied to all its numbers, and we sum all problem results.
 
 **Clues**
 
-[Bulleted list of clues from the wording of the question that indicated the above solution was necessary]
-
-- [Clue 1]
-- [Clue 2]
+- The problem states problems are "separated with a column consisting only of spaces" - indicating we need column-based parsing
+- Part 2 specifies "right-to-left in columns" and "most significant digit at the top" - indicating a different parsing direction and digit ordering
+- The example shows problems with varying numbers of numbers per problem - requiring flexible parsing
 
 ## Complexity Analysis
 
-- **Time Complexity**: O(...)
-- **Space Complexity**: O(...)
+- **Time Complexity**: O(n × m) where n = number of rows, m = number of columns - need to scan all characters to identify problems and parse numbers
+- **Space Complexity**: O(n × m) for storing the grid/input, plus O(k) for storing problems and results where k = number of problems
 
 ## Solutions
 
 ### Part 1
 | Language   | Initial Solution      |
 |------------|-----------------------|
-| C          | [C_SOLUTION]          |
-| Clojure    | [CLOJURE_SOLUTION]    |
-| Elixir     | [ELIXIR_SOLUTION]     |
-| Go         | [GO_SOLUTION]         |
-| Haskell    | [HASKELL_SOLUTION]    |
-| Java       | [JAVA_SOLUTION]       |
-| Julia      | [JULIA_SOLUTION]      |
-| Kotlin     | [KOTLIN_SOLUTION]     |
-| Python     | [PYTHON_SOLUTION]     |
-| Ruby       | [RUBY_SOLUTION]       |
-| Rust       | [RUST_SOLUTION]       |
-| TypeScript | [TYPESCRIPT_SOLUTION] |
+| C          | 5524274308182         |
+| Clojure    | 5524274308182         |
+| Elixir     | 5524274308182         |
+| Go         | 5524274308182         |
+| Haskell    | 5524274308182         |
+| Java       | 5524274308182         |
+| Julia      | 5524274308182         |
+| Kotlin     | 5524274308182         |
+| Python     | 5524274308182         |
+| Ruby       | 5524274308182         |
+| Rust       | 5524274308182         |
+| TypeScript | 5524274308182         |
 
 ### Part 2
 | Language   | Initial Solution      |
 |------------|-----------------------|
-| C          | [C_SOLUTION]          |
-| Clojure    | [CLOJURE_SOLUTION]    |
-| Elixir     | [ELIXIR_SOLUTION]     |
-| Go         | [GO_SOLUTION]         |
-| Haskell    | [HASKELL_SOLUTION]    |
-| Java       | [JAVA_SOLUTION]       |
-| Julia      | [JULIA_SOLUTION]      |
-| Kotlin     | [KOTLIN_SOLUTION]     |
-| Python     | [PYTHON_SOLUTION]     |
-| Ruby       | [RUBY_SOLUTION]       |
-| Rust       | [RUST_SOLUTION]       |
-| TypeScript | [TYPESCRIPT_SOLUTION] |
+| C          | 8843673199391         |
+| Clojure    | 8843673199391         |
+| Elixir     | 8843673199391         |
+| Go         | 8843673199391         |
+| Haskell    | 8843673199391         |
+| Java       | 8843673199391         |
+| Julia      | 8843673199391         |
+| Kotlin     | 8843673199391         |
+| Python     | 8843673199391         |
+| Ruby       | 8843673199391         |
+| Rust       | 8843673199391         |
+| TypeScript | 8843673199391         |
+
+**Note**: Part 2 proved significantly more challenging than Part 1, requiring a different parsing strategy. The original Python implementation attempted a complex column grouping approach that produced an incorrect result (`992008`). All languages now use a simpler transpose-and-parse approach, converging on the correct answer (`8843673199391`). See "Part 2 Implementation Challenges" section below for details.
 
 ## Performance
 
 ### Part 1
-| Language   | Execution Time (ms)         |
-|------------|-----------------------------|
-| C          | [C_EXECUTION_TIME]          |
-| Clojure    | [CLOJURE_EXECUTION_TIME]    |
-| Elixir     | [ELIXIR_EXECUTION_TIME]     |
-| Go         | [GO_EXECUTION_TIME]         |
-| Haskell    | [HASKELL_EXECUTION_TIME]    |
-| Java       | [JAVA_EXECUTION_TIME]       |
-| Julia      | [JULIA_EXECUTION_TIME]      |
-| Kotlin     | [KOTLIN_EXECUTION_TIME]     |
-| Python     | [PYTHON_EXECUTION_TIME]     |
-| Ruby       | [RUBY_EXECUTION_TIME]       |
-| Rust       | [RUST_EXECUTION_TIME]        |
-| TypeScript | [TYPESCRIPT_EXECUTION_TIME] |
+| Language   | Execution Time (ms) |
+|------------|---------------------|
+| C          | 197                 |
+| Clojure    | 618                 |
+| Elixir     | 1006                |
+| Go         | 376                 |
+| Haskell    | 552                 |
+| Java       | 103                 |
+| Julia      | 559                 |
+| Kotlin     | 105                 |
+| Python     | 55                  |
+| Ruby       | 98                  |
+| Rust       | 470                 |
+| TypeScript | 1458                |
 
 ### Part 2
-| Language   | Execution Time (ms)         |
-|------------|-----------------------------|
-| C          | [C_EXECUTION_TIME]          |
-| Clojure    | [CLOJURE_EXECUTION_TIME]    |
-| Elixir     | [ELIXIR_EXECUTION_TIME]     |
-| Go         | [GO_EXECUTION_TIME]         |
-| Haskell    | [HASKELL_EXECUTION_TIME]    |
-| Java       | [JAVA_EXECUTION_TIME]       |
-| Julia      | [JULIA_EXECUTION_TIME]      |
-| Kotlin     | [KOTLIN_EXECUTION_TIME]     |
-| Python     | [PYTHON_EXECUTION_TIME]     |
-| Ruby       | [RUBY_EXECUTION_TIME]       |
-| Rust       | [RUST_EXECUTION_TIME]        |
-| TypeScript | [TYPESCRIPT_EXECUTION_TIME] |
+| Language   | Execution Time (ms) |
+|------------|---------------------|
+| C          | 214                 |
+| Clojure    | 633                 |
+| Elixir     | 1472                |
+| Go         | 501                 |
+| Haskell    | 641                 |
+| Java       | 120                 |
+| Julia      | 1080                |
+| Kotlin     | 193                 |
+| Python     | 59                  |
+| Ruby       | 112                 |
+| Rust       | 752                 |
+| TypeScript | 1699                |
+
+**Note**: Execution times for compiled languages (C, Rust, Haskell, Kotlin, Java) include compilation time. For interpreted languages (Python, Ruby, TypeScript, Clojure, Elixir, Julia), times represent pure execution. Go times include compilation via `go run`. Part 2 typically takes slightly longer than Part 1 due to the transpose operation required for column-based parsing.
+
+## Part 2 Implementation Challenges
+
+**Part 2 proved significantly more difficult than Part 1**, requiring a fundamentally different parsing strategy. The challenge involved:
+
+1. Understanding that numbers must be read **vertically** (columns) instead of horizontally (rows)
+2. Processing columns **right-to-left** within each problem
+3. Handling digits stacked **top-to-bottom** (most significant at top)
+4. Identifying the correct algorithm after the initial complex column-grouping approach failed
+
+The original Python implementation attempted a sophisticated column grouping strategy that produced an incorrect result (`992008`). All languages now use a simpler, correct approach: **transpose columns to rows, remove spaces, parse as integers, reverse for right-to-left reading, then apply operators**. This simpler approach successfully converged to the correct answer (`8843673199391`) across all 12 languages.
+
+### Common Strategy
+
+All Part 2 implementations follow the same core algorithm but use language-idiomatic patterns:
+
+1. **Transpose columns to rows**: Extract digit strings from each column (top-to-bottom)
+2. **Remove spaces**: Filter out spaces from column strings
+3. **Parse numbers**: Convert column strings to integers
+4. **Reverse order**: Process columns right-to-left (reverse the list)
+5. **Apply operators**: Sum or multiply the parsed numbers
 
 ## Implementation Differences
 
 ### C
-[How the C implementation differs (e.g., manual memory management, pointers)]
+- **Part 1**: Manual memory management with pointers; uses `malloc`/`realloc` for dynamic arrays
+- **Part 2**: Manual column extraction with explicit memory management; uses `strtoll` for parsing; builds column strings character-by-character
 
 ### Clojure
-[How the Clojure implementation differs (e.g., immutable data structures, macros)]
+- **Part 1**: Immutable data structures with functional transformations
+- **Part 2**: Uses `->>` threading macro for elegant pipeline processing; `range`, `remove`, `map`, `filter`, `reverse` in a pure functional style
 
 ### Elixir
-[How the Elixir implementation differs (e.g., pattern matching, processes)]
+- **Part 1**: Pattern matching and Enum functions
+- **Part 2**: Leverages `|>` pipe operator extensively; uses `Enum.reject`, `Enum.map`, `Enum.reverse`, `Enum.sum`/`Enum.product` for concise code
 
 ### Go
-[How the Go implementation differs (e.g., goroutines, channels)]
+- **Part 1**: Explicit string operations and manual iteration
+- **Part 2**: Builds transposed representation explicitly; uses `strings.TrimSpace()` for cleaning; manual iteration with range loops
 
 ### Haskell
-[How the Haskell implementation differs (e.g., functional style, laziness)]
+- **Part 1**: Pure functional style with list comprehensions
+- **Part 2**: Separate `solveProblemPart2` function using list comprehensions, `filter`, `map`, `mapMaybe`, `parseInteger`; maintains pure functional approach
 
 ### Java
-[How the Java implementation differs (e.g., object-oriented approach, collections)]
+- **Part 1**: Object-oriented approach with Collections
+- **Part 2**: Uses Java streams extensively; `stream()`, `collect()`, `Collections.reverse()`, `replaceAll()`, `mapToLong()` for sums
 
 ### Julia
-[How the Julia implementation differs (e.g., multiple dispatch, performance)]
+- **Part 1**: Array operations and broadcasting
+- **Part 2**: Array indexing `[row[col] for row in num_rows]` for transpose; `filter(isdigit)`, `reverse()`, `sum`/`prod` for operations
 
 ### Kotlin
-[How the Kotlin implementation differs (e.g., null safety, extension functions)]
+- **Part 1**: Null safety and extension functions
+- **Part 2**: Range `(start until end)` with `filter`, `mapNotNull`, `joinToString`, `reversed()`, `fold` for operations
 
 ### Python
-[How the Python implementation differs (e.g., type hints, list comprehensions)]
+- **Part 1**: List comprehensions and type hints
+- **Part 2**: List comprehensions for transpose; `''.join()` for string building, `[::-1]` for reversal, `c.isdigit()` filtering; initially attempted complex column grouping (incorrect)
 
 ### Ruby
-[How the Ruby implementation differs (e.g., dynamic typing, blocks)]
+- **Part 1**: Dynamic typing and blocks
+- **Part 2**: Elegant array method chaining; uses range `(start...end)`, `reject`, `map`, `join`, `gsub`, `reverse`; `sum` and `reduce` for operators
 
 ### Rust
-[How the Rust implementation differs (e.g., ownership, borrowing, pattern matching)]
+- **Part 1**: Ownership, borrowing, pattern matching
+- **Part 2**: Iterator chains with functional style; uses `iter()`, `filter_map()`, `collect()`, `rev()`; iterator-based parsing throughout
 
 ### TypeScript
-[How the TypeScript implementation differs (e.g., strong typing, async/await)]
+- **Part 1**: Strong typing and array methods
+- **Part 2**: Array functional methods with `filter()`, `map()`, `reduce()` chains; regex for digit filtering
 
 ## Key Observations
 

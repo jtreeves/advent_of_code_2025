@@ -35,7 +35,18 @@ Each day uses a different language:
 3. Use `/speckit.plan` to create technical plans
 4. Use `/speckit.tasks` to break down tasks
 5. Implement solutions in all languages
+   - Design Part 1 with Part 2 efficiency in mind
+   - Prioritize efficient algorithms and data structures from the start
+   - Use minimal external dependencies
 6. Write ANALYSIS.md comparing implementations
+
+## Efficiency Requirements
+
+- Always generate efficient code from the beginning
+- Part 2 typically requires efficiency, so consider it during Part 1 design
+- Avoid rewriting code between Part 1 and Part 2
+- Use as few external libraries as possible (prefer standard library)
+- See `.cursor/rules/code_style.md` for detailed efficiency guidelines
 
 ## AOC Integration
 

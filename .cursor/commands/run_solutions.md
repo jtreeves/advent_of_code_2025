@@ -29,6 +29,9 @@ If no day number is provided, uses the current day (based on date).
    - ONLY IF all languages yield the same result in the solutions table, set "Part 1 Solution" section with the result (then part 2)
    - IF a discrepancy occurs, then describe that in the "Part 1[OR 2] Solution" section
    - Preserves other README content
+4. Updates `days/day_NN/specs/day_NN_tasks.md`:
+   - **MUST** check off "Run all solutions and update ANALYSIS.md" subtasks as they are completed (run solutions, capture times, update tables, etc.)
+   - Mark tasks as completed as work progresses, not all at once at the end
 4. **MUST** clean up nonsense files from `solutions/` folder:
    - Remove any compiled files (`.o`, `.hi`, `.class`, executables, etc.)
    - Remove any temporary files or build artifacts

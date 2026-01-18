@@ -43,23 +43,33 @@ The following steps are **MANDATORY** and must not be skipped:
   - `day_NN_plan.md` - Technical plan with algorithms, data structures, complexity analysis
   - `day_NN_tasks.md` - Task breakdown for implementation
 - **MUST NOT** skip spec creation - these are essential for the workflow
-- Must include test data files (`test_1.txt`, `test_2.txt`, etc.) if applicable
+- **CRITICAL**: **MUST** create test data files (`test_1.txt`, `test_2.txt`, etc.) in `days/day_NN/data/` as part of spec creation
+  - Extract test case inputs from the spec file and create corresponding test files
+  - Test files must be created during this step, not deferred to a later step
 
 ### Step 5: Run Solutions
 - **MUST** run all 12 solution files against `data/input.txt` for both Part 1 and Part 2
-- **CRITICAL**: **MUST ALWAYS** capture execution times in milliseconds for each language using timing tools
-- **MUST** update `ANALYSIS.md` solutions tables with:
-  - Part 1 results for each language
-  - Part 2 results for each language
-  - **CRITICAL**: Execution times in milliseconds for each language (for both Part 1 and Part 2) - this is mandatory, not optional
-- **MUST** update `ANALYSIS.md` performance tables in the same operation as solutions tables - do not update solutions without updating performance times
+- **CRITICAL**: **MUST ALWAYS** capture execution times in milliseconds for each language using timing tools (`/usr/bin/time`, `date +%s%3N`, Python's `time.time()`, etc.)
+- **MUST** update `ANALYSIS.md` in a single operation with:
+  - Solutions tables: Part 1 results for each language
+  - Solutions tables: Part 2 results for each language
+  - **CRITICAL**: Performance tables: Execution times in milliseconds for each language (for both Part 1 and Part 2) - this is mandatory, not optional
+  - Do NOT update solutions tables without simultaneously updating performance tables
 - **MUST** update `README.md` with solutions if all languages produce the same result
+- **MUST** update `day_NN_tasks.md` to check off "Run all solutions and update ANALYSIS.md" subtasks as they are completed
 - **MUST** clean up nonsense files from solutions folder (remove compiled files, executables, temporary files)
 - **MUST** handle errors gracefully but note them in ANALYSIS.md
 
+### Step 4: Generate Solutions
+- **MUST** generate solution code for all 12 languages (C, Clojure, Elixir, Go, Haskell, Java, Julia, Kotlin, Python, Ruby, Rust, TypeScript)
+- **MUST** implement both Part 1 and Part 2 in each solution file
+- **MUST** update `day_NN_tasks.md` to check off language implementations as they are completed
+  - Mark language subtasks as completed after generating each solution
+
 ### Step 6: Sync Specs
 - **MUST** update spec files to match actual code implementations
-- **MUST** mark completed tasks in the tasks file as work progresses
+- **MUST** mark completed tasks in `day_NN_tasks.md` as work progresses
+  - Check off all completed steps (solutions implemented, ANALYSIS updated, README updated, etc.)
 
 ### Linting Requirements
 - **CRITICAL**: After ANY step that creates, modifies, or touches solution files, you MUST:
@@ -99,8 +109,9 @@ The command executes each step in order, and **prompts the user for permission**
 
 After each step completes, the command should:
 - Display the results of the step
-- Ask the user if they want to proceed to the next step
-- Allow the user to continue, skip the next step, or stop entirely
+- Ask the user a simple yes/no question (e.g., "Ready to proceed to Step X? (y/n)") - keep prompts short
+- Allow the user to continue with 'y' or 'yes', skip with 'n' or 'skip', or stop entirely
+- **Keep prompts brief** - the user should primarily just need to type 'y' to proceed through the workflow
 
 ### Error Handling
 
@@ -162,18 +173,20 @@ When invoked, the command creates or updates `days/day_NN/` with:
 
 This would:
 1. Fetch problem descriptions for both Part 1 and Part 2 of Day 05 via Google search
-2. Prompt: "Ready to download input? (y/n/skip)"
+2. Prompt: "Ready to download input? (y/n)"
 3. Download input file
-4. Prompt: "Ready to create specs? (y/n/skip)"
-5. Generate spec files
-6. Prompt: "Ready to generate solutions? (y/n/skip)"
-7. Generate all 12 solution files for both Part 1 and Part 2
-8. Prompt: "Ready to run solutions? (y/n/skip)"
-9. Run all solutions, update README and ANALYSIS, clean up solutions folder
-10. Prompt: "Ready to sync specs? (y/n/skip)"
-11. Sync spec files with code, mark completed tasks
-12. Prompt: "Ready to write analysis? (y/n/skip)"
+4. Prompt: "Ready to create specs? (y/n)"
+5. Generate spec files and create test data files (`test_1.txt`, `test_2.txt`, etc.) in `data/` folder
+6. Prompt: "Ready to generate solutions? (y/n)"
+7. Generate all 12 solution files for both Part 1 and Part 2, update tasks file as each language is completed
+8. Prompt: "Ready to run solutions? (y/n)"
+9. Run all solutions, capture execution times, update ANALYSIS.md (solutions and performance tables), update README.md, update tasks file, clean up solutions folder
+10. Prompt: "Ready to sync specs? (y/n)"
+11. Sync spec files with code, mark completed tasks in tasks file
+12. Prompt: "Ready to write analysis? (y/n)"
 13. Generate comprehensive ANALYSIS.md
+
+Note: For a smooth workflow, most prompts can be answered with simple 'y' to proceed to the next step.
 
 ## Integration with Individual Commands
 

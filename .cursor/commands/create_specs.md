@@ -27,7 +27,10 @@ If no day number is provided, uses the current day (based on date).
   - `day_NN_plan.md` - Technical plan with algorithms, data structures, complexity analysis, implementation notes
   - `day_NN_tasks.md` - Task breakdown with checklist for implementation tracking
 - **MUST NOT** skip spec creation - these are essential artifacts
-- Must create test data files (`test_1.txt`, `test_2.txt`, etc.) in `days/day_NN/data/` if applicable
+- **CRITICAL**: **MUST** create test data files (`test_1.txt`, `test_2.txt`, etc.) in `days/day_NN/data/` directory based on test cases defined in the spec file
+  - Test files are **required** and should be created as part of spec creation, not as a separate step
+  - Extract test case inputs from the spec file and create corresponding test files
+  - At minimum, create test files for all test cases defined in `day_NN_spec.md`
 - Must populate all required sections, not leave placeholders
 
 ## Notes

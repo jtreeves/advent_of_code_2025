@@ -1,29 +1,67 @@
-# Placeholder for Day 01 Julia solution
-# Note: Julia utility functions would be in utilities/julia/get_input.jl
-# For now, using inline function - will be replaced with proper includes
-
+# Import utilities
 include("../../../utilities/julia/get_input.jl")
 
-function solve(input_data::String)::Tuple{String, String}
-    println("Day 01 Julia placeholder")
-    lines = split(strip(input_data), '\n')
-    println("Lines: ", lines)
+function solve(lines)
+    # Part 1: Count times dial ends at 0 after a rotation
+    position = 50
+    count_part1 = 0
     
-    # Part 1
-    part1_result = "TODO"
+    for line in lines
+        isempty(strip(line)) && continue
+        
+        direction = line[1]
+        distance = parse(Int, line[2:end])
+        
+        # Apply rotation
+        if direction == 'L'
+            position = mod(mod(position - distance, 100) + 100, 100)
+        else # direction == 'R'
+            position = mod(position + distance, 100)
+        end
+        
+        # Check if ended at 0
+        if position == 0
+            count_part1 += 1
+        end
+    end
     
-    # Part 2
-    part2_result = "TODO"
+    # Part 2: Count times dial is at 0 during entire process
+    position = 50
+    count_part2 = 0
     
-    return (part1_result, part2_result)
+    for line in lines
+        isempty(strip(line)) && continue
+        
+        direction = line[1]
+        distance = parse(Int, line[2:end])
+        
+        start_pos = position
+        
+        # Check each click position during rotation
+        for click in 1:distance
+            click_pos = if direction == 'L'
+                mod(mod(start_pos - click, 100) + 100, 100)
+            else # direction == 'R'
+                mod(start_pos + click, 100)
+            end
+            
+            if click_pos == 0
+                count_part2 += 1
+            end
+        end
+        
+        # Update position after rotation
+        if direction == 'L'
+            position = mod(mod(position - distance, 100) + 100, 100)
+        else
+            position = mod(position + distance, 100)
+        end
+    end
+    
+    return count_part1, count_part2
 end
 
-function main()
-    # Use utility function to get input
-    data = read_input_raw("../data/input.txt")
-    part1, part2 = solve(data)
-    println("Part 1: $part1")
-    println("Part 2: $part2")
-end
-
-main()
+lines = get_input(1)
+part1, part2 = solve(lines)
+println("Part 1: $(part1)")
+println("Part 2: $(part2)")

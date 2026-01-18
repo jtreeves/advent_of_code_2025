@@ -1,29 +1,68 @@
-# Placeholder for Day 01 Ruby solution
-# Note: Ruby utility functions would be in utilities/ruby/get_input.rb
-# For now, using inline function - will be replaced with proper requires
+require_relative '../../../utilities/ruby/get_input.rb'
 
-require_relative '../../../utilities/ruby/get_input'
-
-def solve(input_data)
-  puts "Day 01 Ruby placeholder"
-  lines = input_data.strip.split("\n")
-  puts "Lines: #{lines}"
+def solve(lines)
+  # Part 1: Count times dial ends at 0 after a rotation
+  position = 50
+  count_part1 = 0
   
-  # Part 1
-  part1_result = "TODO"
+  lines.each do |line|
+    line = line.strip
+    next if line.empty?
+    
+    direction = line[0]
+    distance = line[1..-1].to_i
+    
+    # Apply rotation
+    if direction == 'L'
+      position = ((position - distance) % 100 + 100) % 100
+    else # direction == 'R'
+      position = (position + distance) % 100
+    end
+    
+    # Check if ended at 0
+    if position == 0
+      count_part1 += 1
+    end
+  end
   
-  # Part 2
-  part2_result = "TODO"
+  # Part 2: Count times dial is at 0 during entire process
+  position = 50
+  count_part2 = 0
   
-  [part1_result, part2_result]
+  lines.each do |line|
+    line = line.strip
+    next if line.empty?
+    
+    direction = line[0]
+    distance = line[1..-1].to_i
+    
+    start_pos = position
+    
+    # Check each click position during rotation
+    (1..distance).each do |click|
+      click_pos = if direction == 'L'
+        ((start_pos - click) % 100 + 100) % 100
+      else # direction == 'R'
+        (start_pos + click) % 100
+      end
+      
+      if click_pos == 0
+        count_part2 += 1
+      end
+    end
+    
+    # Update position after rotation
+    if direction == 'L'
+      position = ((position - distance) % 100 + 100) % 100
+    else
+      position = (position + distance) % 100
+    end
+  end
+  
+  [count_part1, count_part2]
 end
 
-def main
-  # Use utility function to get input
-  data = read_input_raw("../data/input.txt")
-  part1, part2 = solve(data)
-  puts "Part 1: #{part1}"
-  puts "Part 2: #{part2}"
-end
-
-main
+lines = get_input(1)
+part1, part2 = solve(lines)
+puts "Part 1: #{part1}"
+puts "Part 2: #{part2}"

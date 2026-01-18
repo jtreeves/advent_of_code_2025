@@ -1,38 +1,88 @@
-// Placeholder for Day 01 Rust solution
-// Note: Rust utility functions would be in utilities/rust/get_input.rs
-// For now, using inline function - will be replaced with proper module imports
-mod get_input {
-    use std::fs;
-    pub fn read_input_raw(file_path: &str) -> Result<String, std::io::Error> {
-        fs::read_to_string(file_path)
-    }
-    
-    pub fn get_input(day: i32) -> Result<Vec<String>, std::io::Error> {
-        let path = format!("../data/input.txt");
-        let content = fs::read_to_string(&path)?;
-        Ok(content.trim().lines().map(|s| s.trim().to_string()).collect())
-    }
+mod utils {
+    include!("../../../utilities/rust/get_input.rs");
 }
 
-fn solve(input_data: &str) -> (String, String) {
-    println!("Day 01 Rust placeholder");
-    // Process input_data - could split into lines if needed
-    let lines: Vec<&str> = input_data.trim().lines().collect();
-    println!("Lines: {:?}", lines);
+use std::fs;
+
+fn read_input_raw(file_path: &str) -> String {
+    fs::read_to_string(file_path).expect("Failed to read file")
+}
+
+fn solve(lines: Vec<String>) -> (i32, i32) {
+    // Part 1: Count times dial ends at 0 after a rotation
+    let mut position = 50;
+    let mut count_part1 = 0;
     
-    // Part 1
-    let part1_result = "TODO".to_string();
+    for line in &lines {
+        let trimmed = line.trim();
+        if trimmed.is_empty() {
+            continue;
+        }
+        
+        let direction = trimmed.chars().next().unwrap();
+        let distance: i32 = trimmed[1..].parse().unwrap();
+        
+        // Apply rotation
+        if direction == 'L' {
+            position = ((position - distance) % 100 + 100) % 100;
+        } else { // direction == 'R'
+            position = (position + distance) % 100;
+        }
+        
+        // Check if ended at 0
+        if position == 0 {
+            count_part1 += 1;
+        }
+    }
     
-    // Part 2
-    let part2_result = "TODO".to_string();
+    // Part 2: Count times dial is at 0 during entire process
+    position = 50;
+    let mut count_part2 = 0;
     
-    (part1_result, part2_result)
+    for line in &lines {
+        let trimmed = line.trim();
+        if trimmed.is_empty() {
+            continue;
+        }
+        
+        let direction = trimmed.chars().next().unwrap();
+        let distance: i32 = trimmed[1..].parse().unwrap();
+        
+        let start_pos = position;
+        
+        // Check each click position during rotation
+        for click in 1..=distance {
+            let click_pos = if direction == 'L' {
+                ((start_pos - click) % 100 + 100) % 100
+            } else { // direction == 'R'
+                (start_pos + click) % 100
+            };
+            
+            if click_pos == 0 {
+                count_part2 += 1;
+            }
+        }
+        
+        // Update position after rotation
+        if direction == 'L' {
+            position = ((position - distance) % 100 + 100) % 100;
+        } else {
+            position = (position + distance) % 100;
+        }
+    }
+    
+    (count_part1, count_part2)
 }
 
 fn main() {
-    // Use utility function to get input
-    let data = get_input::read_input_raw("../data/input.txt").expect("Error reading file");
-    let (part1, part2) = solve(&data);
+    let content = read_input_raw("../data/input.txt");
+    let lines: Vec<String> = content
+        .trim()
+        .lines()
+        .map(|s| s.trim().to_string())
+        .collect();
+    
+    let (part1, part2) = solve(lines);
     println!("Part 1: {}", part1);
     println!("Part 2: {}", part2);
 }

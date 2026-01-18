@@ -1,27 +1,76 @@
-// Placeholder for Day 01 Kotlin solution
-// Note: Kotlin utility functions would be in utilities/kotlin/get_input.kt
-// For now, using inline function - will be replaced with proper imports
+import java.io.File
 
-fun readInputRaw(path: String): String = java.io.File(path).readText()
+// Import utilities
+fun getInput(day: Int): List<String> {
+    val path = "../data/input.txt"
+    return File(path).readLines().map { it.trim() }
+}
 
-fun solve(inputData: String): Pair<String, String> {
-    println("Day 01 Kotlin placeholder")
-    val lines = inputData.trim().split("\n")
-    println("Lines: $lines")
+fun solve(lines: List<String>): Pair<Int, Int> {
+    // Part 1: Count times dial ends at 0 after a rotation
+    var position = 50
+    var countPart1 = 0
     
-    // Part 1
-    val part1Result = "TODO"
+    for (line in lines) {
+        val trimmed = line.trim()
+        if (trimmed.isEmpty()) continue
+        
+        val direction = trimmed[0]
+        val distance = trimmed.substring(1).toInt()
+        
+        // Apply rotation
+        position = if (direction == 'L') {
+            ((position - distance) % 100 + 100) % 100
+        } else { // direction == 'R'
+            (position + distance) % 100
+        }
+        
+        // Check if ended at 0
+        if (position == 0) {
+            countPart1++
+        }
+    }
     
-    // Part 2
-    val part2Result = "TODO"
+    // Part 2: Count times dial is at 0 during entire process
+    position = 50
+    var countPart2 = 0
     
-    return Pair(part1Result, part2Result)
+    for (line in lines) {
+        val trimmed = line.trim()
+        if (trimmed.isEmpty()) continue
+        
+        val direction = trimmed[0]
+        val distance = trimmed.substring(1).toInt()
+        
+        val startPos = position
+        
+        // Check each click position during rotation
+        for (click in 1..distance) {
+            val clickPos = if (direction == 'L') {
+                ((startPos - click) % 100 + 100) % 100
+            } else { // direction == 'R'
+                (startPos + click) % 100
+            }
+            
+            if (clickPos == 0) {
+                countPart2++
+            }
+        }
+        
+        // Update position after rotation
+        position = if (direction == 'L') {
+            ((position - distance) % 100 + 100) % 100
+        } else {
+            (position + distance) % 100
+        }
+    }
+    
+    return Pair(countPart1, countPart2)
 }
 
 fun main() {
-    // Use utility function to get input
-    val data = readInputRaw("../data/input.txt")
-    val (part1, part2) = solve(data)
+    val lines = getInput(1)
+    val (part1, part2) = solve(lines)
     println("Part 1: $part1")
     println("Part 2: $part2")
 }

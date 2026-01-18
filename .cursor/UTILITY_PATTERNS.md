@@ -3,7 +3,6 @@
 ## Organization
 
 Utilities are organized by language and split into separate files by function category:
-
 - `get_input.*` - Input reading functions
 - `parse.*` - Parsing utilities (if needed)
 - `common.*` or `utils.*` - Other shared utilities
@@ -18,21 +17,18 @@ This organization makes it easier to:
 ### Functions
 
 Each language should have `get_input` utilities with:
-
 1. **`get_input(day)`** - Reads from `input.txt` (main input)
 2. **`get_test_input(day, test_num)`** - Reads from `test_N.txt` (test cases)
 3. **`read_input(file_path)`** - Generic file reading (used internally)
 4. **`read_input_raw(file_path)`** - Read raw file content (if needed)
 
 ### File Paths
-
 - Solutions are in: `days/day_NN/solutions/`
 - Input files are in: `days/day_NN/data/`
   - `input.txt` - Official input (gitignored)
   - `test_1.txt`, `test_2.txt`, etc. - Test cases (committed to git)
 
 ### Path Resolution
-
 Utilities use relative paths (`../data/input.txt`) which are resolved relative to the solution file location.
 
 ## Language-Specific Notes
@@ -94,12 +90,3 @@ int main() {
     return 0;
 }
 ```
-
-## Migration Pattern
-
-To migrate existing solution files:
-
-1. Remove inline file reading code
-2. Import/include appropriate `get_input` utility
-3. Replace file reading with `get_input(day)` or `get_test_input(day, test_num)`
-4. Update path references if needed

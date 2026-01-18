@@ -2,8 +2,9 @@
 
 ## When to Use Utilities
 
-### Always Use Utilities For:
-1. **File I/O Operations**: Always use utility functions to extract data from files
+### Always Use Utilities for I/O Operations
+
+Always use utility functions to extract data from files:
    - Reading input files (`get_input`, `get_test_input`)
    - Reading raw file content (`read_input_raw`)
    - Never write inline file reading code in solution files

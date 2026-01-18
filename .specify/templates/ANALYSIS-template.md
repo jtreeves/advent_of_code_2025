@@ -19,7 +19,6 @@
 ## Solutions
 
 ### Part 1
-
 | Language   | Initial Solution      |
 |------------|-----------------------|
 | C          | [C_SOLUTION]          |
@@ -36,7 +35,6 @@
 | TypeScript | [TYPESCRIPT_SOLUTION] |
 
 ### Part 2
-
 | Language   | Initial Solution      |
 |------------|-----------------------|
 | C          | [C_SOLUTION]          |
@@ -55,7 +53,6 @@
 ## Performance
 
 ### Part 1
-
 | Language   | Execution Time (ms)         |
 |------------|-----------------------------|
 | C          | [C_EXECUTION_TIME]          |
@@ -72,7 +69,6 @@
 | TypeScript | [TYPESCRIPT_EXECUTION_TIME] |
 
 ### Part 2
-
 | Language   | Execution Time (ms)         |
 |------------|-----------------------------|
 | C          | [C_EXECUTION_TIME]          |
@@ -91,56 +87,44 @@
 ## Implementation Differences
 
 ### C
-
 [How the C implementation differs (e.g., manual memory management, pointers)]
 
 ### Clojure
-
 [How the Clojure implementation differs (e.g., immutable data structures, macros)]
 
 ### Elixir
-
 [How the Elixir implementation differs (e.g., pattern matching, processes)]
 
 ### Go
-
 [How the Go implementation differs (e.g., goroutines, channels)]
 
 ### Haskell
-
 [How the Haskell implementation differs (e.g., functional style, laziness)]
 
 ### Java
-
 [How the Java implementation differs (e.g., object-oriented approach, collections)]
 
 ### Julia
-
 [How the Julia implementation differs (e.g., multiple dispatch, performance)]
 
 ### Kotlin
-
 [How the Kotlin implementation differs (e.g., null safety, extension functions)]
 
 ### Python
-
 [How the Python implementation differs (e.g., type hints, list comprehensions)]
 
 ### Ruby
-
 [How the Ruby implementation differs (e.g., dynamic typing, blocks)]
 
 ### Rust
-
 [How the Rust implementation differs (e.g., ownership, borrowing, pattern matching)]
 
 ### TypeScript
-
 [How the TypeScript implementation differs (e.g., strong typing, async/await)]
 
 ## Key Observations
 
-[Notable differences, trade-offs, or interesting aspects across implementations]
+[Notable differences, trade-offs, or interesting aspects across implementations, with emphasis on how language paradigms necessitating such differences]
 
 ## Notes
 

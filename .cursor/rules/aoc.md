@@ -12,28 +12,28 @@
   - `day_NN_plan.md` - Technical plan
   - `day_NN_tasks.md` - Task breakdown
 
-## Language Assignment
+## Languages
 
-Each day uses a different language:
-1. C
-2. Python (with types)
-3. TypeScript
-4. Java
-5. Rust
-6. Kotlin
-7. Haskell
-8. Go
-9. Ruby
-10. Clojure
-11. Elixir
-12. Julia
+Each day uses all 12 language:
+- C
+- Clojure
+- Elixir
+- Go
+- Haskell
+- Java
+- Julia
+- Kotlin
+- Python
+- Ruby
+- Rust
+- TypeScript
 
 ## Workflow
 
 1. Use `/day <NN>` to initialize a new day
-2. Use `/speckit.specify` to create specifications
-3. Use `/speckit.plan` to create technical plans
-4. Use `/speckit.tasks` to break down tasks
+2. Use `/speckit.specify` as part of that flow to create specifications
+3. Use `/speckit.plan` as part of that flow to create technical plans
+4. Use `/speckit.tasks` as part of that flow to break down tasks
 5. Implement solutions in all languages
    - Design Part 1 with Part 2 efficiency in mind
    - Prioritize efficient algorithms and data structures from the start

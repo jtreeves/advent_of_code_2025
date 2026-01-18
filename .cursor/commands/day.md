@@ -16,8 +16,8 @@ When invoked with a day number (e.g., `/day 01`), this command should:
 2. Create or update the `days/day_NN/` folder structure with:
    - `README.md` - Populated with AOC problem description
    - `ANALYSIS.md` - Template for solution analysis
-   - `data/input.txt` - Placeholder for official input
-   - `data/test_input.txt` - Placeholder for test input
+   - `data/input.txt` - Placeholder for official input (gitignored)
+   - `data/test_1.txt`, `test_2.txt`, etc. - Test inputs (committed to git)
    - `solutions/` - Solution files for all 12 languages
 3. Initialize spec-kit artifacts in `days/day_NN/specs/`:
    - `day_NN_spec.md` - Specification for the day

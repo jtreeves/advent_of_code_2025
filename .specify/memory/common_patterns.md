@@ -58,7 +58,7 @@ Each language should have utilities for:
 
 ### Test-Driven Approach
 1. Start with example/test cases from problem description
-2. Create `test_1.txt`, `test_2.txt`, etc. with known examples
+2. Create `test_1.txt`, `test_2.txt`, etc. with known and generated examples
 3. Verify solutions work with test cases before running on full input
 4. Test inputs are committed to git (unlike user-specific `input.txt`)
 
@@ -96,4 +96,4 @@ def main():
 - Profile if needed, but prioritize correctness and readability
 - Use appropriate data structures (sets for lookups, lists for iteration)
 - Consider time/space complexity trade-offs
-- Avoid premature optimization
+- Do not shy away from premature optimization since the second part will usually require such optimizations

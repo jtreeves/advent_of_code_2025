@@ -42,15 +42,19 @@ When creating new commands that integrate spec-kit and Cursor:
 # Command Name
 
 ## Purpose
+
 [What this command does]
 
 ## Spec-Kit Integration
+
 [How it uses spec-kit artifacts]
 
 ## Cursor Workflow
+
 [What Cursor commands it calls or integrates with]
 
 ## Prerequisites
+
 [What must exist before running]
 ```
 

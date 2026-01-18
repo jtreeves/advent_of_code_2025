@@ -7,12 +7,10 @@
 ## Requirements
 
 ### Part 1
-
 - [Requirement 1]
 - [Requirement 2]
 
 ### Part 2
-
 - [Requirement 1]
 - [Requirement 2]
 

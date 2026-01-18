@@ -21,14 +21,14 @@ This project follows Spec-Driven Development (SDD) principles using spec-kit.
 ## Language-Specific Guidelines
 
 - **C**: Manual memory management, careful error handling
-- **Python**: Use type hints, follow PEP 8
-- **TypeScript**: Strong typing, use appropriate modern features
-- **Java**: Object-oriented design, proper exception handling
-- **Rust**: Ownership principles, safe memory management
-- **Kotlin**: Null safety, idiomatic Kotlin patterns
-- **Haskell**: Functional style, purity where possible
-- **Go**: Idiomatic Go patterns, error handling conventions
-- **Ruby**: Ruby-style idioms, readable code
 - **Clojure**: Functional programming, immutable data structures
 - **Elixir**: Pattern matching, functional style
+- **Go**: Idiomatic Go patterns, error handling conventions
+- **Haskell**: Functional style, purity where possible
+- **Java**: Object-oriented design, proper exception handling
 - **Julia**: Multiple dispatch, performance-conscious code
+- **Kotlin**: Null safety, idiomatic Kotlin patterns
+- **Python**: Use type hints, follow PEP 8
+- **Ruby**: Ruby-style idioms, readable code
+- **Rust**: Ownership principles, safe memory management
+- **TypeScript**: Strong typing, use appropriate modern features

@@ -3,10 +3,10 @@
 - [x] Ensure authenticated with AOC
 - [x] Populate README.md with problem description for Part 1, retrieved from AOC
 - [x] Populate README.md with problem description for Part 2, retrieved from AOC
-- [ ] Initialize separate agents for each language, so that solutions can occur simultaneously in parallel
+- [x] Initialize separate agents for each language, so that solutions can occur simultaneously in parallel
 - [ ] Solve Part 1
     - [ ] Write C implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -15,7 +15,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Clojure implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -24,7 +24,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Elixir implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -33,7 +33,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Go implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -42,7 +42,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Haskell implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -51,7 +51,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Java implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -60,7 +60,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Julia implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -69,7 +69,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Kotlin implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -78,7 +78,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Python implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -87,7 +87,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Ruby implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -96,7 +96,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Rust implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -105,7 +105,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write TypeScript implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -118,7 +118,7 @@
     - [ ] Submit Part 1 solution to AOC
 - [ ] Solve Part 2
     - [ ] Write C implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -127,7 +127,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Clojure implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -136,7 +136,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Elixir implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -145,7 +145,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Go implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -154,7 +154,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Haskell implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -163,7 +163,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Java implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -172,7 +172,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Julia implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -181,7 +181,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Kotlin implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -190,7 +190,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Python implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -199,7 +199,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Ruby implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -208,7 +208,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write Rust implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files
@@ -217,7 +217,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
     - [ ] Write TypeScript implementation
-        - [ ] Create first draft of code based on plan notes
+        - [x] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
         - [ ] Refine solution until function returns the expected result for each of the test data files

@@ -35,9 +35,17 @@ If no day number is provided, uses the current day (based on date).
 
 - **CRITICAL**: After generating solution files, you MUST:
   1. Run `read_lints` on all solution files in `days/day_NN/solutions/`
-  2. Fix all linter errors before proceeding to any other step
+  2. Fix all linter errors before proceeding to any other step, including:
+     - Removing unused imports (e.g., unused Java imports, unused Python imports)
+     - Fixing type errors
+     - Fixing compilation errors
+     - Fixing any other linter warnings or errors
   3. Re-run linting to verify all errors are resolved
 - Never skip linting - it is mandatory after creating or modifying solution files
+- **MUST** check for and remove unused imports in all languages:
+  - Java: Remove unused `import` statements
+  - Python: Remove unused imports from `from` and `import` statements
+  - Other languages: Remove any unused imports/use statements as appropriate
 
 ## Languages and Extensions
 

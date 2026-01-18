@@ -66,9 +66,18 @@ They should also output execution time in ms.
 
 - **CRITICAL**: After ANY step that modifies solution files (generation, updates, fixes), you MUST:
   1. Run `read_lints` on all solution files in `days/day_NN/solutions/`
-  2. Fix all linter errors before proceeding
+  2. Fix all linter errors before proceeding, including:
+     - Removing unused imports (e.g., unused Java imports, unused Python imports)
+     - Fixing type errors
+     - Fixing compilation errors
+     - Fixing any other linter warnings or errors
   3. Re-run linting to verify all errors are resolved
 - This applies to: generating solutions, fixing bugs, updating code, or any other modification to solution files
+- **MUST** check for and remove unused imports in all languages:
+  - Java: Remove unused `import` statements
+  - Python: Remove unused imports from `from` and `import` statements
+  - TypeScript: Remove unused `import` statements
+  - Other languages: Remove any unused imports/use statements as appropriate
 
 ## Example
 

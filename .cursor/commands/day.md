@@ -63,11 +63,20 @@ The following steps are **MANDATORY** and must not be skipped:
 ### Linting Requirements
 - **CRITICAL**: After ANY step that creates, modifies, or touches solution files, you MUST:
   1. Run `read_lints` on all solution files in `days/day_NN/solutions/`
-  2. Fix all linter errors immediately
+  2. Fix all linter errors immediately, including:
+     - Removing unused imports (Java, Python, TypeScript, etc.)
+     - Fixing type errors
+     - Fixing compilation errors
+     - Fixing any other linter warnings or errors
   3. Re-run linting to verify all errors are resolved
   4. Do NOT proceed to the next step until all linting errors are fixed
 - This applies to: generating solutions (step 4), running solutions (step 5), fixing bugs, or any code modification
 - **MUST** run linting on all newly created or modified files after generation/modification
+- **MUST** check for and remove unused imports in all languages:
+  - Java: Remove unused `import` statements
+  - Python: Remove unused imports from `from` and `import` statements
+  - TypeScript: Remove unused `import` statements
+  - Other languages: Remove any unused imports/use statements as appropriate
 - This includes:
   - Solution files (all 12 languages) - **ALWAYS REQUIRED**
   - Spec files (if they have lintable syntax)

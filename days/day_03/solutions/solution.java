@@ -1,6 +1,5 @@
 import java.io.*;
 import java.nio.file.*;
-import java.util.*;
 
 class Solution {
     // Find the largest N-digit number by selecting N digits in order from bank

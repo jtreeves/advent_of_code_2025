@@ -20,8 +20,10 @@ If no day number is provided, uses the current day (based on date).
 2. Updates `days/day_NN/ANALYSIS.md`:
    - **MUST** fill in the solutions tables with Part 1 results for each language
    - **MUST** fill in the solutions tables with Part 2 results for each language
-   - **MUST** fill in the performance tables with execution times (in milliseconds) for each language for both Part 1 and Part 2
-   - **MUST NOT** leave placeholder values like `[C_SOLUTION]` or `[C_EXECUTION_TIME]`
+   - **CRITICAL**: **MUST ALWAYS** fill in the performance tables with execution times (in milliseconds) for each language for both Part 1 and Part 2
+   - **MUST** measure execution times using timing tools (e.g., `/usr/bin/time`, `date +%s%3N`, Python's `time.time()`, etc.) when running each solution
+   - **MUST NOT** leave placeholder values like `[C_SOLUTION]` or `[C_EXECUTION_TIME]` - these are errors if found
+   - If a solution cannot be run or measured, use `[Not measured]` or `[Failed]` but note this is a deviation from the norm
    - Preserves other ANALYSIS content and does not block other agents from simultaneously updating the same file
 3. Updates `days/day_NN/README.md`:
    - ONLY IF all languages yield the same result in the solutions table, set "Part 1 Solution" section with the result (then part 2)
@@ -60,7 +62,8 @@ They should also output execution time in ms.
 - **MUST ALWAYS** run linting on all solution files after any step that involves touching solution files (using `read_lints` tool)
 - **MUST** fix any linter errors immediately after they are found - do not proceed to the next step until all linting errors are resolved
 - **MUST** verify all solutions table cells are filled with actual values (not placeholders)
-- **MUST** verify all performance table cells are filled with execution times in milliseconds
+- **CRITICAL**: **MUST** verify all performance table cells are filled with execution times in milliseconds - this is equally important as filling in solution values
+- **MUST** check that performance tables are updated in the same operation as solution tables - do not update one without the other
 
 ## Linting Requirements
 

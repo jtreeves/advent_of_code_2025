@@ -47,11 +47,12 @@ The following steps are **MANDATORY** and must not be skipped:
 
 ### Step 5: Run Solutions
 - **MUST** run all 12 solution files against `data/input.txt` for both Part 1 and Part 2
-- **MUST** capture execution times in milliseconds for each language
+- **CRITICAL**: **MUST ALWAYS** capture execution times in milliseconds for each language using timing tools
 - **MUST** update `ANALYSIS.md` solutions tables with:
   - Part 1 results for each language
   - Part 2 results for each language
-  - Execution times in milliseconds for each language (for both Part 1 and Part 2)
+  - **CRITICAL**: Execution times in milliseconds for each language (for both Part 1 and Part 2) - this is mandatory, not optional
+- **MUST** update `ANALYSIS.md` performance tables in the same operation as solutions tables - do not update solutions without updating performance times
 - **MUST** update `README.md` with solutions if all languages produce the same result
 - **MUST** clean up nonsense files from solutions folder (remove compiled files, executables, temporary files)
 - **MUST** handle errors gracefully but note them in ANALYSIS.md

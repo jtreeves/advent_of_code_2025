@@ -1,6 +1,6 @@
 # Day 08
 
-[[Day title]](https://adventofcode.com/2025/day/08)
+[[Day title]](https://adventofcode.com/2025/day/8)
 
 ## Part 1
 

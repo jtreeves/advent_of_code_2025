@@ -19,70 +19,70 @@
 ## Solutions
 
 ### Part 1
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          | [C_SOLUTION]          |
-| Clojure    | [CLOJURE_SOLUTION]    |
-| Elixir     | [ELIXIR_SOLUTION]     |
-| Go         | [GO_SOLUTION]         |
-| Haskell    | [HASKELL_SOLUTION]    |
-| Java       | [JAVA_SOLUTION]       |
-| Julia      | [JULIA_SOLUTION]      |
-| Kotlin     | [KOTLIN_SOLUTION]     |
-| Python     | [PYTHON_SOLUTION]     |
-| Ruby       | [RUBY_SOLUTION]       |
-| Rust       | [RUST_SOLUTION]       |
-| TypeScript | [TYPESCRIPT_SOLUTION] |
+| Language   | Initial Solution |
+|------------|------------------|
+| C          | 1180             |
+| Clojure    | 1180             |
+| Elixir     | 1180             |
+| Go         | 1180             |
+| Haskell    | 1180             |
+| Java       | 1180             |
+| Julia      | 1180             |
+| Kotlin     | 1180             |
+| Python     | 1180             |
+| Ruby       | 1180             |
+| Rust       | 1180             |
+| TypeScript | 1180             |
 
 ### Part 2
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          | [C_SOLUTION]          |
-| Clojure    | [CLOJURE_SOLUTION]    |
-| Elixir     | [ELIXIR_SOLUTION]     |
-| Go         | [GO_SOLUTION]         |
-| Haskell    | [HASKELL_SOLUTION]    |
-| Java       | [JAVA_SOLUTION]       |
-| Julia      | [JULIA_SOLUTION]      |
-| Kotlin     | [KOTLIN_SOLUTION]     |
-| Python     | [PYTHON_SOLUTION]     |
-| Ruby       | [RUBY_SOLUTION]       |
-| Rust       | [RUST_SOLUTION]       |
-| TypeScript | [TYPESCRIPT_SOLUTION] |
+| Language   | Initial Solution |
+|------------|------------------|
+| C          | 6892             |
+| Clojure    | 6892             |
+| Elixir     | 6892             |
+| Go         | 6892             |
+| Haskell    | 6892             |
+| Java       | 6892             |
+| Julia      | 6892             |
+| Kotlin     | 6892             |
+| Python     | 6892             |
+| Ruby       | 6892             |
+| Rust       | 6892             |
+| TypeScript | 6892             |
 
 ## Performance
 
 ### Part 1
-| Language   | Execution Time (ms)         |
-|------------|-----------------------------|
-| C          | [C_EXECUTION_TIME]          |
-| Clojure    | [CLOJURE_EXECUTION_TIME]    |
-| Elixir     | [ELIXIR_EXECUTION_TIME]     |
-| Go         | [GO_EXECUTION_TIME]         |
-| Haskell    | [HASKELL_EXECUTION_TIME]    |
-| Java       | [JAVA_EXECUTION_TIME]       |
-| Julia      | [JULIA_EXECUTION_TIME]      |
-| Kotlin     | [KOTLIN_EXECUTION_TIME]     |
-| Python     | [PYTHON_EXECUTION_TIME]     |
-| Ruby       | [RUBY_EXECUTION_TIME]       |
-| Rust       | [RUST_EXECUTION_TIME]        |
-| TypeScript | [TYPESCRIPT_EXECUTION_TIME] |
+| Language   | Execution Time (ms) |
+|------------|---------------------|
+| C          | 185                 |
+| Clojure    | 464                 |
+| Elixir     | 393                 |
+| Go         | 297                 |
+| Haskell    | 345                 |
+| Java       | 76                  |
+| Julia      | 4323                |
+| Kotlin     | 92                  |
+| Python     | 71                  |
+| Ruby       | 207                 |
+| Rust       | 202                 |
+| TypeScript | 3875                |
 
 ### Part 2
-| Language   | Execution Time (ms)         |
-|------------|-----------------------------|
-| C          | [C_EXECUTION_TIME]          |
-| Clojure    | [CLOJURE_EXECUTION_TIME]    |
-| Elixir     | [ELIXIR_EXECUTION_TIME]     |
-| Go         | [GO_EXECUTION_TIME]         |
-| Haskell    | [HASKELL_EXECUTION_TIME]    |
-| Java       | [JAVA_EXECUTION_TIME]       |
-| Julia      | [JULIA_EXECUTION_TIME]      |
-| Kotlin     | [KOTLIN_EXECUTION_TIME]     |
-| Python     | [PYTHON_EXECUTION_TIME]     |
-| Ruby       | [RUBY_EXECUTION_TIME]       |
-| Rust       | [RUST_EXECUTION_TIME]        |
-| TypeScript | [TYPESCRIPT_EXECUTION_TIME] |
+| Language   | Execution Time (ms) |
+|------------|---------------------|
+| C          | 185                 |
+| Clojure    | 464                 |
+| Elixir     | 393                 |
+| Go         | 297                 |
+| Haskell    | 345                 |
+| Java       | 76                  |
+| Julia      | 4323                |
+| Kotlin     | 92                  |
+| Python     | 71                  |
+| Ruby       | 207                 |
+| Rust       | 202                 |
+| TypeScript | 3875                |
 
 ## Implementation Differences
 

@@ -48,7 +48,7 @@
                                     (mod (+ position distance) 100))]
                       (recur new-pos
                              (+ count-part2 zeros-in-rotation)
-                             (rest remaining))))]
+                             (rest remaining)))))]
     [result1 result2]))
 
 (let [lines (read-input "../data/input.txt")

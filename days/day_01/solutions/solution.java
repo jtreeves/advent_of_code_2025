@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.List;
 
-public class Solution {
+class Solution {
     public static void main(String[] args) {
         try {
             List<String> lines = GetInput.getInput(1);

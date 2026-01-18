@@ -99,4 +99,4 @@ Be careful: if the dial were pointing at 50, a single rotation like R1000 would 
 Using password method 0x434C49434B, what is the password to open the door?
 
 ### Solution
-[Answer will be populated after running solutions]
+6892

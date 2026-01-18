@@ -149,6 +149,77 @@ gcc solution.c ../../utilities/c/get_input.c -o solution -I../../utilities/c
 
 **Note**: C solutions link against utility files in `utilities/c/`.
 
+#### Clojure
+
+```bash
+cd days/day_NN/solutions
+clojure solution.clj
+```
+
+**Requirements**: Clojure CLI tools - [Install Clojure](https://clojure.org/guides/install_clojure).
+
+#### Elixir
+
+```bash
+cd days/day_NN/solutions
+elixir solution.ex
+```
+
+**Requirements**: Elixir 1.12+ - [Install Elixir](https://elixir-lang.org/install.html).
+
+#### Go
+
+```bash
+cd days/day_NN/solutions
+go run solution.go
+```
+
+**Requirements**: Go 1.21+ (configured via `go.mod`).
+
+#### Haskell
+
+```bash
+cd days/day_NN/solutions
+ghc solution.hs -i../../utilities/haskell -o solution
+./solution
+```
+
+**Requirements**: GHC (Glasgow Haskell Compiler) - [Install GHC](https://www.haskell.org/ghc/).
+
+#### Java
+
+```bash
+cd days/day_NN/solutions
+javac -cp ../../utilities/java solution.java ../../utilities/java/get_input.java
+java -cp .:../../utilities/java Solution
+```
+
+**On Windows**:
+```bash
+java -cp .;../../utilities/java Solution
+```
+
+**Requirements**: JDK 11+ with `javac` and `java` in PATH.
+
+#### Julia
+
+```bash
+cd days/day_NN/solutions
+julia solution.jl
+```
+
+**Requirements**: Julia 1.8+ - [Install Julia](https://julialang.org/downloads/).
+
+#### Kotlin
+
+```bash
+cd days/day_NN/solutions
+kotlinc solution.kt -include-runtime -d solution.jar -cp ../../utilities/kotlin
+java -jar solution.jar
+```
+
+**Requirements**: Kotlin compiler - [Install Kotlin](https://kotlinlang.org/docs/command-line.html).
+
 #### Python
 
 ```bash
@@ -157,6 +228,30 @@ python solution.py
 ```
 
 **Requirements**: Python 3.8+ with `typing` support (standard library).
+
+#### Ruby
+
+```bash
+cd days/day_NN/solutions
+ruby solution.rb
+```
+
+**Requirements**: Ruby 2.7+ (usually pre-installed on macOS/Linux).
+
+#### Rust
+
+```bash
+cd days/day_NN/solutions
+rustc solution.rs --edition 2021 -L dependency=../../utilities/rust
+./solution
+```
+
+**Alternative**: Use Cargo (if Cargo.toml is present):
+```bash
+cargo run
+```
+
+**Requirements**: Rust toolchain (rustc, cargo) - [Install Rust](https://www.rust-lang.org/tools/install).
 
 #### TypeScript
 
@@ -178,101 +273,6 @@ ts-node solution.ts
 ```
 
 **Requirements**: Node.js and TypeScript (configured via `package.json`).
-
-#### Java
-
-```bash
-cd days/day_NN/solutions
-javac -cp ../../utilities/java solution.java ../../utilities/java/get_input.java
-java -cp .:../../utilities/java Solution
-```
-
-**On Windows**:
-```bash
-java -cp .;../../utilities/java Solution
-```
-
-**Requirements**: JDK 11+ with `javac` and `java` in PATH.
-
-#### Rust
-
-```bash
-cd days/day_NN/solutions
-rustc solution.rs --edition 2021 -L dependency=../../utilities/rust
-./solution
-```
-
-**Alternative**: Use Cargo (if Cargo.toml is present):
-```bash
-cargo run
-```
-
-**Requirements**: Rust toolchain (rustc, cargo) - [Install Rust](https://www.rust-lang.org/tools/install).
-
-#### Kotlin
-
-```bash
-cd days/day_NN/solutions
-kotlinc solution.kt -include-runtime -d solution.jar -cp ../../utilities/kotlin
-java -jar solution.jar
-```
-
-**Requirements**: Kotlin compiler - [Install Kotlin](https://kotlinlang.org/docs/command-line.html).
-
-#### Haskell
-
-```bash
-cd days/day_NN/solutions
-ghc solution.hs -i../../utilities/haskell -o solution
-./solution
-```
-
-**Requirements**: GHC (Glasgow Haskell Compiler) - [Install GHC](https://www.haskell.org/ghc/).
-
-#### Go
-
-```bash
-cd days/day_NN/solutions
-go run solution.go
-```
-
-**Requirements**: Go 1.21+ (configured via `go.mod`).
-
-#### Ruby
-
-```bash
-cd days/day_NN/solutions
-ruby solution.rb
-```
-
-**Requirements**: Ruby 2.7+ (usually pre-installed on macOS/Linux).
-
-#### Clojure
-
-```bash
-cd days/day_NN/solutions
-clojure solution.clj
-```
-
-**Requirements**: Clojure CLI tools - [Install Clojure](https://clojure.org/guides/install_clojure).
-
-#### Elixir
-
-```bash
-cd days/day_NN/solutions
-elixir solution.ex
-```
-
-**Requirements**: Elixir 1.12+ - [Install Elixir](https://elixir-lang.org/install.html).
-
-#### Julia
-
-```bash
-cd days/day_NN/solutions
-julia solution.jl
-```
-
-**Requirements**: Julia 1.8+ - [Install Julia](https://julialang.org/downloads/).
 
 ### Running with Test Input
 

@@ -6,7 +6,7 @@
 - Solutions are in `days/day_NN/solutions/` with one file per language
 - Data files are in `days/day_NN/data/`
   - `input.txt` - Official input (gitignored, user-specific)
-  - `test_input.txt` - Test input (gitignored, user-specific)
+  - `test_1.txt`, `test_2.txt`, etc. - Test inputs (committed to git, shared examples)
 - Specs live in `days/day_NN/specs/` folder (per-day specs)
   - `day_NN_spec.md` - Specification for the day
   - `day_NN_plan.md` - Technical plan
@@ -46,4 +46,6 @@ Each day uses a different language:
 ## Utilities
 
 - Common utility functions live in `utilities/<language>/`
-- Solutions can import/use these utilities as needed
+- Solutions should **always** use utilities for file I/O operations
+- See `.cursor/rules/utility_usage.md` for detailed rules on when to use/create utilities
+- Solutions should be self-contained (except for common utilities like file I/O)

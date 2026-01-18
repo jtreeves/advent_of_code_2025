@@ -1,17 +1,41 @@
-# Placeholder for Day 3 Elixir solution
+# Find the largest N-digit number by selecting N digits in order from bank
 defmodule Solution do
+  def find_largest_subsequence(bank, n) when byte_size(bank) < n, do: 0
+  
+  def find_largest_subsequence(bank, n) do
+    bank_len = String.length(bank)
+    
+    {result, _} = Enum.reduce(0..(n - 1), {"", 0}, fn i, {acc, start} ->
+      remaining_needed = n - i - 1
+      end_pos = bank_len - remaining_needed
+      
+      candidates = String.slice(bank, start, end_pos - start)
+      max_char = String.graphemes(candidates) |> Enum.max()
+      candidates_list = String.graphemes(candidates)
+      max_pos = start + Enum.find_index(candidates_list, &(&1 == max_char))
+      
+      {acc <> max_char, max_pos + 1}
+    end)
+    
+    String.to_integer(result)
+  end
+  
   def solve(input_data) do
-    IO.puts("Day 3 Elixir placeholder")
-    lines = input_data |> String.trim() |> String.split("\n")
-    IO.inspect(lines, label: "Lines")
+    banks = input_data
+            |> String.trim()
+            |> String.split("\n")
+            |> Enum.filter(&(&1 != ""))
     
-    # Part 1
-    part1_result = "TODO"
+    part1_sum = banks
+                |> Enum.map(&find_largest_subsequence(&1, 2))
+                |> Enum.sum()
     
-    # Part 2
-    part2_result = "TODO"
+    part2_sum = banks
+                |> Enum.filter(&(String.length(&1) >= 12))
+                |> Enum.map(&find_largest_subsequence(&1, 12))
+                |> Enum.sum()
     
-    {part1_result, part2_result}
+    {to_string(part1_sum), to_string(part2_sum)}
   end
 end
 

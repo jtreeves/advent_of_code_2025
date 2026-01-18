@@ -1,14 +1,32 @@
 (require '[clojure.java.io :as io])
 
-;; Placeholder for Day 3 Clojure solution
+;; Find the largest N-digit number by selecting N digits in order from bank
+(defn find-largest-subsequence [bank n]
+  (let [bank-len (count bank)]
+    (if (< bank-len n)
+      0
+      (loop [result []
+             start 0
+             i 0]
+        (if (= i n)
+          (Long/parseLong (apply str result))
+          (let [remaining-needed (- n i 1)
+                end (- bank-len remaining-needed)
+                candidates (subs bank start end)
+                candidates-chars (seq candidates)
+                max-char (reduce #(if (> (int %2) (int %1)) %2 %1) candidates-chars)
+                max-pos (+ start (count (take-while #(not= % max-char) candidates-chars)))]
+            (recur (conj result max-char)
+                   (inc max-pos)
+                   (inc i))))))))
+
 (defn solve [input-data]
-  (println "Day 3 Clojure placeholder")
-  (let [lines (clojure.string/split-lines (clojure.string/trim input-data))]
-    ;; Part 1
-    (let [part1-result "TODO"]
-      ;; Part 2
-      (let [part2-result "TODO"]
-        [part1-result part2-result]))))
+  (let [lines (filter #(not (empty? %)) 
+                      (clojure.string/split-lines (clojure.string/trim input-data)))]
+    (let [part1-sum (reduce + (map #(find-largest-subsequence % 2) lines))
+          part2-sum (reduce + (map #(find-largest-subsequence % 12) 
+                                   (filter #(>= (count %) 12) lines)))]
+      [(str part1-sum) (str part2-sum)])))
 
 (defn -main []
   (let [data (slurp "../data/input.txt")

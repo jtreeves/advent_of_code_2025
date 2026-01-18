@@ -1,0 +1,213 @@
+# Tasks: Day 03
+
+- [x] Ensure authenticated with AOC
+- [x] Populate README.md with problem description for Part 1, retrieved from AOC
+- [x] Populate README.md with problem description for Part 2, retrieved from AOC
+- [ ] Create specs directory and specification files
+    - [x] Create day_03_spec.md with detailed specification
+    - [x] Create day_03_plan.md with technical plan
+    - [x] Create day_03_tasks.md (this file)
+    - [x] Create test data files (test_1.txt through test_6.txt)
+- [ ] Initialize separate agents for each language, so that solutions can occur simultaneously in parallel
+- [ ] Solve Part 1
+    - [ ] Write C implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Clojure implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Elixir implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Go implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Haskell implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Java implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Julia implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Kotlin implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Python implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Ruby implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Rust implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write TypeScript implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Ensure all solutions are the same; if not, ask the user for recommendations, then implement them until all solutions are the same
+    - [ ] Update README.md with solution for Part 1
+    - [ ] Submit Part 1 solution to AOC
+- [ ] Solve Part 2
+    - [ ] Write C implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Clojure implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Elixir implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Go implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Haskell implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Java implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Julia implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Kotlin implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Python implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Ruby implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write Rust implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Write TypeScript implementation
+        - [ ] Create first draft of code based on plan notes
+        - [ ] Revise code to increase its quality
+        - [ ] Test solution against all test data files, parsed from their files
+        - [ ] Refine solution until function returns the expected result for each of the test data files
+        - [ ] Use the final function to test the input.txt file
+        - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
+        - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
+    - [ ] Ensure all solutions are the same; if not, ask the user for recommendations, then implement them until all solutions are the same
+    - [ ] Update README.md with solution for Part 2
+    - [ ] Submit Part 2 solution to AOC
+- [ ] Flesh out ANALYSIS.md comparing language implementations
+- [ ] Add, commit, and push to Git

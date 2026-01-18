@@ -3,22 +3,61 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"strconv"
 	"strings"
 )
 
-// Placeholder for Day 3 Go solution
+// Find the largest N-digit number by selecting N digits in order from bank
+func findLargestSubsequence(bank string, n int) int64 {
+	bankLen := len(bank)
+	if bankLen < n {
+		return 0
+	}
+	
+	var result strings.Builder
+	start := 0
+	
+	for i := 0; i < n; i++ {
+		remainingNeeded := n - i - 1
+		end := bankLen - remainingNeeded
+		
+		maxDigit := bank[start]
+		maxPos := start
+		for j := start + 1; j < end; j++ {
+			if bank[j] > maxDigit {
+				maxDigit = bank[j]
+				maxPos = j
+			}
+		}
+		
+		result.WriteByte(maxDigit)
+		start = maxPos + 1
+	}
+	
+	val, _ := strconv.ParseInt(result.String(), 10, 64)
+	return val
+}
+
 func solve(inputData string) (string, string) {
-	fmt.Println("Day 3 Go placeholder")
 	lines := strings.Split(strings.TrimSpace(inputData), "\n")
-	fmt.Println("Lines:", lines)
 	
-	// Part 1
-	part1Result := "TODO"
+	var part1Sum int64 = 0
+	var part2Sum int64 = 0
 	
-	// Part 2
-	part2Result := "TODO"
+	for _, line := range lines {
+		bank := strings.TrimSpace(line)
+		if bank == "" {
+			continue
+		}
+		
+		part1Sum += findLargestSubsequence(bank, 2)
+		
+		if len(bank) >= 12 {
+			part2Sum += findLargestSubsequence(bank, 12)
+		}
+	}
 	
-	return part1Result, part2Result
+	return fmt.Sprintf("%d", part1Sum), fmt.Sprintf("%d", part2Sum)
 }
 
 func main() {

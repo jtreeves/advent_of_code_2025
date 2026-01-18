@@ -1,19 +1,56 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-// Placeholder for Day 3 TypeScript solution
+// Find the largest N-digit number by selecting N digits in order from bank
+function findLargestSubsequence(bank: string, n: number): number {
+    if (bank.length < n) {
+        return 0;
+    }
+    
+    const result: string[] = [];
+    let start = 0;
+    const bankLen = bank.length;
+    
+    for (let i = 0; i < n; i++) {
+        const remainingNeeded = n - i - 1;
+        const end = bankLen - remainingNeeded;
+        
+        let maxDigit = bank[start];
+        let maxPos = start;
+        for (let j = start + 1; j < end; j++) {
+            if (bank[j] > maxDigit) {
+                maxDigit = bank[j];
+                maxPos = j;
+            }
+        }
+        
+        result.push(maxDigit);
+        start = maxPos + 1;
+    }
+    
+    return parseInt(result.join(''), 10);
+}
+
 function solve(inputData: string): [string, string] {
-    console.log("Day 3 TypeScript placeholder");
     const lines = inputData.trim().split('\n');
-    console.log("Lines:", lines);
     
-    // Part 1
-    const part1Result = "TODO";
+    let part1Sum = 0;
+    let part2Sum = 0;
     
-    // Part 2
-    const part2Result = "TODO";
+    for (const line of lines) {
+        const bank = line.trim();
+        if (bank === '') {
+            continue;
+        }
+        
+        part1Sum += findLargestSubsequence(bank, 2);
+        
+        if (bank.length >= 12) {
+            part2Sum += findLargestSubsequence(bank, 12);
+        }
+    }
     
-    return [part1Result, part2Result];
+    return [part1Sum.toString(), part2Sum.toString()];
 }
 
 function main(): void {

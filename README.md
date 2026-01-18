@@ -137,12 +137,11 @@ The repository includes several Cursor commands for automating workflows:
 
 All solutions are located in `days/day_NN/solutions/solution.{ext}`. Solutions use utility functions from `utilities/<language>/` for file I/O operations.
 
-**Important**: Solutions must be run from within the `solutions/` directory to ensure correct relative paths to `../data/input.txt`.
+**Important**: Solutions must be run from within the `solutions/` directory to ensure correct relative paths to `../data/input.txt`. As a result, the first step is always `cd days/day_NN/solutions`.
 
 #### C
 
 ```bash
-cd days/day_NN/solutions
 gcc solution.c ../../utilities/c/get_input.c -o solution -I../../utilities/c
 ./solution
 ```
@@ -152,7 +151,6 @@ gcc solution.c ../../utilities/c/get_input.c -o solution -I../../utilities/c
 #### Clojure
 
 ```bash
-cd days/day_NN/solutions
 clojure solution.clj
 ```
 
@@ -161,7 +159,6 @@ clojure solution.clj
 #### Elixir
 
 ```bash
-cd days/day_NN/solutions
 elixir solution.ex
 ```
 
@@ -170,7 +167,6 @@ elixir solution.ex
 #### Go
 
 ```bash
-cd days/day_NN/solutions
 go run solution.go
 ```
 
@@ -179,7 +175,6 @@ go run solution.go
 #### Haskell
 
 ```bash
-cd days/day_NN/solutions
 ghc solution.hs -i../../utilities/haskell -o solution
 ./solution
 ```
@@ -189,7 +184,6 @@ ghc solution.hs -i../../utilities/haskell -o solution
 #### Java
 
 ```bash
-cd days/day_NN/solutions
 javac -cp ../../utilities/java solution.java ../../utilities/java/get_input.java
 java -cp .:../../utilities/java Solution
 ```
@@ -204,7 +198,6 @@ java -cp .;../../utilities/java Solution
 #### Julia
 
 ```bash
-cd days/day_NN/solutions
 julia solution.jl
 ```
 
@@ -213,7 +206,6 @@ julia solution.jl
 #### Kotlin
 
 ```bash
-cd days/day_NN/solutions
 kotlinc solution.kt -include-runtime -d solution.jar -cp ../../utilities/kotlin
 java -jar solution.jar
 ```
@@ -223,7 +215,6 @@ java -jar solution.jar
 #### Python
 
 ```bash
-cd days/day_NN/solutions
 python solution.py
 ```
 
@@ -232,7 +223,6 @@ python solution.py
 #### Ruby
 
 ```bash
-cd days/day_NN/solutions
 ruby solution.rb
 ```
 
@@ -241,7 +231,6 @@ ruby solution.rb
 #### Rust
 
 ```bash
-cd days/day_NN/solutions
 rustc solution.rs --edition 2021 -L dependency=../../utilities/rust
 ./solution
 ```
@@ -260,15 +249,16 @@ cargo run
 npm install
 
 # Compile and run
-cd days/day_NN/solutions
 tsc solution.ts --moduleResolution node --esModuleInterop --resolveJsonModule
 node solution.js
 ```
 
 **Alternative**: Use `ts-node` for direct execution:
 ```bash
+# First time: Install dependency
 npm install -g ts-node
-cd days/day_NN/solutions
+
+# Run
 ts-node solution.ts
 ```
 

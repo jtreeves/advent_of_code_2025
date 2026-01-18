@@ -1,6 +1,6 @@
 # Advent of Code 2025
 
-This repository contains solutions to the Advent of Code 2025 challenge problems. Each day's problem is solved using a different programming language, with a total of 12 languages used across the 12 days.
+This repository contains solutions to the Advent of Code 2025 challenge problems. Each day's problem is solved using 12 different programming languages.
 
 ## Structure
 
@@ -10,23 +10,25 @@ This repository contains solutions to the Advent of Code 2025 challenge problems
     - `ANALYSIS.md` - Overall approach and language implementation differences
     - `data/` - Input files (input.txt, test_input.txt)
     - `solutions/` - Solution files for each language
+    - `specs/` - Spec-kit specifications, plans, and tasks
 - `utilities/` - Common utility functions organized by language
-- `specs/` - Spec-kit specifications, plans, and tasks
+- `.cursor/` - Configurations for Cursor
+- `.specify/` - Configurations for Spec-kit
 
 ## Languages Used
 
-1. C
-2. Python (with types)
-3. TypeScript
-4. Java
-5. Rust
-6. Kotlin
-7. Haskell
-8. Go
-9. Ruby
-10. Clojure
-11. Elixir
-12. Julia
+- C
+- Clojure
+- Elixir
+- Go
+- Haskell
+- Java
+- Julia
+- Kotlin
+- Python
+- Ruby
+- Rust
+- TypeScript
 
 ## Setup
 
@@ -40,7 +42,8 @@ uvx --from git+https://github.com/github/spec-kit.git specify init . --ai cursor
 
 ### Custom Slash Commands
 
-- `/day <NN>` - Fetch AOC problem info for day NN, initialize spec process, and create day structure
+- `/day <NN>` - Fetch AOC problem info for day NN, initialize spec process, create solution code in separate languages, and submit to AOC
+- `/quick-solve <NN>` - Fetch individual input data, use existing code to determine custom solutions, then submit to AOC for users who pull down the repo
 
 ## Usage
 

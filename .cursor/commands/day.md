@@ -61,10 +61,15 @@ The following steps are **MANDATORY** and must not be skipped:
 - **MUST** mark completed tasks in the tasks file as work progresses
 
 ### Linting Requirements
-- **MUST** run linting on all newly created or modified files after generation
-- **MUST** fix any linter errors before proceeding to the next step
+- **CRITICAL**: After ANY step that creates, modifies, or touches solution files, you MUST:
+  1. Run `read_lints` on all solution files in `days/day_NN/solutions/`
+  2. Fix all linter errors immediately
+  3. Re-run linting to verify all errors are resolved
+  4. Do NOT proceed to the next step until all linting errors are fixed
+- This applies to: generating solutions (step 4), running solutions (step 5), fixing bugs, or any code modification
+- **MUST** run linting on all newly created or modified files after generation/modification
 - This includes:
-  - Solution files (all 12 languages)
+  - Solution files (all 12 languages) - **ALWAYS REQUIRED**
   - Spec files (if they have lintable syntax)
   - README.md and ANALYSIS.md (markdown linting if configured)
 - Use `read_lints` tool to check for errors and fix them before continuing

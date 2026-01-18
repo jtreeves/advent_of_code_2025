@@ -26,10 +26,18 @@ If no day number is provided, uses the current day (based on date).
 
 ## Quality Assurance
 
-- **MUST** run `read_lints` tool on all generated solution files after creation
-- **MUST** fix any linter errors (compilation errors, type errors, etc.) before continuing
+- **MUST ALWAYS** run `read_lints` tool on all generated solution files immediately after creation
+- **MUST** fix any linter errors (compilation errors, type errors, etc.) before continuing to any next step
 - **MUST** verify all 12 solution files are created and valid
 - Document any warnings that cannot be fixed (e.g., dynamic imports in Python) with `# type: ignore` comments
+
+## Linting Requirements
+
+- **CRITICAL**: After generating solution files, you MUST:
+  1. Run `read_lints` on all solution files in `days/day_NN/solutions/`
+  2. Fix all linter errors before proceeding to any other step
+  3. Re-run linting to verify all errors are resolved
+- Never skip linting - it is mandatory after creating or modifying solution files
 
 ## Languages and Extensions
 

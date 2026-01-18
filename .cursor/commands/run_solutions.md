@@ -57,10 +57,18 @@ They should also output execution time in ms.
 
 ## Quality Assurance
 
-- **MUST** run linting on all solution files after running them (using `read_lints` tool)
-- **MUST** fix any linter errors before proceeding to the next step
+- **MUST ALWAYS** run linting on all solution files after any step that involves touching solution files (using `read_lints` tool)
+- **MUST** fix any linter errors immediately after they are found - do not proceed to the next step until all linting errors are resolved
 - **MUST** verify all solutions table cells are filled with actual values (not placeholders)
 - **MUST** verify all performance table cells are filled with execution times in milliseconds
+
+## Linting Requirements
+
+- **CRITICAL**: After ANY step that modifies solution files (generation, updates, fixes), you MUST:
+  1. Run `read_lints` on all solution files in `days/day_NN/solutions/`
+  2. Fix all linter errors before proceeding
+  3. Re-run linting to verify all errors are resolved
+- This applies to: generating solutions, fixing bugs, updating code, or any other modification to solution files
 
 ## Example
 

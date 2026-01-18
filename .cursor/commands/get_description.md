@@ -1,6 +1,6 @@
 # /get_description Command
 
-Fetches the problem description from Advent of Code and populates the README.md file for the specified day.
+Fetches the problem description for both Part 1 and Part 2 from Advent of Code via Google search and populates the README.md file for the specified day.
 
 ## Usage
 
@@ -12,25 +12,24 @@ If no day number is provided, uses the current day (based on date).
 
 ## Behavior
 
-1. Calls `get_problem_description.sh` script to fetch problem description from AOC
-2. Updates `days/day_NN/README.md` with the problem description
-3. Handles Part 1 initially, then Part 2 when available
+1. Uses web search to find the problem description for the specified day
+2. Retrieves **both Part 1 and Part 2** descriptions simultaneously via Google search
+3. Updates `days/day_NN/README.md` with both problem descriptions
 4. Preserves existing README structure
 
 ## Critical Requirements
 
-- **MUST** fetch the problem description **verbatim** from the AOC website
-- **MUST NOT** paraphrase, summarize, or modify the text from AOC
-- **MUST** use the exact text as it appears on the AOC site, including:
-  - Exact problem statements for Part 1 and Part 2
-  - Exact example inputs and outputs
-  - Exact explanations and formatting
-- **MUST** match the structure and format used in `days/day_01/README.md` as a reference
+- **MUST** fetch the problem description for **both Part 1 and Part 2** at the same time via Google search
+- **MUST NOT** attempt to fetch directly from AOC website (only input can be fetched from AOC site)
+- **MUST** use web search to find accurate problem descriptions
+- **MUST** populate `days/day_NN/README.md` with complete problem statements for both parts
+- **MUST** match the structure used in `days/day_01/README.md` as a reference
 - Must include all sections: Problem description, examples, solution placeholders
 
 ## Prerequisites
 
-- Session cookie must be configured (via `get_session_cookie.sh` or `.env` file)
+- Internet connection for web search
+- Advent of Code problem must be publicly available (descriptions can be found via search)
 
 ## Example
 
@@ -38,4 +37,4 @@ If no day number is provided, uses the current day (based on date).
 /get_description 05
 ```
 
-This fetches the problem description for Day 05 and updates `days/day_05/README.md`.
+This fetches the problem descriptions for both Part 1 and Part 2 of Day 05 via Google search and updates `days/day_05/README.md`.

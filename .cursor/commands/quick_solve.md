@@ -1,6 +1,6 @@
 # /quick_solve Command
 
-Quick workflow for users who pull down the repo with working code and need to: get their input, run solutions, submit answers, and push to git.
+Quick workflow for users who pull down the repo with working code and need to: get their input, run solutions, and update documentation.
 
 ## Usage
 
@@ -19,24 +19,22 @@ This command orchestrates the following workflow:
    - Overwrites `days/day_NN/data/input.txt`
 
 2. **Run Solutions** (`/run_solutions`):
-   - Runs all 12 solution files
+   - Runs all 12 solution files for both Part 1 and Part 2
    - Extracts answers and updates README
+   - Updates ANALYSIS.md with execution times
+   - Cleans up nonsense files from solutions folder
 
-3. **Submit Answers** (`/submit_answer`):
-   - Submits Part 1 answer to AOC
-   - Submits Part 2 answer to AOC (after Part 1 succeeds)
-
-4. **Push to GitHub** (`/push_to_gh`):
-   - Commits changes
-   - Pushes to current branch
+3. **Sync Specs** (`/sync_specs`):
+   - Updates spec files to match actual implementations
+   - Marks completed tasks in tasks file
 
 ## Use Case
 
 For users who:
 - Have pulled the repo with pre-existing solution code
 - Need to use their own input files
-- Want to quickly get answers and submit them
-- Want to save their progress to git
+- Want to quickly get answers and update documentation
+- Want to sync specs with code
 
 ## Prerequisites
 
@@ -50,4 +48,4 @@ For users who:
 /quick_solve 05
 ```
 
-This executes the complete quick workflow for Day 05.
+This executes the complete quick workflow for Day 05: gets input, runs solutions, updates docs, syncs specs, and cleans up.

@@ -20,13 +20,18 @@ If no day number is provided, uses the current day (based on date).
 2. Updates `days/day_NN/ANALYSIS.md`:
    - **MUST** fill in the solutions tables with Part 1 results for each language
    - **MUST** fill in the solutions tables with Part 2 results for each language
-   - **MUST** fill in the performance tables with execution times (in milliseconds) for each language
+   - **MUST** fill in the performance tables with execution times (in milliseconds) for each language for both Part 1 and Part 2
    - **MUST NOT** leave placeholder values like `[C_SOLUTION]` or `[C_EXECUTION_TIME]`
    - Preserves other ANALYSIS content and does not block other agents from simultaneously updating the same file
 3. Updates `days/day_NN/README.md`:
    - ONLY IF all languages yield the same result in the solutions table, set "Part 1 Solution" section with the result (then part 2)
    - IF a discrepancy occurs, then describe that in the "Part 1[OR 2] Solution" section
    - Preserves other README content
+4. **MUST** clean up nonsense files from `solutions/` folder:
+   - Remove any compiled files (`.o`, `.hi`, `.class`, executables, etc.)
+   - Remove any temporary files or build artifacts
+   - Keep only source files (`solution.c`, `solution.py`, etc.)
+   - This cleanup should happen after running solutions to capture execution times
 
 ## Output Format
 

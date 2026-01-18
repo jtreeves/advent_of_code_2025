@@ -12,15 +12,57 @@ Master orchestrator command that runs the complete end-to-end workflow for a day
 
 This command orchestrates the following commands in sequence, prompting for user permission before proceeding from one step to the next:
 
-1. **`/get_description`** - Fetch problem description from AOC and populate README.md
-2. **`/get_input`** - Download input file for the day from AOC
-3. **`/create_specs`** - Generate spec-kit artifacts (spec, plan, tasks) for the day
+1. **`/get_description`** - **MANDATORY**: Fetch problem description from AOC and populate README.md with verbatim text from the AOC site
+2. **`/get_input`** - **MANDATORY**: Download input file for the day from AOC and save to `data/input.txt`
+3. **`/create_specs`** - **MANDATORY**: Generate spec-kit artifacts (spec, plan, tasks) for the day in `specs/` folder
 4. **`/generate_solutions`** - Generate solution code in all 12 languages (C, Clojure, Elixir, Go, Haskell, Java, Julia, Kotlin, Python, Ruby, Rust, TypeScript)
-5. **`/run_solutions`** - Run all solutions, extract answers, update README.md and ANALYSIS.md with results
+5. **`/run_solutions`** - **MANDATORY**: Run all solutions, extract answers, update ANALYSIS.md tables with results and execution times, update README.md with solutions if all languages agree
 6. **`/submit_answer`** - Submit Part 1 answer to AOC, then prompt for Part 2 submission
 7. **`/sync_specs`** - Adjust spec files to match the resultant code implementations
 8. **`/write_analysis`** - Generate comprehensive ANALYSIS.md comparing all 12 implementations
 9. **`/push_to_gh`** - Commit and push code to GitHub
+
+## Critical Requirements
+
+The following steps are **MANDATORY** and must not be skipped:
+
+### Step 1: Get Description
+- **MUST** fetch the problem description verbatim from the AOC website
+- **MUST** populate `days/day_NN/README.md` with the exact text from AOC (both Part 1 and Part 2)
+- **MUST NOT** use paraphrased or summarized text - use the exact description from the site
+- Must match the structure used in `days/day_01/README.md` as a reference
+
+### Step 2: Get Input
+- **MUST** download the actual input file from AOC using the session cookie
+- **MUST** save to `days/day_NN/data/input.txt`
+- **MUST NOT** leave placeholder text like `<official input here>`
+- Uses `.specify/scripts/bash/get_session_cookie.sh` and `.specify/scripts/bash/get_input.sh`
+
+### Step 3: Create Specs
+- **MUST** create all three spec files in `days/day_NN/specs/`:
+  - `day_NN_spec.md` - Problem specification with requirements, I/O format, constraints, test cases
+  - `day_NN_plan.md` - Technical plan with algorithms, data structures, complexity analysis
+  - `day_NN_tasks.md` - Task breakdown for implementation
+- **MUST NOT** skip spec creation - these are essential for the workflow
+- Must include test data files (`test_1.txt`, `test_2.txt`, etc.) if applicable
+
+### Step 5: Run Solutions
+- **MUST** run all 12 solution files against `data/input.txt`
+- **MUST** update `ANALYSIS.md` solutions tables with:
+  - Part 1 results for each language
+  - Part 2 results for each language
+  - Execution times in milliseconds for each language
+- **MUST** update `README.md` with solutions if all languages produce the same result
+- **MUST** handle errors gracefully but note them in ANALYSIS.md
+
+### Linting Requirements
+- **MUST** run linting on all newly created or modified files after generation
+- **MUST** fix any linter errors before proceeding to the next step
+- This includes:
+  - Solution files (all 12 languages)
+  - Spec files (if they have lintable syntax)
+  - README.md and ANALYSIS.md (markdown linting if configured)
+- Use `read_lints` tool to check for errors and fix them before continuing
 
 ## Behavior
 
@@ -46,9 +88,30 @@ If a step fails:
 - Display the error clearly
 - Ask the user if they want to:
   - Retry the step
-  - Skip to the next step
+  - Skip to the next step (NOT ALLOWED for mandatory steps)
   - Stop the workflow
 - Do not automatically proceed on errors
+- **Mandatory steps (1, 2, 3, 5) cannot be skipped** - they must complete successfully
+
+### Quality Assurance
+
+Before proceeding from one step to the next:
+
+1. **Verify completion**: Check that all mandatory outputs exist:
+   - Step 1: README.md has problem description (check file size/content)
+   - Step 2: `data/input.txt` exists and is not a placeholder
+   - Step 3: All three spec files exist in `specs/` folder
+   - Step 5: ANALYSIS.md tables are populated with results and times
+
+2. **Run linting**: After generating/modifying code files:
+   - Run `read_lints` on all new/modified files
+   - Fix any errors before continuing
+   - Document any warnings that cannot be fixed (e.g., dynamic imports in Python)
+
+3. **Validate outputs**: Ensure outputs are in expected format:
+   - Solutions output "Part 1: <answer>" and "Part 2: <answer>" format
+   - Execution times are captured in milliseconds
+   - ANALYSIS.md tables are properly formatted markdown tables
 
 ### Folder Structure Created
 

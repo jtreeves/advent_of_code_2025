@@ -21,6 +21,15 @@ If no day number is provided, uses the current day (based on date).
    - Solve Part 1 initially and then Part 2 when available
    - Output answers in a format that can be parsed
    - Follow the project's code standards
+3. **MUST** run linting on all generated solution files after creation
+4. **MUST** fix any linter errors before proceeding to the next step
+
+## Quality Assurance
+
+- **MUST** run `read_lints` tool on all generated solution files after creation
+- **MUST** fix any linter errors (compilation errors, type errors, etc.) before continuing
+- **MUST** verify all 12 solution files are created and valid
+- Document any warnings that cannot be fixed (e.g., dynamic imports in Python) with `# type: ignore` comments
 
 ## Languages and Extensions
 

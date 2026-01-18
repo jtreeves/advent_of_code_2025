@@ -18,7 +18,10 @@ If no day number is provided, uses the current day (based on date).
    - Captures the output (Part 1 and Part 2 answers)
    - Handles errors gracefully
 2. Updates `days/day_NN/ANALYSIS.md`:
-   - Fills in its portion of the solutions and performance tables with its results and execution time for part 1 (then part 2)
+   - **MUST** fill in the solutions tables with Part 1 results for each language
+   - **MUST** fill in the solutions tables with Part 2 results for each language
+   - **MUST** fill in the performance tables with execution times (in milliseconds) for each language
+   - **MUST NOT** leave placeholder values like `[C_SOLUTION]` or `[C_EXECUTION_TIME]`
    - Preserves other ANALYSIS content and does not block other agents from simultaneously updating the same file
 3. Updates `days/day_NN/README.md`:
    - ONLY IF all languages yield the same result in the solutions table, set "Part 1 Solution" section with the result (then part 2)
@@ -44,7 +47,15 @@ They should also output execution time in ms.
 ## Error Handling
 
 - If a solution fails to compile or run, logs the error but continues with other languages
-- Missing answers are noted in the ANALYSIS
+- Missing answers are noted in the ANALYSIS with `[Needs fix]` or similar notation
+- **MUST** run all 12 solutions - do not skip languages unless explicitly requested
+
+## Quality Assurance
+
+- **MUST** run linting on all solution files after running them (using `read_lints` tool)
+- **MUST** fix any linter errors before proceeding to the next step
+- **MUST** verify all solutions table cells are filled with actual values (not placeholders)
+- **MUST** verify all performance table cells are filled with execution times in milliseconds
 
 ## Example
 

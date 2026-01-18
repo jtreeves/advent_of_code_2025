@@ -16,6 +16,15 @@ If no day number is provided, uses the current day (based on date).
 2. Overwrites `days/day_NN/data/input.txt` with the fetched content
 3. Creates the directory structure if it doesn't exist
 
+## Critical Requirements
+
+- **MUST** download the actual input file from AOC using the session cookie
+- **MUST** save the fetched content to `days/day_NN/data/input.txt`
+- **MUST NOT** leave placeholder text like `<official input here>` or similar
+- **MUST** verify the file contains actual input data (check file size, content patterns)
+- Uses `.specify/scripts/bash/get_session_cookie.sh` to get session cookie
+- Uses `.specify/scripts/bash/get_input.sh` to fetch the input
+
 ## Prerequisites
 
 - Session cookie must be configured (via `get_session_cookie.sh` or `.env` file)

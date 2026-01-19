@@ -39,7 +39,7 @@ Each language should test solutions in an idiomatic way:
 - **Haskell**: Property-based or example-based testing
 - **Java**: JUnit or simple assertion checks
 - **Julia**: Simple assertions or validation
-- **Kotlin**: Simple assertions or validation checks
+- **Perl**: Simple assertions or validation checks
 - **Python**: Use assertions or simple validation checks
 - **Ruby**: Simple assertions or validation
 - **Rust**: Use `assert!` macros for validation

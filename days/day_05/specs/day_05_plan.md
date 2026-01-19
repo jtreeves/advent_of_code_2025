@@ -194,9 +194,18 @@ When merging:
   5. Part 2: `sort`, merge loop, `sum` lengths
   6. Return `Int64`
 
-### Kotlin
-- Use `List<Pair<Long, Long>>` or data class
-- `sortedBy` for sorting
+### Perl
+- Use array of array references for ranges: `@ranges = ([$start, $end], ...)`
+- Sorting with custom comparator: `@ranges_sorted = sort { $a->[0] <=> $b->[0] } @ranges`
+- Merge ranges by modifying array references in-place: `$last->[1] = max(...)`
+- Anonymous array references for pairs: `[$start, $end]`
+- Dereferencing: `my ($start, $end) = @$range_ref`
+- Step-by-step implementation:
+  1. Parse ranges into array of array references using regex: `push @ranges, [$1, $2]`
+  2. For Part 1, nested loops to check each ID against all ranges
+  3. For Part 2, sort ranges: `sort { $a->[0] <=> $b->[0] }`
+  4. Merge overlapping ranges by modifying last range in-place: `$merged[-1]->[1] = max(...)`
+  5. Sum lengths: `sum { $_->[1] - $_->[0] + 1 } @merged` or use loop with `+=`
 - Step-by-step:
   1. Read file with `File.readLines`, find blank line index
   2. Parse ranges: `map` with `split("-")`, `toLong()`

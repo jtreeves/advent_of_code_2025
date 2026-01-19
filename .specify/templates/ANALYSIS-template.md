@@ -28,7 +28,7 @@
 | Haskell    | [HASKELL_SOLUTION]    |
 | Java       | [JAVA_SOLUTION]       |
 | Julia      | [JULIA_SOLUTION]      |
-| Kotlin     | [KOTLIN_SOLUTION]     |
+| Perl       | [PERL_SOLUTION]       |
 | Python     | [PYTHON_SOLUTION]     |
 | Ruby       | [RUBY_SOLUTION]       |
 | Rust       | [RUST_SOLUTION]       |
@@ -44,7 +44,7 @@
 | Haskell    | [HASKELL_SOLUTION]    |
 | Java       | [JAVA_SOLUTION]       |
 | Julia      | [JULIA_SOLUTION]      |
-| Kotlin     | [KOTLIN_SOLUTION]     |
+| Perl       | [PERL_SOLUTION]       |
 | Python     | [PYTHON_SOLUTION]     |
 | Ruby       | [RUBY_SOLUTION]       |
 | Rust       | [RUST_SOLUTION]       |
@@ -62,7 +62,7 @@
 | Haskell    | [HASKELL_EXECUTION_TIME]    |
 | Java       | [JAVA_EXECUTION_TIME]       |
 | Julia      | [JULIA_EXECUTION_TIME]      |
-| Kotlin     | [KOTLIN_EXECUTION_TIME]     |
+| Perl       | [PERL_EXECUTION_TIME]       |
 | Python     | [PYTHON_EXECUTION_TIME]     |
 | Ruby       | [RUBY_EXECUTION_TIME]       |
 | Rust       | [RUST_EXECUTION_TIME]       |
@@ -78,7 +78,7 @@
 | Haskell    | [HASKELL_EXECUTION_TIME]    |
 | Java       | [JAVA_EXECUTION_TIME]       |
 | Julia      | [JULIA_EXECUTION_TIME]      |
-| Kotlin     | [KOTLIN_EXECUTION_TIME]     |
+| Perl       | [PERL_EXECUTION_TIME]       |
 | Python     | [PYTHON_EXECUTION_TIME]     |
 | Ruby       | [RUBY_EXECUTION_TIME]       |
 | Rust       | [RUST_EXECUTION_TIME]       |
@@ -107,8 +107,8 @@
 ### Julia
 [How the Julia implementation differs (e.g., multiple dispatch, performance)]
 
-### Kotlin
-[How the Kotlin implementation differs (e.g., null safety, extension functions)]
+### Perl
+[How the Perl implementation differs]
 
 ### Python
 [How the Python implementation differs (e.g., type hints, list comprehensions)]

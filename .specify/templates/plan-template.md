@@ -38,8 +38,8 @@
 ### Julia
 [How the Julia implementation may differ (e.g., multiple dispatch, performance), including a step-by-step implementation strategy using the language]
 
-### Kotlin
-[How the Kotlin implementation may differ (e.g., null safety, extension functions), including a step-by-step implementation strategy using the language]
+### Perl
+[How the Perl implementation may differ, including a step-by-step implementation strategy using the language]
 
 ### Python
 [How the Python implementation may differ (e.g., type hints, list comprehensions), including a step-by-step implementation strategy using the language]

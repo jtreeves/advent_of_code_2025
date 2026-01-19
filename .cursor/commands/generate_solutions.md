@@ -12,7 +12,7 @@ If no day number is provided, uses the current day (based on date).
 
 ## Behavior
 
-1. For each of the 12 languages (C, Clojure, Elixir, Go, Haskell, Java, Julia, Kotlin, Python, Ruby, Rust, TypeScript):
+1. For each of the 12 languages (C, Clojure, Elixir, Go, Haskell, Java, Julia, Perl, Python, Ruby, Rust, TypeScript):
    - Creates or updates `days/day_NN/solutions/solution.{ext}`
    - Uses specifications from `days/day_NN/specs/` as guidance
    - Follows language-specific idioms and best practices
@@ -56,7 +56,7 @@ If no day number is provided, uses the current day (based on date).
 - Haskell - `solution.hs`
 - Java - `solution.java`
 - Julia - `solution.jl`
-- Kotlin - `solution.kt`
+- Perl - `solution.pl`
 - Python - `solution.py`
 - Ruby - `solution.rb`
 - Rust - `solution.rs`

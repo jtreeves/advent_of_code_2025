@@ -56,7 +56,7 @@ sub solve {
         push @merged, [@{$ranges[0]}];
         for my $i (1..$#ranges) {
             my ($start, $end) = @{$ranges[$i]};
-            my ($_, $last_end) = @{$merged[-1]};
+            my ($last_start, $last_end) = @{$merged[-1]};
             # Check if overlaps or is adjacent (start <= last_end + 1)
             if ($start <= $last_end + 1) {
                 # Merge: update end to max of both ends

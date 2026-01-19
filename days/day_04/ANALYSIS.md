@@ -31,7 +31,7 @@ The core algorithm involves neighbor counting using 8-directional checks (N, S, 
 | Haskell    | 1587             |
 | Java       | 1587             |
 | Julia      | 1587             |
-| Kotlin     | 1587             |
+| Perl       | 1587             |
 | Python     | 1587             |
 | Ruby       | 1587             |
 | Rust       | 1587             |
@@ -47,7 +47,7 @@ The core algorithm involves neighbor counting using 8-directional checks (N, S, 
 | Haskell    | 8946             |
 | Java       | 8946             |
 | Julia      | 8946             |
-| Kotlin     | 8946             |
+| Perl       | 1587             |
 | Python     | 8946             |
 | Ruby       | 8946             |
 | Rust       | 8946             |
@@ -65,7 +65,7 @@ The core algorithm involves neighbor counting using 8-directional checks (N, S, 
 | Haskell    | [Not measured]      |
 | Java       | 994                 |
 | Julia      | 9216                |
-| Kotlin     | 35629               |
+| Perl       | 1313                |
 | Python     | 29290               |
 | Ruby       | 910                 |
 | Rust       | 3541                |
@@ -81,7 +81,7 @@ The core algorithm involves neighbor counting using 8-directional checks (N, S, 
 | Haskell    | [Not measured]      |
 | Java       | 994                 |
 | Julia      | 9216                |
-| Kotlin     | 35629               |
+| Perl       | 1313                |
 | Python     | 29290               |
 | Ruby       | 910                 |
 | Rust       | 3541                |
@@ -110,8 +110,8 @@ The core algorithm involves neighbor counting using 8-directional checks (N, S, 
 ### Julia
 [How the Julia implementation differs (e.g., multiple dispatch, performance)]
 
-### Kotlin
-[How the Kotlin implementation differs (e.g., null safety, extension functions)]
+### Perl
+Perl filters out empty lines using `grep { $_ =~ /\S/ } split /\n/` before processing. Part 1 works directly with string arrays (`@lines`), accessing characters with `substr($lines[$i], $j, 1)`. For Part 2, Perl converts the grid to a 2D array of arrays using `@grid = map { [split //, $_] } @lines`, where `split //` splits a string into individual characters. The 8-directional neighbor counting function receives a reference to the grid: `count_neighbors(\@lines, ...)` and accesses with `$grid->[$ni]`. Character access uses `substr($grid->[$ni], $nj, 1)` when working with string references. The 8-directional neighbor check uses nested loops `for my $di (-1..1)` with explicit bounds checking. For Part 2, the iterative removal uses a `while (1)` loop with `last unless @to_remove` for early termination (Perl's `last` is equivalent to `break`). Positions to remove are stored as array references: `push @to_remove, [$i, $j]`, which are later dereferenced with `my ($i, $j) = @$pos`. The grid is modified in-place with direct assignment: `$grid[$i][$j] = '.'`. Perl rebuilds string arrays when needed: `my @grid_str = map { join('', @$_) } @grid` to convert back to strings for the neighbor counting function, demonstrating Perl's flexible conversion between string and array representations.
 
 ### Python
 [How the Python implementation differs (e.g., type hints, list comprehensions)]

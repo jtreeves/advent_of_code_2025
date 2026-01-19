@@ -22,7 +22,7 @@ Each day uses all 12 language:
 - Haskell
 - Java
 - Julia
-- Kotlin
+- Perl
 - Python
 - Ruby
 - Rust

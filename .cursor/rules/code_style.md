@@ -20,7 +20,7 @@ All code should be written in a way as idiomatic to its language as possible. Ea
 - **Haskell**: Purely functional style, pattern matching, type classes
 - **Java**: Object-oriented design, interfaces, streams API
 - **Julia**: Multiple dispatch, array operations, type system
-- **Kotlin**: Null safety, extension functions, data classes
+- **Perl**: Regular expressions, text processing, hash-based data structures
 - **Python**: List comprehensions, generator expressions, context managers
 - **Ruby**: Blocks, method chaining, metaprogramming where appropriate
 - **Rust**: Ownership, borrowing, pattern matching, Result/Option types

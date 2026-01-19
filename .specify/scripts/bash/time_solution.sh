@@ -3,7 +3,7 @@
 # time_solution.sh
 # Measures execution time of a solution in milliseconds
 # Usage: time_solution.sh <day_number> <language> [solution_file]
-# Language: c, clj, ex, go, hs, java, jl, kt, py, rb, rs, ts
+# Language: c, clj, ex, go, hs, java, jl, pl, py, rb, rs, ts
 
 set -e
 
@@ -64,11 +64,8 @@ case "$LANG" in
     rb)
         measure_time ruby "$SOLUTION_FILE"
         ;;
-    kt)
-        TEMP_JAR="sol_kt_$$.jar"
-        kotlinc "$SOLUTION_FILE" -include-runtime -d "$TEMP_JAR" 2>/dev/null
-        measure_time java -jar "$TEMP_JAR"
-        rm -f "$TEMP_JAR"
+    pl)
+        measure_time perl "$SOLUTION_FILE"
         ;;
     jl)
         measure_time julia "$SOLUTION_FILE"

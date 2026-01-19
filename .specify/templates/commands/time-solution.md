@@ -38,7 +38,7 @@ bash .specify/scripts/bash/time_solution.sh 5 py my_solution.py
 - `hs` - Haskell (compiles with ghc)
 - `java` - Java (compiles with javac, runs with java)
 - `jl` - Julia (runs with julia)
-- `kt` - Kotlin (compiles to JAR, runs with java)
+- `pl` - Perl (runs with perl)
 - `py` - Python (runs with python3)
 - `rb` - Ruby (runs with ruby)
 - `rs` - Rust (compiles with rustc)
@@ -50,7 +50,7 @@ Returns execution time in milliseconds as a single integer.
 
 ### Notes
 
-- For compiled languages (C, Rust, Haskell, Kotlin, Java), execution time includes compilation time
+- For compiled languages (C, Rust, Haskell, Java), execution time includes compilation time
 - For interpreted languages (Python, Ruby, TypeScript, Clojure, Elixir, Julia), time represents pure execution
 - Go times include compilation via `go run`
 - The script automatically cleans up temporary files (executables, object files, etc.)

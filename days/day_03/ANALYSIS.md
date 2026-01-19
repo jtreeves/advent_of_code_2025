@@ -34,7 +34,7 @@ The greedy approach is optimal: at each position i (0 to N-1), we select the lar
 | Haskell    | 17535            |
 | Java       | 17535            |
 | Julia      | 17535            |
-| Kotlin     | 17535            |
+| Perl       | 17535            |
 | Python     | 17535            |
 | Ruby       | 17535            |
 | Rust       | 17535            |
@@ -50,7 +50,7 @@ The greedy approach is optimal: at each position i (0 to N-1), we select the lar
 | Haskell    | 173577199527257  |
 | Java       | 173577199527257  |
 | Julia      | 173577199527257  |
-| Kotlin     | 173577199527257  |
+| Perl       | 17535            |
 | Python     | 173577199527257  |
 | Ruby       | 173577199527257  |
 | Rust       | 173577199527257  |
@@ -68,7 +68,7 @@ The greedy approach is optimal: at each position i (0 to N-1), we select the lar
 | Haskell    | 346                 |
 | Java       | 63                  |
 | Julia      | 679                 |
-| Kotlin     | 126                 |
+| Perl       | 59                  |
 | Python     | 40                  |
 | Ruby       | 100                 |
 | Rust       | 360                 |
@@ -84,7 +84,7 @@ The greedy approach is optimal: at each position i (0 to N-1), we select the lar
 | Haskell    | 346                 |
 | Java       | 63                  |
 | Julia      | 679                 |
-| Kotlin     | 126                 |
+| Perl       | 59                  |
 | Python     | 40                  |
 | Ruby       | 100                 |
 | Rust       | 360                 |
@@ -113,8 +113,8 @@ Java uses `StringBuilder` for efficient string building in the greedy algorithm.
 ### Julia
 Julia uses 1-indexed arrays, so the greedy algorithm starts at position 1 instead of 0. String indexing uses `bank[j]` for character access and comparison. The `find_largest_subsequence` function uses `Char[]` for result building and `push!` to add characters. String conversion uses `String(result)` and `parse(Int, ...)`. The implementation handles `SubString` types from `split()` by converting them to `String` using `String(x)`. The code style is similar to Python but with Julia's performance characteristics.
 
-### Kotlin
-Kotlin uses `StringBuilder` for string building, similar to Java but with more concise syntax. Character access uses `bank[j]` with direct character comparison. The `findLargestSubsequence` function uses simple loops with `var` for mutable position tracking. String building uses `result.append(maxDigit)` and conversion uses `result.toString().toLong()`. Kotlin's type inference and concise syntax make the code cleaner than Java while maintaining similar structure.
+### Perl
+Perl uses `substr($bank, $j, 1)` for character extraction and string comparison with `gt` operator (greater than) to find the maximum digit: `if ($digit gt $max_digit)`. The greedy algorithm builds the result incrementally using `push @result, $max_digit` into an array, then converts to integer with `int(join('', @result))`. The implementation initializes `@result = ()` as an empty array. String manipulation uses `substr()` for all character access. The implementation uses `for my $i (0..$n-1)` for iteration ranges and `for my $j ($start+1..$end-1)` for inner loops. Perl's string comparison operators (`gt`, `lt`, `eq`) work directly on characters since digits have consecutive ASCII values. The function returns 0 early if the bank is too short: `return 0 if length($bank) < $n`. Input parsing strips whitespace with `$line =~ s/^\s+|\s+$//g` and skips empty lines with `next unless $line`.
 
 ### Python
 Python uses simple string indexing `bank[j]` and character comparison with `>` operator. The `find_largest_subsequence` function builds the result as a list `result = []` and appends characters, then joins with `''.join(result)` and converts using `int()`. String slicing is idiomatic: `bank[start:end]`. The implementation is straightforward and readable, typical of Python's philosophy. No special data structures are needed—strings and lists suffice.
@@ -134,7 +134,7 @@ The most significant observation is that all implementations use the same greedy
 
 Functional languages (Haskell, Clojure, Elixir) express the greedy selection through recursion and immutable data structures. Haskell's recursive helper function and Clojure's `loop/recur` pattern both accumulate state through parameters rather than mutation. In contrast, imperative languages (C, Go, Java) use straightforward loops with mutable variables, which is more direct but less mathematically elegant.
 
-String building approaches vary interestingly: some languages build incrementally (Python's list, Ruby's array, Rust's Vec), while others use builder patterns (Java's `StringBuilder`, Kotlin's `StringBuilder`, Go's `strings.Builder`). The builder pattern is more efficient for string concatenation in loops, while array/vector building is more idiomatic in functional contexts.
+String building approaches vary interestingly: some languages build incrementally (Python's list, Ruby's array, Rust's Vec), while others use builder patterns (Java's `StringBuilder`, Go's `strings.Builder`). The builder pattern is more efficient for string concatenation in loops, while array/vector building is more idiomatic in functional contexts.
 
 Character comparison is uniform across languages—direct comparison of characters or their integer values works because digits '0'-'9' have consecutive ASCII/Unicode values. However, some languages (Clojure, Rust) require explicit conversion to integers for comparison, while others (Python, Ruby, Go) compare characters directly.
 

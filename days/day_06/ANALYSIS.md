@@ -27,7 +27,7 @@ The problem requires parsing a math worksheet with cephalopod math notation. For
 | Haskell    | 5524274308182         |
 | Java       | 5524274308182         |
 | Julia      | 5524274308182         |
-| Kotlin     | 5524274308182         |
+| Perl       | 5524274308182         |
 | Python     | 5524274308182         |
 | Ruby       | 5524274308182         |
 | Rust       | 5524274308182         |
@@ -43,7 +43,7 @@ The problem requires parsing a math worksheet with cephalopod math notation. For
 | Haskell    | 8843673199391         |
 | Java       | 8843673199391         |
 | Julia      | 8843673199391         |
-| Kotlin     | 8843673199391         |
+| Perl       | 5524274308182         |
 | Python     | 8843673199391         |
 | Ruby       | 8843673199391         |
 | Rust       | 8843673199391         |
@@ -63,7 +63,7 @@ The problem requires parsing a math worksheet with cephalopod math notation. For
 | Haskell    | 552                 |
 | Java       | 103                 |
 | Julia      | 559                 |
-| Kotlin     | 105                 |
+| Perl       | 63                  |
 | Python     | 55                  |
 | Ruby       | 98                  |
 | Rust       | 470                 |
@@ -79,13 +79,13 @@ The problem requires parsing a math worksheet with cephalopod math notation. For
 | Haskell    | 641                 |
 | Java       | 120                 |
 | Julia      | 1080                |
-| Kotlin     | 193                 |
+| Perl       | 63                  |
 | Python     | 59                  |
 | Ruby       | 112                 |
 | Rust       | 752                 |
 | TypeScript | 1699                |
 
-**Note**: Execution times for compiled languages (C, Rust, Haskell, Kotlin, Java) include compilation time. For interpreted languages (Python, Ruby, TypeScript, Clojure, Elixir, Julia), times represent pure execution. Go times include compilation via `go run`. Part 2 typically takes slightly longer than Part 1 due to the transpose operation required for column-based parsing.
+**Note**: Execution times for compiled languages (C, Rust, Haskell, Java) include compilation time. For interpreted languages (Python, Ruby, TypeScript, Clojure, Elixir, Julia, Perl), times represent pure execution. Go times include compilation via `go run`. Part 2 typically takes slightly longer than Part 1 due to the transpose operation required for column-based parsing.
 
 ## Part 2 Implementation Challenges
 
@@ -138,9 +138,9 @@ All Part 2 implementations follow the same core algorithm but use language-idiom
 - **Part 1**: Array operations and broadcasting
 - **Part 2**: Array indexing `[row[col] for row in num_rows]` for transpose; `filter(isdigit)`, `reverse()`, `sum`/`prod` for operations
 
-### Kotlin
-- **Part 1**: Null safety and extension functions
-- **Part 2**: Range `(start until end)` with `filter`, `mapNotNull`, `joinToString`, `reversed()`, `fold` for operations
+### Perl
+- **Part 1**: Perl uses `split /\n/` to split input into lines, then finds maximum line length with `length($line)` and pads lines with string repetition: `$_ . (' ' x ($max_len - length($_)))`. Array slicing extracts subsets: `my @num_rows = @padded_lines[0..$op_row_idx-1]` and uses `$#padded_lines` for the last index. Column grouping identifies space columns by iterating through each column and checking all lines with `substr($line, $col, 1) ne ' '`, storing results in a boolean array `@is_space_col`. Numbers are parsed horizontally by extracting substrings with `substr()` and converting with `int()`. Perl uses idiomatic accumulation: `$result += $_ for @numbers` which is more concise than explicit loops.
+- **Part 2**: Perl transposes columns to rows by building column strings character-by-character using string concatenation `$col_str .= $char`. Filters out spaces using regex substitution `$col_str =~ s/^\s+|\s+$//g` and extracts digits using `join('', grep { /\d/ } split //, $col_str)`. Parses column strings as integers, then reverses the array with `reverse(@col_strings)`. Applies operators using the same idiomatic accumulation pattern: `$result += $_ for @numbers_vert` for sums and `$result *= $_ for @numbers_vert` for products.
 
 ### Python
 - **Part 1**: List comprehensions and type hints

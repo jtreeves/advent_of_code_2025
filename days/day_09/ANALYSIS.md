@@ -50,7 +50,7 @@ The problem consists of two parts with significantly different complexity:
 | Haskell    |                       |
 | Java       |                       |
 | Julia      |                       |
-| Kotlin     |                       |
+| Perl       | N/A                   |
 | Python     | 4746238001            |
 | Ruby       |                       |
 | Rust       |                       |
@@ -66,7 +66,7 @@ The problem consists of two parts with significantly different complexity:
 | Haskell    |                       |
 | Java       |                       |
 | Julia      |                       |
-| Kotlin     |                       |
+| Perl       | N/A                   |
 | Python     | 1552139370            |
 | Ruby       |                       |
 | Rust       |                       |
@@ -84,7 +84,7 @@ The problem consists of two parts with significantly different complexity:
 | Haskell    |                             |
 | Java       |                             |
 | Julia      |                             |
-| Kotlin     |                             |
+| Perl       | N/A                         |
 | Python     | 6530                        |
 | Ruby       |                             |
 | Rust       |                             |
@@ -100,7 +100,7 @@ The problem consists of two parts with significantly different complexity:
 | Haskell    |                             |
 | Java       |                             |
 | Julia      |                             |
-| Kotlin     |                             |
+| Perl       | N/A                         |
 | Python     | 6530                        |
 | Ruby       |                             |
 | Rust       |                             |
@@ -129,8 +129,8 @@ The problem consists of two parts with significantly different complexity:
 ### Julia
 [How the Julia implementation differs (e.g., multiple dispatch, performance)]
 
-### Kotlin
-[How the Kotlin implementation differs (e.g., null safety, extension functions)]
+### Perl
+[Perl implementation not yet completed - would use coordinate compression with hash-based mappings, array-based grid representation, and recursive flood-fill or iterative stack-based approach similar to other implementations, leveraging Perl's array references and hash-based coordinate maps]
 
 ### Python
 The Python implementation uses type hints throughout (`list[tuple[int, int]]`, `dict[int, int]`, etc.) for clarity. The solution leverages Python's built-in data structures:
@@ -180,7 +180,7 @@ The Python implementation takes approximately 6.5 seconds for both parts combine
 ### Implementation Challenges
 Several challenges were encountered during implementation:
 1. **Syntax errors**: Various languages had syntax issues (e.g., Clojure bracket matching, Haskell type mismatches)
-2. **Logic errors**: Some implementations (Kotlin, Haskell) returned 0 for Part 2, indicating bugs in the flood-fill or point-in-polygon logic
+2. **Logic errors**: Some implementations (Haskell) returned 0 for Part 2, indicating bugs in the flood-fill or point-in-polygon logic
 3. **Type system issues**: Haskell's type system required careful handling of `reads` function return values
 4. **Coordinate handling**: Ensuring all coordinate transformations (compression, decompression) are handled correctly
 

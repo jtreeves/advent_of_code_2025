@@ -181,9 +181,18 @@ Create a helper function `countNeighbors(grid, i, j)` that:
   4. For Part 2: use `while` loop with flag, mark positions, remove, repeat
   5. Return count
 
-### Kotlin
-- Use `List<String>` or `Array<CharArray>`
-- Bounds checking with `if` and `indices` property
+### Perl
+- Use array of strings `@lines` initially, then convert to 2D array of arrays: `@grid = map { [split //, $_] } @lines`
+- Character access: `substr($grid->[$ni], $nj, 1)` or `$grid[$i][$j]` for array-of-arrays
+- String array reference: pass `\@lines` or `\@grid_str` to functions
+- Grid rebuilding: convert back to strings with `map { join('', @$_) } @grid`
+- Step-by-step implementation:
+  1. Read lines and convert to 2D array: `map { [split //, $_] } @lines`
+  2. For Part 1, iterate through grid checking each cell with `substr($lines[$i], $j, 1)`
+  3. Count 8-directional neighbors with nested loops `for my $di (-1..1)`
+  4. For Part 2, use `while (1)` loop with `last unless @to_remove` to continue until no changes
+  5. Build removal list as array of array references: `push @to_remove, [$i, $j]`
+  6. Modify grid in-place: `$grid[$i][$j] = '.'`
 - Step-by-step:
   1. Read file with `File.readLines()`
   2. Convert to list of strings or 2D array

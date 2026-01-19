@@ -34,7 +34,7 @@ Part 1 is straightforward: apply each rotation and check if the final position e
 | Haskell    | 1180             |
 | Java       | 1180             |
 | Julia      | 1180             |
-| Kotlin     | 1180             |
+| Perl       | 1180             |
 | Python     | 1180             |
 | Ruby       | 1180             |
 | Rust       | 1180             |
@@ -50,7 +50,7 @@ Part 1 is straightforward: apply each rotation and check if the final position e
 | Haskell    | 6892             |
 | Java       | 6892             |
 | Julia      | 6892             |
-| Kotlin     | 6892             |
+| Perl       | 1180             |
 | Python     | 6892             |
 | Ruby       | 6892             |
 | Rust       | 6892             |
@@ -68,7 +68,7 @@ Part 1 is straightforward: apply each rotation and check if the final position e
 | Haskell    | 345                 |
 | Java       | 76                  |
 | Julia      | 4323                |
-| Kotlin     | 92                  |
+| Perl       | 160                 |
 | Python     | 71                  |
 | Ruby       | 207                 |
 | Rust       | 202                 |
@@ -84,7 +84,7 @@ Part 1 is straightforward: apply each rotation and check if the final position e
 | Haskell    | 345                 |
 | Java       | 76                  |
 | Julia      | 4323                |
-| Kotlin     | 92                  |
+| Perl       | 160                 |
 | Python     | 71                  |
 | Ruby       | 207                 |
 | Rust       | 202                 |
@@ -113,8 +113,8 @@ Java uses object-oriented collections (`List<String>` from input utilities) and 
 ### Julia
 Julia uses simple `readlines` for input and `parse(Int, ...)` for string-to-integer conversion. The implementation is similar to Python in style but leverages Julia's performance characteristics. Array indexing `line[1]` for direction and `line[2:end]` for distance follows Julia conventions.
 
-### Kotlin
-Kotlin leverages concise syntax with `first()` and `drop(1).toInt()` for parsing. The implementation can use either `fold` for functional style or simple loops with `var` variables. Kotlin's null safety features aren't heavily utilized here since the input parsing is straightforward.
+### Perl
+Perl uses `use strict; use warnings;` for safety. File I/O uses lexical filehandles (`open my $fh, '<', "file"`) and slurps the entire file with `do { local $/; <$fh> }` (the `local $/` idiom makes `<>` read the whole file at once). Input filtering uses `grep { $_ =~ /\S/ }` to skip empty lines. String parsing uses `substr($line, 0, 1)` for character extraction and `int(substr($line, 1))` for numeric conversion. The implementation uses `for my $line (@lines)` for iteration and `for my $click (1..$distance)` for Part 2's position simulation, leveraging Perl's range operator. Modulo arithmetic requires the same negative handling as C: `(($position - $distance) % 100 + 100) % 100` because Perl's `%` operator can return negative values. Part 2 tracks the starting position `my $start_pos = $position` before simulating clicks, then updates the position after checking all intermediate positions. The solution returns a tuple `($part1, $part2)` which is destructured with `my ($part1, $part2) = solve($data)`.
 
 ### Python
 Python uses simple string slicing `line[0]` and `line[1:]` with `int()` conversion. The implementation uses straightforward `for` loops and `range(1, distance + 1)` for Part 2's intermediate position checking. List comprehensions could be used but aren't necessary here. The code is clear and readable, typical of Python's philosophy.

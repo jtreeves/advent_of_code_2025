@@ -27,7 +27,7 @@ The solution processes the grid row-by-row, simulating tachyon beam propagation.
 | Haskell    | 1622             |
 | Java       | 1622             |
 | Julia      | 1622             |
-| Kotlin     | 1622             |
+| Perl       | 1622             |
 | Python     | 1622             |
 | Ruby       | 1622             |
 | Rust       | 1622             |
@@ -43,7 +43,7 @@ The solution processes the grid row-by-row, simulating tachyon beam propagation.
 | Haskell    | 10357305916520      |
 | Java       | 10357305916520      |
 | Julia      | 10357305916520      |
-| Kotlin     | 10357305916520      |
+| Perl       | 59                  |
 | Python     | 10357305916520      |
 | Ruby       | 10357305916520      |
 | Rust       | 10357305916520      |
@@ -61,7 +61,7 @@ The solution processes the grid row-by-row, simulating tachyon beam propagation.
 | Haskell    | 615                 |
 | Java       | 266                 |
 | Julia      | 790                 |
-| Kotlin     | 321                 |
+| Perl       | 59                  |
 | Python     | 74                  |
 | Ruby       | 197                 |
 | Rust       | 323                 |
@@ -77,7 +77,7 @@ The solution processes the grid row-by-row, simulating tachyon beam propagation.
 | Haskell    | 615                 |
 | Java       | 266                 |
 | Julia      | 790                 |
-| Kotlin     | 321                 |
+| Perl       | 59                  |
 | Python     | 74                  |
 | Ruby       | 197                 |
 | Rust       | 323                 |
@@ -106,8 +106,8 @@ Java uses `Set<Integer>` for Part 1 active beam tracking with standard collectio
 ### Julia
 Julia uses `Set{Int}` for Part 1 active beam tracking. Part 2 uses 2D arrays (`zeros(Int64, rows, cols)`) with 1-based indexing (`1:rows`, `1:cols`). Uses `collect` to convert strings to character arrays. Array operations are straightforward with `sum` for aggregation. Note the 1-based indexing throughout (Julia convention) versus 0-based in most other languages.
 
-### Kotlin
-Kotlin uses `MutableSet<Int>` for Part 1 active beam tracking with standard collection operations. Part 2 uses `Array<LongArray>` for the 2D count matrix. Uses `grid[r][c]` for character access and `grid.map { it.toCharArray() }` for conversion. The implementation is concise with Kotlin's collection methods but requires explicit type declarations for arrays.
+### Perl
+Perl uses hashes as sets for Part 1: `my %active_beams = (); $active_beams{$col} = 1` tracks active beam columns (hash keys act as a set, values are just placeholders). Iteration over hash keys uses `for my $col (keys %active_beams)`. The hash is completely replaced each iteration with `%active_beams = %next_beams`, which copies all key-value pairs. For Part 2, Perl builds a 2D count matrix using `map { [(0) x $cols] } 0..$rows-1`, creating an array of array references where each inner array is initialized with zeros using the repetition operator `x`. Matrix updates use direct indexing: `$beam_counts[$r][$c] += $prev_count`. The grid is built as `@grid = map { [split //, $_] } @lines`, splitting each line into characters. Grid access uses nested indexing: `$grid[$r][$c]`. The implementation finds the start position with nested loops and early termination using `last`.
 
 ### Python
 Python uses `set` for Part 1 active beam tracking. Part 2 uses list comprehensions `[[0] * cols for _ in range(rows)]` for 2D initialization. Grid is `[list(line) for line in lines]` converting strings to lists. Simple and readable with Python's list and set operations. Type hints (`tuple[str, str]`) provide clarity but don't affect runtime.
@@ -125,7 +125,7 @@ TypeScript uses `Set<number>` for Part 1 active beam tracking with standard Java
 
 The most significant difference across implementations is how languages handle data structure updates for Part 2:
 
-- **Mutable updates (C, Go, Java, TypeScript, Python, Kotlin, Ruby, Julia)**: These languages directly modify array/matrix elements in-place (`beam_counts[r][c] += prev_count`). This is efficient and straightforward, with C using pointers and others using array indexing.
+- **Mutable updates (C, Go, Java, TypeScript, Python, Ruby, Julia, Perl)**: These languages directly modify array/matrix elements in-place (`beam_counts[r][c] += prev_count`). This is efficient and straightforward, with C using pointers and others using array indexing.
 
 - **Immutable updates (Clojure, Haskell, Elixir)**: These languages build new data structures during updates. Clojure uses `reduce` to construct new vectors. Haskell uses helper functions like `update2D` to create new lists. Elixir uses `List.replace_at` which creates new lists. This is more functional but potentially less memory-efficient.
 

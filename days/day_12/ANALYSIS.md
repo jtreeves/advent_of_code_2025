@@ -34,7 +34,7 @@ The solution approach:
 | Haskell    | 531              |
 | Java       | 531              |
 | Julia      | 531              |
-| Kotlin     | 531              |
+| Perl       | 531              |
 | Python     | 531              |
 | Ruby       | 531              |
 | Rust       | 531              |
@@ -50,7 +50,7 @@ The solution approach:
 | Haskell    | Final star       |
 | Java       | Final star       |
 | Julia      | Final star       |
-| Kotlin     | Final star       |
+| Perl       | 531              |
 | Python     | Final star       |
 | Ruby       | Final star       |
 | Rust       | Final star       |
@@ -70,7 +70,7 @@ All languages agree on both parts. Part 2 has no computational challenge - Day 1
 | Haskell    | 411                 |
 | Java       | 101                 |
 | Julia      | 907                 |
-| Kotlin     | 135                 |
+| Perl       | 54                  |
 | Python     | 59                  |
 | Ruby       | 142                 |
 | Rust       | 233                 |
@@ -86,13 +86,13 @@ All languages agree on both parts. Part 2 has no computational challenge - Day 1
 | Haskell    | N/A                 |
 | Java       | N/A                 |
 | Julia      | N/A                 |
-| Kotlin     | N/A                 |
+| Perl       | 54                  |
 | Python     | N/A                 |
 | Ruby       | N/A                 |
 | Rust       | N/A                 |
 | TypeScript | N/A                 |
 
-**Note**: Execution times for compiled languages (C, Rust, Haskell, Kotlin, Java) include compilation time. For interpreted languages (Python, Ruby, TypeScript, Clojure, Elixir, Julia), times represent pure execution. Go times include compilation via `go run`. Part 1 and Part 2 have identical execution times since Part 2 is just a placeholder with no computation.
+**Note**: Execution times for compiled languages (C, Rust, Haskell, Java) include compilation time. For interpreted languages (Python, Ruby, TypeScript, Clojure, Elixir, Julia, Perl), times represent pure execution. Go times include compilation via `go run`. Part 1 and Part 2 have identical execution times since Part 2 is just a placeholder with no computation.
 
 ## Implementation Differences
 
@@ -134,10 +134,8 @@ All implementations follow the same core algorithm: parse shapes to calculate ar
 - **Performance**: Fast array operations; compiled to efficient machine code
 - **Note**: Fixed variable scoping issue with `width` and `height` in try blocks
 
-### Kotlin
-- **Null safety**: Uses `toIntOrNull()` for safe parsing; null-safe operators
-- **Extension functions**: `padEnd()`, `split()`; concise collection operations
-- **Modern JVM**: Good performance with concise syntax; similar to Java but more expressive
+### Perl
+Perl uses regex matching extensively for parsing: `$line =~ /^(\d+):$/` to match shape headers with capture group `$1`. The character counting uses the transliteration operator `tr/#//` which is highly efficient in Perl: `$area += ($row =~ tr/#//)` counts all '#' characters in a string in a single pass. Shape parsing reads 3 lines using array indexing `$lines[$i + 1 + $j]` and handles missing lines with default empty strings. Stores shapes as integer areas in a pre-initialized array: `my @shape_areas = (0) x 6`. Query parsing uses multiple `split` operations with limit: `split /:/, $line, 2` limits splits to 2 parts, `split /x/, $dims` for dimensions, and `split /\s+/` for space-separated counts. All numeric conversions use `int()` and the implementation uses `map { int($_) } @count_parts` to convert entire arrays. Perl checks for valid queries using `next unless` to skip invalid lines. Area calculations use straightforward arithmetic: `$width * $height` and accumulation with `+=`. The implementation uses `$#lines` and `scalar @lines` appropriately for array length checks.
 
 ### Python
 - **List comprehensions**: Elegant parsing with `split()`, `strip()`, `count()`; `int()` for conversion
@@ -163,10 +161,10 @@ All implementations follow the same core algorithm: parse shapes to calculate ar
 
 1. **Simplified algorithm**: All implementations use the same area-check heuristic rather than complex packing algorithms. This makes the code simpler and easier to understand across all languages.
 
-2. **Performance differences**: Compiled languages (C, Rust, Java, Kotlin, Haskell) are generally faster, with Python being surprisingly fast among interpreted languages. TypeScript is the slowest due to Node.js overhead.
+2. **Performance differences**: Compiled languages (C, Rust, Java, Haskell) are generally faster, with Python being surprisingly fast among interpreted languages. TypeScript is the slowest due to Node.js overhead.
 
 3. **Error handling patterns**:
-   - **Try/catch**: Clojure, Elixir, Ruby, Kotlin use exceptions for parsing failures
+   - **Try/catch**: Clojure, Elixir, Ruby, Perl use exceptions for parsing failures
    - **Explicit errors**: Go, Rust, Haskell use `Result` or explicit error returns
    - **Graceful degradation**: Most implementations skip invalid queries rather than crashing
 

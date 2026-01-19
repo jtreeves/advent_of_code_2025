@@ -111,17 +111,17 @@ Detailed rules and guidelines for each programming language used in this project
 - Prefer broadcasting (`f.(x)`) for element-wise operations
 - Consider memory layout for performance
 
-## Kotlin
+## Perl
 
-### Null Safety
-- Use nullable types (`?`) explicitly
-- Use safe call operator (`?.`) and elvis operator (`?:`)
-- Avoid force unwrapping (`!!`) unless absolutely necessary
+### Text Processing
+- Leverage Perl's powerful regular expressions for parsing
+- Use hash-based data structures for key-value operations
+- Follow Perl best practices for file I/O and string manipulation
 
-### Modern Features
-- Use data classes for simple data containers
-- Use extension functions for utility methods
-- Prefer immutability (val over var)
+### Style
+- Use meaningful variable names with appropriate sigils ($, @, %)
+- Prefer built-in functions and operators over complex constructs
+- Use `strict` and `warnings` pragmas for better code quality
 
 ## Python
 

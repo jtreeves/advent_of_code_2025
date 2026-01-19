@@ -118,10 +118,18 @@ The problem requires finding invalid product IDs within given ranges. An ID is i
 - Use `repeat()` for pattern repetition
 - Array indexing and ranges
 
-### Kotlin
-- Use `split()` to parse ranges
-- Convert numbers with `toString()`
-- String slicing with `substring()` or slice notation
+### Perl
+- Use `split /,/, $line` to parse comma-separated ranges
+- Regex pattern matching: `$range_str =~ /(\d+)-(\d+)/` with capture groups `$1`, `$2`
+- String slicing with `substr($str, $start, $length)`
+- String repetition operator `x`: `$pattern x $k` to repeat a pattern k times
+- String comparison with `eq` and length checking with `length($str)`
+- Step-by-step implementation:
+  1. Parse ranges using `split /,/, $line` then regex matching for start-end pairs
+  2. For each ID, convert to string with implicit conversion or `"$id"`
+  3. Part 1: Check if length is even, split in half with `substr()`, compare halves with `eq`
+  4. Part 2: Loop through divisors `k` from 2 to length, extract pattern, check if string equals `$pattern x $k`
+  5. Return tuple of sums
 - Use `repeat()` for pattern repetition
 - Can use either functional or imperative style
 

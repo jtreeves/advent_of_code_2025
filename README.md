@@ -23,7 +23,7 @@ This repository contains solutions to the Advent of Code 2025 challenge problems
 - Haskell
 - Java
 - Julia
-- Kotlin
+- Perl
 - Python
 - Ruby
 - Rust
@@ -52,7 +52,7 @@ You'll need to install the following based on which days you want to run:
 - **Haskell**: GHC (Glasgow Haskell Compiler) - [Install GHC](https://www.haskell.org/ghc/)
 - **Java**: JDK 11+ (javac and java commands)
 - **Julia**: Julia 1.8+ - [Install Julia](https://julialang.org/downloads/)
-- **Kotlin**: Kotlin compiler - [Install Kotlin](https://kotlinlang.org/docs/command-line.html)
+- **Perl**: Perl 5.30+ - [Install Perl](https://www.perl.org/get.html)
 - **Python**: Python 3.8+ with `typing` support
 - **Ruby**: Ruby 2.7+ (usually pre-installed on macOS/Linux)
 - **Rust**: Rust toolchain (rustc, cargo) - [Install Rust](https://www.rust-lang.org/tools/install)
@@ -198,14 +198,13 @@ julia solution.jl
 
 **Requirements**: Julia 1.8+ - [Install Julia](https://julialang.org/downloads/).
 
-#### Kotlin
+#### Perl
 
 ```bash
-kotlinc solution.kt -include-runtime -d solution.jar
-java -jar solution.jar
+perl solution.pl
 ```
 
-**Requirements**: Kotlin compiler - [Install Kotlin](https://kotlinlang.org/docs/command-line.html).
+**Requirements**: Perl 5.30+ - [Install Perl](https://www.perl.org/get.html).
 
 #### Python
 

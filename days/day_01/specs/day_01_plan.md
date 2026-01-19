@@ -143,15 +143,17 @@ However, for clarity and correctness, simulating each position during the rotati
   4. For Part 2, use range or collect to generate positions
   5. Return count
 
-### Kotlin
-- Use `File.readLines()` or `BufferedReader`
-- String parsing with `first()` and `drop(1).toInt()`
+### Perl
+- Use `use strict; use warnings;` for safety
+- File I/O uses `open my $fh, '<', "file"` and slurps with `do { local $/; <$fh> }`
+- String parsing uses `substr($line, 0, 1)` for single character extraction and `int(substr($line, 1))` for numeric conversion
 - Step-by-step implementation:
-  1. Read file as list of lines
-  2. Parse each line: `first()` for direction, `drop(1).toInt()` for distance
-  3. Use `fold` or loop with `var position` and `var count`
-  4. For Part 2, use range or `repeat` to simulate positions
-  5. Return count
+  1. Slurp entire file into string, split by newlines with `split /\n/`
+  2. Use `for my $line (@lines)` to iterate
+  3. Parse direction with `substr($line, 0, 1)` and distance with `int(substr($line, 1))`
+  4. Use modulo arithmetic with proper negative handling: `(($position - $distance) % 100 + 100) % 100`
+  5. For Part 2, use `for my $click (1..$distance)` to simulate each position during rotation
+  6. Return tuple `($part1, $part2)` from solve function
 
 ### Python
 - Simple file reading with `open().readlines()`

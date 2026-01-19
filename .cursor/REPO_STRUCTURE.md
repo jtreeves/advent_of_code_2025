@@ -68,7 +68,7 @@ Contains rule files that define **how the AI should behave** according to guidel
 - **`aoc.md`**: Project structure rules, language assignments, workflow conventions, and AOC integration guidelines
 - **`code_style.md`**: Formatting, code style guidelines, idiomatic code principles, efficiency requirements, and minimal dependency practices
 - **`git_workflow.md`**: Git commit message conventions
-- **`language_specific.md`**: Detailed rules and guidelines for each programming language (C, Clojure, Elixir, Go, Haskell, Java, Julia, Kotlin, Python, Ruby, Rust, TypeScript)
+- **`language_specific.md`**: Detailed rules and guidelines for each programming language (C, Clojure, Elixir, Go, Haskell, Java, Julia, Perl, Python, Ruby, Rust, TypeScript)
 - **`testing.md`**: Testing conventions and requirements, including test file naming (`test_1.txt`, `test_2.txt`, etc.), test execution protocols, and validation requirements
 - **`utility_usage.md`**: Rules on when to use utilities vs keeping code in solution files, utility creation guidelines, and code reuse patterns
 

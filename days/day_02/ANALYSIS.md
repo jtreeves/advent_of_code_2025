@@ -33,7 +33,7 @@ The core algorithm involves: (1) parsing input ranges in the format `start-end, 
 | Haskell    | 55916882972           |
 | Java       | 55916882972           |
 | Julia      | 55916882972           |
-| Kotlin     | 55916882972           |
+| Perl       | 55916882972           |
 | Python     | 55916882972           |
 | Ruby       | 55916882972           |
 | Rust       | 55916882972           |
@@ -49,7 +49,7 @@ The core algorithm involves: (1) parsing input ranges in the format `start-end, 
 | Haskell    | 76169125915           |
 | Java       | 76169125915           |
 | Julia      | 76169125915           |
-| Kotlin     | 76169125915           |
+| Perl       | 55916882972           |
 | Python     | 76169125915           |
 | Ruby       | 76169125915           |
 | Rust       | 76169125915           |
@@ -67,7 +67,7 @@ The core algorithm involves: (1) parsing input ranges in the format `start-end, 
 | Haskell    | 12048                       |
 | Java       | 350                         |
 | Julia      | 1117                        |
-| Kotlin     | 359                         |
+| Perl       | 4563                        |
 | Python     | 1310                        |
 | Ruby       | 2498                        |
 | Rust       | 783                         |
@@ -83,7 +83,7 @@ The core algorithm involves: (1) parsing input ranges in the format `start-end, 
 | Haskell    | 12048                       |
 | Java       | 350                         |
 | Julia      | 1117                        |
-| Kotlin     | 359                         |
+| Perl       | 4563                        |
 | Python     | 1310                        |
 | Ruby       | 2498                        |
 | Rust       | 783                         |
@@ -112,8 +112,8 @@ Java uses object-oriented collections and standard library methods like `String.
 ### Julia
 Julia uses simple `split()` for parsing and `string()` for conversion. String slicing uses `str[1:n]` syntax, and `repeat()` is used for pattern repetition. Array indexing and ranges follow Julia conventions. The implementation leverages Julia's performance characteristics with straightforward code.
 
-### Kotlin
-Kotlin leverages concise syntax with `split()`, `toLong()`, and `toString()`. String slicing uses `substring()` or slice notation, and `repeat()` is used for pattern repetition. The implementation can use either `fold` for functional style or simple loops with `var` variables.
+### Perl
+Perl uses `split /,/, $line` to parse comma-separated ranges, then regex pattern matching `$range_str =~ /(\d+)-(\d+)/` with capture groups `$1` and `$2` to extract start and end values into anonymous array references `[$1, $2]`. The implementation iterates through ranges using Perl's idiomatic range operator: `for my $num ($start..$end)` which iterates through all integers in the inclusive range. String validation uses `substr()` for slicing: `substr($id_str, 0, $half)` for the first half and `substr($id_str, $half)` for the second half. The function returns 0 or 1 using a ternary operator: `return $first_half eq $second_half ? 1 : 0`. For Part 2, Perl leverages the string repetition operator `x` to check patterns: `$id_str eq $pattern x $k` elegantly checks if a string consists of a pattern repeated k times. This is more concise than manually constructing repeated strings in most languages. The implementation uses `grep` with `/\S/` to filter non-empty lines and string interpolation `"$num"` for implicit string conversion.
 
 ### Python
 Python uses simple `split()` for parsing and `str()` for conversion. String slicing uses `str[i:j]` syntax, and `str * k` provides elegant pattern repetition. The implementation uses straightforward loops and can leverage list comprehensions. The code is clear and readable, typical of Python's philosophy.

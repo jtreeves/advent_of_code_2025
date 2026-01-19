@@ -37,7 +37,7 @@ The core algorithm uses **Depth-First Search (DFS) with memoization** to efficie
 | Haskell    | 497                   |
 | Java       | 497                   |
 | Julia      | 497                   |
-| Kotlin     | 497                   |
+| Perl       | 497                   |
 | Python     | 497                   |
 | Ruby       | 497                   |
 | Rust       | 497                   |
@@ -53,7 +53,7 @@ The core algorithm uses **Depth-First Search (DFS) with memoization** to efficie
 | Haskell    | 358564784931864       |
 | Java       | 358564784931864       |
 | Julia      | 358564784931864       |
-| Kotlin     | 358564784931864       |
+| Perl       | 497                   |
 | Python     | 358564784931864       |
 | Ruby       | 358564784931864       |
 | Rust       | 358564784931864       |
@@ -71,7 +71,7 @@ The core algorithm uses **Depth-First Search (DFS) with memoization** to efficie
 | Haskell    | 529                 |
 | Java       | 121                 |
 | Julia      | 705                 |
-| Kotlin     | 160                 |
+| Perl       | 53                  |
 | Python     | 77                  |
 | Ruby       | 150                 |
 | Rust       | 565                 |
@@ -87,7 +87,7 @@ The core algorithm uses **Depth-First Search (DFS) with memoization** to efficie
 | Haskell    | 529                 |
 | Java       | 121                 |
 | Julia      | 705                 |
-| Kotlin     | 160                 |
+| Perl       | 53                  |
 | Python     | 77                  |
 | Ruby       | 150                 |
 | Rust       | 565                 |
@@ -116,8 +116,8 @@ Java uses `Map<String, List<String>>` for the graph. Memoization uses `Map<Strin
 ### Julia
 Julia uses `Dict{String, Vector{String}}` for the graph. Part 1 memoization uses `Dict{String, Int64}`, while Part 2 defines a `MemoKey` struct at module level (structs must be at top-level in Julia) with fields `node::String`, `visited_fft::Bool`, `visited_dac::Bool`. The recursive functions use `get()` with default values for safe dictionary access. Julia's dynamic typing allows concise code while maintaining type stability through type annotations.
 
-### Kotlin
-Kotlin uses `MutableMap<String, List<String>>` for the graph. Memoization uses `MutableMap<String, Long>` for Part 1 and `MutableMap<MemoKey, Long>` for Part 2, where `MemoKey` is a data class (automatically provides `equals()` and `hashCode()`). Recursive functions are defined with `fun` inside the `solve` function as local functions. Null safety is handled with `?:` operator and `getOrDefault`. Kotlin's data classes make the memoization key implementation concise.
+### Perl
+Perl uses hash references for both the graph and memoization: `my %graph = (); $graph{$device} = \@outputs` where `\@outputs` is a reference to an array. Memoization for Part 1 uses a hash `%part1_memo` with string keys. For Part 2, the memoization key is constructed as a stringified tuple: `my $key = "$node|$visited_fft|$visited_dac"` since Perl hashes can only use strings or references as keys (unlike Python which can use tuples directly). Hash existence checks use `exists $memo_ref->{$key}` before accessing to avoid warnings. Array references are accessed with `@{$graph_ref->{$node} || []}` with a default empty array to handle missing keys gracefully. The graph building uses `split /:/, $line, 2` with limit 2 to split on the first colon only, and `split /\s+/` to split outputs by whitespace. Perl uses `||` for logical OR and boolean context for flag updates: `$visited_fft || ($node eq "fft")` sets the flag to true if either condition is true. The recursive functions use separate function definitions rather than nested functions, with references passed as parameters. Base cases return early: `return 1 if $node eq "out"`.
 
 ### Python
 Python uses `dict[str, list[str]]` with type hints. Memoization uses dictionaries directly: `dict[str, int]` for Part 1 and `dict[tuple[str, bool, bool], int]` for Part 2, using tuples as keys (Python tuples are hashable). Recursive functions are defined as nested functions inside `solve`, capturing the graph in their closure. Python's dynamic typing and dictionary flexibility make the memoization straightforward.
@@ -134,12 +134,12 @@ TypeScript uses `Map<string, string[]>` for the graph with type annotations. Mem
 ## Key Observations
 
 ### Memoization Patterns
-- **Imperative languages (C, Go, Java, Kotlin)**: Use mutable maps/dictionaries that are passed by reference and modified in-place during recursion. This is the most straightforward approach.
+- **Imperative languages (C, Go, Java, Perl)**: Use mutable maps/dictionaries that are passed by reference and modified in-place during recursion. This is the most straightforward approach.
 - **Functional languages (Haskell, Elixir)**: Thread memo state through recursion by returning `(result, updated_memo)` tuples. This maintains purity but requires careful state threading.
 - **Hybrid languages (Python, Ruby, TypeScript, Julia)**: Use mutable dictionaries/maps but in a more functional style, taking advantage of both paradigms.
 
 ### Memoization Keys for Part 2
-- **Struct/Class-based keys (Go, Java, Kotlin, Rust, Haskell, Julia)**: Define a dedicated type for the memo key with proper equality/hash methods. This is type-safe and clear.
+- **Struct/Class-based keys (Go, Java, Rust, Haskell, Julia)**: Define a dedicated type for the memo key with proper equality/hash methods. This is type-safe and clear.
 - **Tuple-based keys (Python, Elixir, Haskell)**: Use tuples directly as map keys. Simple and expressive.
 - **Array/Vector-based keys (Ruby, Clojure)**: Use arrays/vectors as keys. Works well in these languages where arrays are hashable.
 - **String-based keys (TypeScript)**: Serialize the key to a string due to TypeScript's Map limitations with object keys. Less type-safe but pragmatic.

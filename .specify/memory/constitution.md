@@ -27,7 +27,7 @@ This project follows Spec-Driven Development (SDD) principles using spec-kit.
 - **Haskell**: Functional style, purity where possible
 - **Java**: Object-oriented design, proper exception handling
 - **Julia**: Multiple dispatch, performance-conscious code
-- **Kotlin**: Null safety, idiomatic Kotlin patterns
+- **Perl**: Regular expressions, text processing, hash-based data structures
 - **Python**: Use type hints, follow PEP 8
 - **Ruby**: Ruby-style idioms, readable code
 - **Rust**: Ownership principles, safe memory management

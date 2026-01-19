@@ -125,10 +125,18 @@ For finding the largest N-digit subsequence from string `s` of length `L`:
 - Convert with `parse(Int, str)` or `parse(BigInt, str)` if needed
 - Loop-based greedy implementation
 
-### Kotlin
-- Use `File.readLines()` to read input
-- String indexing with `get` or `[i]` syntax
-- Character comparison with `compareTo` or direct char comparison
+### Perl
+- Use `split /\n/, $input_data` to split into lines
+- String character access with `substr($bank, $j, 1)` 
+- Character comparison with string operators: `$digit gt $max_digit` (greater than)
+- Array building with `push @result, $max_digit`
+- String building by joining array: `join('', @result)`
+- Step-by-step implementation:
+  1. Read file and split into lines
+  2. For each bank string, use greedy algorithm with nested loops
+  3. Find maximum digit in valid range using `substr($bank, $j, 1)` and `gt` comparison
+  4. Track position and build result array with `push`
+  5. Convert result array to integer with `int(join('', @result))`
 - Convert with `toLong()` or `toBigInteger()` for large numbers
 - Loop-based greedy with string building
 

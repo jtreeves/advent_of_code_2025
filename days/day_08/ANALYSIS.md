@@ -28,7 +28,7 @@ The problem requires connecting 3D junction boxes into circuits using a greedy a
 | Haskell    | 32103            |
 | Java       | 32103            |
 | Julia      | 32103            |
-| Kotlin     | 32103            |
+| Perl       | 32103            |
 | Python     | 32103            |
 | Ruby       | 32103            |
 | Rust       | 32103            |
@@ -44,7 +44,7 @@ The problem requires connecting 3D junction boxes into circuits using a greedy a
 | Haskell    | 8133642976       |
 | Java       | 8133642976       |
 | Julia      | 8133642976       |
-| Kotlin     | 8133642976       |
+| Perl       | 32103            |
 | Python     | 8133642976       |
 | Ruby       | 8133642976       |
 | Rust       | 8133642976       |
@@ -62,7 +62,7 @@ The problem requires connecting 3D junction boxes into circuits using a greedy a
 | Haskell    | 2732                |
 | Java       | 355                 |
 | Julia      | 1019                |
-| Kotlin     | 503                 |
+| Perl       | 1844                |
 | Python     | 696                 |
 | Ruby       | 574                 |
 | Rust       | 803                 |
@@ -78,13 +78,13 @@ The problem requires connecting 3D junction boxes into circuits using a greedy a
 | Haskell    | 2732                |
 | Java       | 355                 |
 | Julia      | 1019                |
-| Kotlin     | 503                 |
+| Perl       | 1844                |
 | Python     | 696                 |
 | Ruby       | 574                 |
 | Rust       | 803                 |
 | TypeScript | 2202                |
 
-**Note**: Execution times are averaged over 3 runs. Times include compilation for compiled languages (C, Rust, Haskell, Kotlin, Java). The timing script measures total execution time for both parts combined. C and Java show excellent performance, while interpreted JVM languages (Clojure) and functional languages (Elixir, Haskell) show higher overhead.
+**Note**: Execution times are averaged over 3 runs. Times include compilation for compiled languages (C, Rust, Haskell, Java). The timing script measures total execution time for both parts combined. C and Java show excellent performance, while interpreted JVM languages (Clojure) and functional languages (Elixir, Haskell) show higher overhead.
 
 ## Implementation Differences
 
@@ -138,12 +138,8 @@ The problem requires connecting 3D junction boxes into circuits using a greedy a
 - **Array operations**: Direct array indexing and mutation; `sort!` for in-place sorting
 - **Performance**: Good (1019 ms) - JIT compiled but with runtime compilation overhead
 
-### Kotlin
-- **Data classes**: `Coord` and `PairData` as data classes (renamed to avoid conflict with built-in `Pair`)
-- **Null safety**: `finalPair: PairData?` nullable type for optional final pair
-- **Extension functions**: Built-in array/list methods like `sortBy`, `sortedDescending`
-- **Smart casts**: Kotlin's type system simplifies null checks
-- **Performance**: Good (503 ms) - compiled to JVM with Kotlin optimizations
+### Perl
+Perl implements Union-Find using package-based object-oriented programming. The `UnionFind` package uses a blessed hash reference `$self` to store state: `parent => [0..$n-1]`, `size => [(1) x $n]` using repetition operator, and `component_count`. Methods access hash keys with `$self->{parent}[$x]` and modify in-place. The `bless $self, $class` creates an object. Path compression is implemented recursively: `$self->{parent}[$x] = $self->find($self->{parent}[$x])`. Pairs are stored as array references `[$i, $j, $dist_sq]` and sorted with `sort { $a->[2] <=> $b->[2] }`. Component sizes are tracked in a hash `%component_sizes` using roots as keys, and values are extracted with `values %component_sizes` then sorted descending: `sort { $b <=> $a }`. Array access uses conditional: `@sizes >= 3 ? $sizes[0] * $sizes[1] * $sizes[2] : 0`. The implementation uses `undef` to track optional values and `defined()` to check. Early termination uses `last if` conditions.
 
 ### Python
 - **Class-based Union-Find**: `UnionFind` class with methods using `self`
@@ -180,7 +176,7 @@ The problem requires connecting 3D junction boxes into circuits using a greedy a
 ## Key Observations
 
 1. **Union-Find Implementation Variants**:
-   - **Mutable languages** (C, Java, Kotlin, Ruby, Rust, Julia, Python, Go): Direct mutation of parent/size arrays - most natural and efficient
+   - **Mutable languages** (C, Java, Perl, Ruby, Rust, Julia, Python, Go): Direct mutation of parent/size arrays - most natural and efficient
    - **Immutable languages** (Clojure, Elixir, Haskell): Use atoms, return new state, or state threading - more complex but maintains immutability
 
 2. **Performance Patterns**:
@@ -189,7 +185,6 @@ The problem requires connecting 3D junction boxes into circuits using a greedy a
    - **Mid-range**: Interpreted imperative (Python: 696ms, Ruby: 574ms) - better than functional but slower than compiled
 
 3. **Language-Specific Challenges**:
-   - **Kotlin**: Had to rename `Pair` to `PairData` to avoid conflict with built-in `Pair<K,V>` type
    - **Julia**: 1-indexed arrays require converting to 0-indexed logic mentally
    - **Elixir**: Descending ranges (`1..0`) cause warnings, requiring conditional logic
    - **Haskell**: Union-Find mutation requires threading state through function calls

@@ -34,7 +34,7 @@ This problem involves solving two related optimization problems on a system of l
 | Haskell    | NOT SOLVED            |
 | Java       | TOO LONG              |
 | Julia      | TOO LONG              |
-| Kotlin     | TOO LONG              |
+| Perl       | N/A                   |
 | Python     | 459                   |
 | Ruby       | TOO LONG              |
 | Rust       | NOT SOLVED            |
@@ -50,7 +50,7 @@ This problem involves solving two related optimization problems on a system of l
 | Haskell    | NOT SOLVED            |
 | Java       | TOO LONG              |
 | Julia      | TOO LONG              |
-| Kotlin     | TOO LONG              |
+| Perl       | N/A                   |
 | Python     | 18687                 |
 | Ruby       | TOO LONG              |
 | Rust       | NOT SOLVED            |
@@ -68,7 +68,7 @@ This problem involves solving two related optimization problems on a system of l
 | Haskell    | N/A (NOT SOLVED)            |
 | Java       | TOO LONG (>60000)           |
 | Julia      | TOO LONG (>60000)           |
-| Kotlin     | TOO LONG (>60000)           |
+| Perl       | N/A                         |
 | Python     | 1587.6                      |
 | Ruby       | TOO LONG (>60000)           |
 | Rust       | N/A (NOT SOLVED)            |
@@ -84,7 +84,7 @@ This problem involves solving two related optimization problems on a system of l
 | Haskell    | N/A (NOT SOLVED)            |
 | Java       | TOO LONG (>60000)           |
 | Julia      | TOO LONG (>60000)           |
-| Kotlin     | TOO LONG (>60000)           |
+| Perl       | N/A                         |
 | Python     | 1587.6                      |
 | Ruby       | TOO LONG (>60000)           |
 | Rust       | N/A (NOT SOLVED)            |
@@ -113,8 +113,8 @@ This problem involves solving two related optimization problems on a system of l
 ### Julia
 [How the Julia implementation differs (e.g., multiple dispatch, performance)]
 
-### Kotlin
-[How the Kotlin implementation differs (e.g., null safety, extension functions)]
+### Perl
+[Perl implementation exists but timed out - would use brute force with early termination for Part 1, and Z3 solver integration via external library or manual ILP solving for Part 2. Perl's string manipulation and array operations would handle the button matrix representation efficiently]
 
 ### Python
 The Python implementation uses:

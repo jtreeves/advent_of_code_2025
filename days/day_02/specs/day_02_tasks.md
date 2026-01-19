@@ -68,7 +68,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
-    - [ ] Write Kotlin implementation
+    - [ ] Write Perl implementation
         - [ ] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files
@@ -177,7 +177,7 @@
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate tables in the ANALYSIS.md file with the relevant information from the execution
         - [ ] Update the appropriate implementation section in the ANALYSIS.md file with the relevant implementation information quirks
-    - [ ] Write Kotlin implementation
+    - [ ] Write Perl implementation
         - [ ] Create first draft of code based on plan notes
         - [ ] Revise code to increase its quality
         - [ ] Test solution against all test data files, parsed from their files

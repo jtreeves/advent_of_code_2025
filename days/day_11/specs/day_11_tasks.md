@@ -15,7 +15,7 @@
     - [x] Write Haskell implementation (both Part 1 and Part 2)
     - [x] Write Java implementation (both Part 1 and Part 2)
     - [x] Write Julia implementation (both Part 1 and Part 2)
-    - [x] Write Kotlin implementation (both Part 1 and Part 2)
+    - [x] Write Perl implementation (both Part 1 and Part 2)
     - [x] Write Python implementation (both Part 1 and Part 2)
     - [x] Write Ruby implementation (both Part 1 and Part 2)
     - [x] Write Rust implementation (both Part 1 and Part 2)

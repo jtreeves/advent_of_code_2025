@@ -32,7 +32,7 @@ The core algorithm involves: (1) parsing input split by a blank line into ranges
 | Haskell    | 525              |
 | Java       | 525              |
 | Julia      | 525              |
-| Kotlin     | 525              |
+| Perl       | 525              |
 | Python     | 525              |
 | Ruby       | 525              |
 | Rust       | 525              |
@@ -48,7 +48,7 @@ The core algorithm involves: (1) parsing input split by a blank line into ranges
 | Haskell    | 333892124923577       |
 | Java       | 333892124923577       |
 | Julia      | 333892124923577       |
-| Kotlin     | 333892124923577       |
+| Perl       | 333892124923577       |
 | Python     | 333892124923577       |
 | Ruby       | 333892124923577       |
 | Rust       | 333892124923577       |
@@ -66,7 +66,7 @@ The core algorithm involves: (1) parsing input split by a blank line into ranges
 | Haskell    | 352                |
 | Java       | 73                 |
 | Julia      | 511                |
-| Kotlin     | 99                 |
+| Perl       | 83                 |
 | Python     | 55                 |
 | Ruby       | 105                |
 | Rust       | 267                |
@@ -82,13 +82,13 @@ The core algorithm involves: (1) parsing input split by a blank line into ranges
 | Haskell    | 352                |
 | Java       | 73                 |
 | Julia      | 511                |
-| Kotlin     | 99                 |
+| Perl       | 83                 |
 | Python     | 55                 |
 | Ruby       | 105                |
 | Rust       | 267                |
 | TypeScript | 1412               |
 
-**Note**: Execution times for compiled languages (C, Rust, Haskell, Kotlin, Java) include compilation time. For interpreted languages (Python, Ruby, TypeScript, Clojure, Elixir, Julia), times represent pure execution. Go times include compilation via `go run`.
+**Note**: Execution times for compiled languages (C, Rust, Haskell, Java) include compilation time. For interpreted languages (Python, Ruby, TypeScript, Clojure, Elixir, Julia, Perl), times represent pure execution. Go times include compilation via `go run`.
 
 ## Implementation Differences
 
@@ -113,8 +113,8 @@ Java uses `List<long[]>` for ranges (arrays of two longs) and `List<Long>` for I
 ### Julia
 Julia uses 1-based indexing for arrays (`1:blank_idx`). Range tuples are stored in arrays. The merge logic modifies arrays in-place (`last[2] = max(...)`). Uses `parse(Int64, ...)` for integer conversion. The implementation uses Julia's multiple dispatch but in a simple imperative style here. `sum` with generator expression calculates total coverage. Note the unusual conversion `([x[1], x[2]] for x in merged)` to handle array mutation in the sum calculation.
 
-### Kotlin
-Kotlin uses `Pair<Long, Long>` for ranges and `MutableList` for ranges and IDs. Sorting uses `sortedBy { it.first }` for concise syntax. Merge uses `mutableListOf` and modifies pairs with `Pair(last.first, maxOf(...))` to create new pairs (since `Pair` is immutable). Uses `sumOf` lambda for calculating total coverage. The implementation leverages Kotlin's concise collection operations while maintaining mutable collections where needed.
+### Perl
+Perl uses anonymous array references `[$start, $end]` for range storage, building `@ranges` as an array of references. Sorting uses a custom comparator with the `<=>` operator: `sort { $a->[0] <=> $b->[0] } @ranges`. The merge logic copies the first range: `push @merged, [@{$ranges[0]}]` using array slice `[@{...}]` to create a new array reference. Range merging dereferences the last merged range: `my ($last_start, $last_end) = @{$merged[-1]}` and modifies in-place using negative indexing: `$merged[-1]->[1] = $last_end > $end ? $last_end : $end`. The ternary operator handles the maximum calculation. Array references are dereferenced with `my ($start, $end) = @$range_ref`. The implementation uses numeric comparison `<=>` for sorting and `>=`/`<=` for range membership checks. For Part 1, nested loops check each ID against all ranges with early termination using `last`. Total coverage is calculated by summing `$end - $start + 1` for each merged range.
 
 ### Python
 Python uses list of tuples `(start, end)` for ranges. Sorting uses `sorted(ranges, key=lambda x: x[0])`. Merge logic uses a list of lists initially (`merged.append(list(ranges_sorted[0]))`) then modifies in-place (`merged[-1][1] = max(...)`). Uses `map(int, ...)` for parsing and list comprehensions for summing lengths. The implementation is clean and readable with Python's standard idioms.
@@ -136,7 +136,7 @@ The most significant difference across implementations is how languages handle m
 
 - **Immutable merge (Clojure, Haskell)**: These languages build new data structures during merging. Clojure uses `loop/recur` to construct new vectors. Haskell uses pure recursion. This is more functional but potentially less memory-efficient.
 
-- **Hybrid approach (Python, Kotlin, Elixir)**: Python starts with a list of lists (mutable) then modifies. Kotlin creates new `Pair` objects when merging (since `Pair` is immutable). Elixir's approach is more complex due to accumulator pattern.
+- **Hybrid approach (Python, Elixir)**: Python starts with a list of lists (mutable) then modifies. Elixir's approach is more complex due to accumulator pattern.
 
 **Performance observations:**
 - Python (55ms) and Java (73ms) are fastest among measured languages, likely due to JIT compilation (Java) and optimized Python runtime

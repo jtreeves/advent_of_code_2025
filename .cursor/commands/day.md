@@ -15,7 +15,7 @@ This command orchestrates the following commands in sequence, prompting for user
 1. **`/get_description`** - **MANDATORY**: Fetch problem descriptions for both Part 1 and Part 2 via Google search and populate README.md
 2. **`/get_input`** - **MANDATORY**: Download input file for the day from AOC and save to `data/input.txt`
 3. **`/create_specs`** - **MANDATORY**: Generate spec-kit artifacts (spec, plan, tasks) for the day in `specs/` folder
-4. **`/generate_solutions`** - Generate solution code in all 12 languages for both Part 1 and Part 2 (C, Clojure, Elixir, Go, Haskell, Java, Julia, Kotlin, Python, Ruby, Rust, TypeScript)
+4. **`/generate_solutions`** - Generate solution code in all 12 languages for both Part 1 and Part 2 (C, Clojure, Elixir, Go, Haskell, Java, Julia, Perl, Python, Ruby, Rust, TypeScript)
 5. **`/run_solutions`** - **MANDATORY**: Run all solutions, extract answers for both parts, update ANALYSIS.md tables with results and execution times, update README.md with solutions if all languages agree, clean up nonsense files
 6. **`/sync_specs`** - **MANDATORY**: Adjust spec files to match the resultant code implementations, mark completed tasks
 7. **`/write_analysis`** - Generate comprehensive ANALYSIS.md comparing all 12 implementations
@@ -66,7 +66,7 @@ The following steps are **MANDATORY** and must not be skipped:
 - **MUST** handle errors gracefully but note them in ANALYSIS.md
 
 ### Step 4: Generate Solutions
-- **MUST** generate solution code for all 12 languages (C, Clojure, Elixir, Go, Haskell, Java, Julia, Kotlin, Python, Ruby, Rust, TypeScript)
+- **MUST** generate solution code for all 12 languages (C, Clojure, Elixir, Go, Haskell, Java, Julia, Perl, Python, Ruby, Rust, TypeScript)
 - **MUST** implement both Part 1 and Part 2 in each solution file
 - **MUST** update `day_NN_tasks.md` to check off language implementations as they are completed
   - Mark language subtasks as completed after generating each solution

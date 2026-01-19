@@ -29,7 +29,7 @@
 | Java       | [JAVA_SOLUTION]       |
 | Julia      | [JULIA_SOLUTION]      |
 | Kotlin     | [KOTLIN_SOLUTION]     |
-| Python     | [PYTHON_SOLUTION]     |
+| Python     | 459                    |
 | Ruby       | [RUBY_SOLUTION]       |
 | Rust       | [RUST_SOLUTION]       |
 | TypeScript | [TYPESCRIPT_SOLUTION] |
@@ -45,7 +45,7 @@
 | Java       | [JAVA_SOLUTION]       |
 | Julia      | [JULIA_SOLUTION]      |
 | Kotlin     | [KOTLIN_SOLUTION]     |
-| Python     | [PYTHON_SOLUTION]     |
+| Python     | 18688                 |
 | Ruby       | [RUBY_SOLUTION]       |
 | Rust       | [RUST_SOLUTION]       |
 | TypeScript | [TYPESCRIPT_SOLUTION] |
@@ -63,7 +63,7 @@
 | Java       | [JAVA_EXECUTION_TIME]       |
 | Julia      | [JULIA_EXECUTION_TIME]      |
 | Kotlin     | [KOTLIN_EXECUTION_TIME]     |
-| Python     | [PYTHON_EXECUTION_TIME]     |
+| Python     | 80                          |
 | Ruby       | [RUBY_EXECUTION_TIME]       |
 | Rust       | [RUST_EXECUTION_TIME]        |
 | TypeScript | [TYPESCRIPT_EXECUTION_TIME] |
@@ -79,7 +79,7 @@
 | Java       | [JAVA_EXECUTION_TIME]       |
 | Julia      | [JULIA_EXECUTION_TIME]      |
 | Kotlin     | [KOTLIN_EXECUTION_TIME]     |
-| Python     | [PYTHON_EXECUTION_TIME]     |
+| Python     | 1206                          |
 | Ruby       | [RUBY_EXECUTION_TIME]       |
 | Rust       | [RUST_EXECUTION_TIME]        |
 | TypeScript | [TYPESCRIPT_EXECUTION_TIME] |

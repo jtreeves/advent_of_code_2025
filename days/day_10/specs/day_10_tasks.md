@@ -1,0 +1,35 @@
+# Tasks: Day 10
+
+- [ ] Ensure authenticated with AOC
+- [x] Populate README.md with problem description for both Part 1 and Part 2, retrieved via Google search
+- [x] Create specs directory and specification files
+    - [x] Create day_10_spec.md with detailed specification
+    - [x] Create day_10_plan.md with technical plan
+    - [x] Create day_10_tasks.md (this file)
+    - [x] Create test data files (test_1.txt, test_2.txt, test_3.txt, test_4.txt, test_5.txt, test_6.txt)
+- [x] Implement solutions in all 12 languages
+    - [x] Write C implementation (both Part 1 and Part 2)
+    - [x] Write Clojure implementation (both Part 1 and Part 2)
+    - [x] Write Elixir implementation (both Part 1 and Part 2)
+    - [x] Write Go implementation (both Part 1 and Part 2)
+    - [x] Write Haskell implementation (both Part 1 and Part 2)
+    - [x] Write Java implementation (both Part 1 and Part 2)
+    - [x] Write Julia implementation (both Part 1 and Part 2)
+    - [x] Write Kotlin implementation (both Part 1 and Part 2)
+    - [x] Write Python implementation (both Part 1 and Part 2)
+    - [x] Write Ruby implementation (both Part 1 and Part 2)
+    - [x] Write Rust implementation (both Part 1 and Part 2)
+    - [x] Write TypeScript implementation (both Part 1 and Part 2)
+- [ ] Run all solutions and update ANALYSIS.md
+    - [ ] Run all 12 solution files against input.txt
+    - [ ] Capture execution times in milliseconds for each language
+    - [ ] Update solutions tables in ANALYSIS.md with Part 1 and Part 2 results for each language
+    - [ ] Update performance tables in ANALYSIS.md with execution times for each language (for both Part 1 and Part 2)
+    - [ ] Update implementation differences section in ANALYSIS.md for each language
+- [ ] Ensure all solutions produce the same results for both Part 1 and Part 2; if not, ask the user for recommendations, then implement them until all solutions match
+- [ ] Update README.md with solutions for Part 1 and Part 2
+- [ ] Clean up nonsense files from solutions folder (remove any compiled files, executables, or temporary files that aren't source files)
+- [ ] Sync specs with actual implementation (`/sync_specs`)
+    - [ ] Update spec files to match actual code implementations
+    - [ ] Mark completed tasks in tasks file
+- [ ] Flesh out ANALYSIS.md comparing language implementations

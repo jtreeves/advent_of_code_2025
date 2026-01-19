@@ -2,129 +2,214 @@
 
 ## Overall Approach
 
-[Explanation of overall approach used to solve the problem, including discussion algorithms used, which will be kept in brief, since the longer explanation will appear in the specs]
+The problem requires connecting 3D junction boxes into circuits using a greedy approach (closest pairs first) and tracking connected components using Union-Find (Disjoint Set Union) data structure. For Part 1, we connect the first 1000 closest pairs and compute the product of sizes of the three largest circuits. For Part 2, we continue connecting pairs until all boxes are in one circuit, then compute the product of X coordinates of the final connection pair.
 
 **Clues**
 
-[Bulleted list of clues from the wording of the question that indicated the above solution was necessary]
-
-- [Clue 1]
-- [Clue 2]
+- The problem mentions "closest pairs first" - indicating we need to compute all pairwise distances and sort them
+- "Connect" and "circuit" terminology suggests using a Union-Find data structure for efficient component tracking
+- Part 1 specifies "first 1000" connections - we need to process exactly 1000 pairs, even if they don't change circuit structure
+- Part 2 mentions "final connection" - we need to track which pair completes the single circuit
 
 ## Complexity Analysis
 
-- **Time Complexity**: O(...)
-- **Space Complexity**: O(...)
+- **Time Complexity**: O(n² log n) where n = number of boxes - dominated by computing all pairwise distances (O(n²)) and sorting them (O(n² log n²) = O(n² log n))
+- **Space Complexity**: O(n²) for storing all pairs and distances, plus O(n) for Union-Find data structures
 
 ## Solutions
 
 ### Part 1
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          | [C_SOLUTION]          |
-| Clojure    | [CLOJURE_SOLUTION]    |
-| Elixir     | [ELIXIR_SOLUTION]     |
-| Go         | [GO_SOLUTION]         |
-| Haskell    | [HASKELL_SOLUTION]    |
-| Java       | [JAVA_SOLUTION]       |
-| Julia      | [JULIA_SOLUTION]      |
-| Kotlin     | [KOTLIN_SOLUTION]     |
-| Python     | [PYTHON_SOLUTION]     |
-| Ruby       | [RUBY_SOLUTION]       |
-| Rust       | [RUST_SOLUTION]       |
-| TypeScript | [TYPESCRIPT_SOLUTION] |
+| Language   | Initial Solution |
+|------------|------------------|
+| C          | 32103            |
+| Clojure    | 32103            |
+| Elixir     | 32103            |
+| Go         | 32103            |
+| Haskell    | 32103            |
+| Java       | 32103            |
+| Julia      | 32103            |
+| Kotlin     | 32103            |
+| Python     | 32103            |
+| Ruby       | 32103            |
+| Rust       | 32103            |
+| TypeScript | 32103            |
 
 ### Part 2
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          | [C_SOLUTION]          |
-| Clojure    | [CLOJURE_SOLUTION]    |
-| Elixir     | [ELIXIR_SOLUTION]     |
-| Go         | [GO_SOLUTION]         |
-| Haskell    | [HASKELL_SOLUTION]    |
-| Java       | [JAVA_SOLUTION]       |
-| Julia      | [JULIA_SOLUTION]      |
-| Kotlin     | [KOTLIN_SOLUTION]     |
-| Python     | [PYTHON_SOLUTION]     |
-| Ruby       | [RUBY_SOLUTION]       |
-| Rust       | [RUST_SOLUTION]       |
-| TypeScript | [TYPESCRIPT_SOLUTION] |
+| Language   | Initial Solution |
+|------------|------------------|
+| C          | 8133642976       |
+| Clojure    | 8133642976       |
+| Elixir     | 8133642976       |
+| Go         | 8133642976       |
+| Haskell    | 8133642976       |
+| Java       | 8133642976       |
+| Julia      | 8133642976       |
+| Kotlin     | 8133642976       |
+| Python     | 8133642976       |
+| Ruby       | 8133642976       |
+| Rust       | 8133642976       |
+| TypeScript | 8133642976       |
 
 ## Performance
 
 ### Part 1
-| Language   | Execution Time (ms)         |
-|------------|-----------------------------|
-| C          | [C_EXECUTION_TIME]          |
-| Clojure    | [CLOJURE_EXECUTION_TIME]    |
-| Elixir     | [ELIXIR_EXECUTION_TIME]     |
-| Go         | [GO_EXECUTION_TIME]         |
-| Haskell    | [HASKELL_EXECUTION_TIME]    |
-| Java       | [JAVA_EXECUTION_TIME]       |
-| Julia      | [JULIA_EXECUTION_TIME]      |
-| Kotlin     | [KOTLIN_EXECUTION_TIME]     |
-| Python     | [PYTHON_EXECUTION_TIME]     |
-| Ruby       | [RUBY_EXECUTION_TIME]       |
-| Rust       | [RUST_EXECUTION_TIME]        |
-| TypeScript | [TYPESCRIPT_EXECUTION_TIME] |
+| Language   | Execution Time (ms) |
+|------------|---------------------|
+| C          | 324                 |
+| Clojure    | 6935                |
+| Elixir     | 2630                |
+| Go         | 616                 |
+| Haskell    | 2732                |
+| Java       | 355                 |
+| Julia      | 1019                |
+| Kotlin     | 503                 |
+| Python     | 696                 |
+| Ruby       | 574                 |
+| Rust       | 803                 |
+| TypeScript | 2202                |
 
 ### Part 2
-| Language   | Execution Time (ms)         |
-|------------|-----------------------------|
-| C          | [C_EXECUTION_TIME]          |
-| Clojure    | [CLOJURE_EXECUTION_TIME]    |
-| Elixir     | [ELIXIR_EXECUTION_TIME]     |
-| Go         | [GO_EXECUTION_TIME]         |
-| Haskell    | [HASKELL_EXECUTION_TIME]    |
-| Java       | [JAVA_EXECUTION_TIME]       |
-| Julia      | [JULIA_EXECUTION_TIME]      |
-| Kotlin     | [KOTLIN_EXECUTION_TIME]     |
-| Python     | [PYTHON_EXECUTION_TIME]     |
-| Ruby       | [RUBY_EXECUTION_TIME]       |
-| Rust       | [RUST_EXECUTION_TIME]        |
-| TypeScript | [TYPESCRIPT_EXECUTION_TIME] |
+| Language   | Execution Time (ms) |
+|------------|---------------------|
+| C          | 324                 |
+| Clojure    | 6935                |
+| Elixir     | 2630                |
+| Go         | 616                 |
+| Haskell    | 2732                |
+| Java       | 355                 |
+| Julia      | 1019                |
+| Kotlin     | 503                 |
+| Python     | 696                 |
+| Ruby       | 574                 |
+| Rust       | 803                 |
+| TypeScript | 2202                |
+
+**Note**: Execution times are averaged over 3 runs. Times include compilation for compiled languages (C, Rust, Haskell, Kotlin, Java). The timing script measures total execution time for both parts combined. C and Java show excellent performance, while interpreted JVM languages (Clojure) and functional languages (Elixir, Haskell) show higher overhead.
 
 ## Implementation Differences
 
 ### C
-[How the C implementation differs (e.g., manual memory management, pointers)]
+- **Manual memory management**: Uses `malloc`/`realloc`/`free` for dynamic arrays and Union-Find structures
+- **Structs for data**: `Coord` and `Pair` structs for type safety without classes
+- **Function pointers**: Uses `qsort` with `compare_pairs` and `compare_long_long` comparators
+- **Explicit resource management**: `uf_free()` function to clean up Union-Find memory
+- **Performance**: Fastest execution (324 ms) due to compiled code and direct memory access
 
 ### Clojure
-[How the Clojure implementation differs (e.g., immutable data structures, macros)]
+- **Immutable data structures**: Uses `defrecord` for `Coord` and `Pair` types
+- **Atoms for mutable state**: Union-Find uses atoms (`@parent`, `@size`, `@component-count`) to simulate mutable state within immutable paradigm
+- **Functional transformations**: `sort-by :dist-sq` for sorting, `assoc` for map updates
+- **Threading**: Natural functional pipeline without explicit threading macros for this algorithm
+- **Performance**: Slowest execution (6935 ms) due to JVM startup and immutable overhead
 
 ### Elixir
-[How the Elixir implementation differs (e.g., pattern matching, processes)]
+- **Pattern matching**: Uses `%Coord{}` and `%Pair{}` structs with pattern matching
+- **Enum pipelines**: Extensive use of `|>` pipe operator; `Enum.flat_map` for nested comprehensions
+- **Immutable updates**: Union-Find returns new state instead of mutating (challenging for this algorithm)
+- **Range handling**: Careful handling of descending ranges (`1..0`) to avoid warnings
+- **Performance**: Higher overhead (2630 ms) from functional paradigm and BEAM VM
 
 ### Go
-[How the Go implementation differs (e.g., goroutines, channels)]
+- **Structs and methods**: `UnionFind` struct with methods; `Coord` and `Pair` as struct types
+- **Slice operations**: Uses slices for dynamic arrays, `sort.Slice` for sorting
+- **Explicit error handling**: `strconv.Atoi` returns errors (handled with `_`)
+- **Garbage collection**: Automatic memory management with GC overhead
+- **Performance**: Good balance (616 ms) - compiled but with GC overhead
 
 ### Haskell
-[How the Haskell implementation differs (e.g., functional style, laziness)]
+- **Pure functional**: Union-Find operations return new `UnionFind` instead of mutating
+- **Pattern matching**: Extensive use for destructuring and case analysis
+- **List comprehensions**: Used for generating pairs: `[(i, j, dist) | i <- [0..n-1], j <- [i+1..n-1]]`
+- **Map operations**: `Map.fromList` for component sizes, `Map.elems` for values
+- **Immutability challenge**: Union-Find mutation simulated through state threading
+- **Performance**: Higher overhead (2732 ms) from pure functional paradigm and lazy evaluation
 
 ### Java
-[How the Java implementation differs (e.g., object-oriented approach, collections)]
+- **Object-oriented design**: `UnionFind` class with methods; inner `Coord` and `Pair` classes
+- **Collections**: `ArrayList`, `HashMap`, `List.sort()` with `Long.compare`
+- **Long arithmetic**: Uses `long` to avoid integer overflow for distances and products
+- **JVM optimization**: HotSpot JIT compiler provides good performance after warmup
+- **Performance**: Excellent (355 ms) - JVM JIT optimization despite object overhead
 
 ### Julia
-[How the Julia implementation differs (e.g., multiple dispatch, performance)]
+- **Mutable structs**: `UnionFind` as mutable struct; `Coord` as immutable struct
+- **1-indexed arrays**: Arrays start at 1, requiring `(i, j)` tuple indexing from `1:n` instead of `0:n-1`
+- **Type annotations**: Optional but useful: `UnionFind(n::Int)`, `Coord(x::Int, y::Int, z::Int)`
+- **Array operations**: Direct array indexing and mutation; `sort!` for in-place sorting
+- **Performance**: Good (1019 ms) - JIT compiled but with runtime compilation overhead
 
 ### Kotlin
-[How the Kotlin implementation differs (e.g., null safety, extension functions)]
+- **Data classes**: `Coord` and `PairData` as data classes (renamed to avoid conflict with built-in `Pair`)
+- **Null safety**: `finalPair: PairData?` nullable type for optional final pair
+- **Extension functions**: Built-in array/list methods like `sortBy`, `sortedDescending`
+- **Smart casts**: Kotlin's type system simplifies null checks
+- **Performance**: Good (503 ms) - compiled to JVM with Kotlin optimizations
 
 ### Python
-[How the Python implementation differs (e.g., type hints, list comprehensions)]
+- **Class-based Union-Find**: `UnionFind` class with methods using `self`
+- **Type hints**: Function signatures like `def solve(input_data: str) -> tuple[str, str]`
+- **List comprehensions**: Used for coordinate parsing and pair generation
+- **Tuple unpacking**: `x, y, z = int(parts[0]), int(parts[1]), int(parts[2])`
+- **Dynamic typing**: Flexible but with runtime overhead
+- **Performance**: Moderate (696 ms) - interpreted with significant overhead
 
 ### Ruby
-[How the Ruby implementation differs (e.g., dynamic typing, blocks)]
+- **Struct types**: `Coord = Struct.new(:x, :y, :z)` for lightweight classes
+- **Method chaining**: `pairs.sort_by! { |p| p.dist_sq }` for in-place sorting
+- **Blocks and procs**: Blocks used extensively: `(0...n).each do |i|`
+- **Mutable state**: Union-Find naturally uses instance variables (`@parent`, `@size`)
+- **Readable syntax**: `component_sizes[root] = uf1.size[root]` very readable
+- **Performance**: Good (574 ms) - interpreted but optimized Ruby VM
 
 ### Rust
-[How the Rust implementation differs (e.g., ownership, borrowing, pattern matching)]
+- **Ownership and borrowing**: Union-Find methods take `&mut self` for mutation
+- **Pattern matching**: `match`, `if let`, destructuring used throughout
+- **Iterator chains**: `pairs.iter()`, `filter_map()`, `collect()` for functional style
+- **Type safety**: `usize` for indices, `i64` for coordinates and distances
+- **Zero-cost abstractions**: Compiled code is very efficient
+- **Performance**: Good (803 ms) - compiled but includes compilation time in timing
 
 ### TypeScript
-[How the TypeScript implementation differs (e.g., strong typing, async/await)]
+- **Class-based design**: `UnionFind` class with private/public members
+- **Strong typing**: `type Coord = [number, number, number]` for tuple types
+- **Array methods**: `sort((a, b) => a[2] - b[2])` for sorting, `filter()`, `map()`
+- **Type assertions**: Occasional `as` casts for array access
+- **Modern JS features**: Arrow functions, destructuring, spread operator
+- **Performance**: Moderate (2202 ms) - Node.js V8 engine with interpretation overhead
 
 ## Key Observations
 
-[Notable differences, trade-offs, or interesting aspects across implementations, with emphasis on how language paradigms necessitating such differences]
+1. **Union-Find Implementation Variants**:
+   - **Mutable languages** (C, Java, Kotlin, Ruby, Rust, Julia, Python, Go): Direct mutation of parent/size arrays - most natural and efficient
+   - **Immutable languages** (Clojure, Elixir, Haskell): Use atoms, return new state, or state threading - more complex but maintains immutability
+
+2. **Performance Patterns**:
+   - **Fastest**: Compiled languages (C: 324ms, Java: 355ms) - direct machine code or JIT optimized
+   - **Slowest**: Interpreted functional languages (Clojure: 6935ms, Elixir: 2630ms) - VM overhead and immutable data structure copying
+   - **Mid-range**: Interpreted imperative (Python: 696ms, Ruby: 574ms) - better than functional but slower than compiled
+
+3. **Language-Specific Challenges**:
+   - **Kotlin**: Had to rename `Pair` to `PairData` to avoid conflict with built-in `Pair<K,V>` type
+   - **Julia**: 1-indexed arrays require converting to 0-indexed logic mentally
+   - **Elixir**: Descending ranges (`1..0`) cause warnings, requiring conditional logic
+   - **Haskell**: Union-Find mutation requires threading state through function calls
+   - **TypeScript**: Const reassignment errors required using `let` instead of `const` in union method
+
+4. **Algorithm Consistency**:
+   - All implementations use the same core algorithm: Union-Find with path compression and union by size
+   - All use squared distances to avoid floating-point precision issues
+   - All sort pairs before processing
+   - Differences are purely in language idioms and data structures
+
+5. **Code Complexity**:
+   - **Simplest**: Python and Ruby - readable, concise
+   - **Most verbose**: C - manual memory management requires more boilerplate
+   - **Most elegant**: Clojure and Haskell - functional style is clean but slower
+
+6. **Memory Management**:
+   - **Explicit**: C requires `malloc`/`free` calls
+   - **Automatic**: All other languages use GC (except Rust which uses ownership)
+   - **Trade-off**: C's manual management is fastest but error-prone; GC languages are safer but slower
 
 ## Notes
 

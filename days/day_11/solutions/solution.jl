@@ -1,6 +1,3 @@
-# Import utilities
-include("../../../utilities/julia/get_input.jl")
-
 # Part 2: Count paths from "svr" to "out" that include both "fft" and "dac"
 struct MemoKey
     node::String

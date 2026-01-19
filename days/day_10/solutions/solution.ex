@@ -239,37 +239,35 @@ defmodule Solution do
           best
         else
           # Try 0 to max_joltage presses
-          Enum.reduce(0..max_joltage, best, fn presses, best_result ->
-          if best != nil && presses_so_far + presses >= best do
-            throw({:break, best_result})
-          end
-
-          new_joltages = Enum.map(0..(length(current_joltages) - 1), fn i ->
-            Enum.at(current_joltages, i) +
-            (if Enum.member?(Enum.at(buttons, button_idx), i) do presses else 0 end)
-          end)
-
-          # Check if exceeds target
-          exceeds = Enum.any?(Enum.zip(new_joltages, joltages), fn {a, b} -> a > b end)
-
-          if exceeds do
-            best_result
-          else
-            result = dfs(button_idx + 1, new_joltages, presses_so_far + presses, best_result, buttons, joltages, max_joltage)
-            if result != nil do
-              if best_result == nil, do: result, else: min(best_result, result)
-            else
-              best_result
-            end
-          end
-        end)
-        |> (fn x ->
           try do
-            x
+            Enum.reduce(0..max_joltage, best, fn presses, best_result ->
+              if best != nil && presses_so_far + presses >= best do
+                throw({:break, best_result})
+              end
+
+              new_joltages = Enum.map(0..(length(current_joltages) - 1), fn i ->
+                Enum.at(current_joltages, i) +
+                (if Enum.member?(Enum.at(buttons, button_idx), i) do presses else 0 end)
+              end)
+
+              # Check if exceeds target
+              exceeds = Enum.any?(Enum.zip(new_joltages, joltages), fn {a, b} -> a > b end)
+
+              if exceeds do
+                best_result
+              else
+                result = dfs(button_idx + 1, new_joltages, presses_so_far + presses, best_result, buttons, joltages, max_joltage)
+                if result != nil do
+                  if best_result == nil, do: result, else: min(best_result, result)
+                else
+                  best_result
+                end
+              end
+            end)
           catch
             {:break, result} -> result
           end
-        end).()
+        end
       end
     end
   end

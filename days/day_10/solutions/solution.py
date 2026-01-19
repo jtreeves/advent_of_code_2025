@@ -1,10 +1,5 @@
-from get_input import read_input_raw  # type: ignore
-import sys
-from pathlib import Path
 import re
 from typing import List, Tuple, Optional
-sys.path.insert(0, str(Path(__file__).resolve(
-).parent.parent.parent.parent / 'utilities' / 'python'))
 
 
 def parse_line(line: str) -> Tuple[List[bool], List[List[int]], List[int]]:
@@ -453,7 +448,8 @@ def solve(input_data: str) -> Tuple[str, str]:
 
 
 if __name__ == "__main__":
-    data: str = read_input_raw("../data/input.txt")  # type: ignore
-    part1, part2 = solve(data)  # type: ignore
+    with open("../data/input.txt", 'r') as f:
+        data = f.read()
+    part1, part2 = solve(data)
     print(f"Part 1: {part1}")
     print(f"Part 2: {part2}")

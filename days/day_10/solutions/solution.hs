@@ -2,7 +2,6 @@ import System.IO
 import Data.List
 import Data.Char
 import Data.Maybe
-import Text.Regex.TDFA
 
 data ParseResult = ParseResult {
     targetPattern :: [Bool],
@@ -14,29 +13,35 @@ parseLine :: String -> ParseResult
 parseLine line = ParseResult target_pattern' buttons' joltages'
   where
     -- Extract pattern: [.##.]
-    patternRe = "\\[([.#]+)\\]" :: String
-    patternMatch = line =~ patternRe :: AllTextMatches [] String
-    target_pattern' = case getAllTextMatches patternMatch of
-        [] -> []
-        (match:_) -> map (== '#') match
+    patternStart = maybe 0 id $ findIndex (== '[') line
+    patternEnd = maybe 0 id $ findIndex (== ']') $ drop patternStart line
+    target_pattern' = if patternEnd > 0
+                      then map (== '#') $ take (patternEnd - 1) $ drop (patternStart + 1) line
+                      else []
     
     -- Extract buttons: (1,3) (2) etc.
-    buttonRe = "\\(([^)]*)\\)" :: String
-    buttonMatches = getAllTextMatches (line =~ buttonRe :: AllTextMatches [] String)
-    buttons' = map parseButton buttonMatches
+    buttons' = parseButtons line []
       where
-        parseButton btnStr =
-          let trimmed = dropWhile isSpace $ dropWhile isSpace (drop 1 btnStr)
-          in if null trimmed || head trimmed == ')'
-             then []
-             else map read $ words $ map (\c -> if c == ',' then ' ' else c) trimmed
+        parseButtons str acc =
+          case findIndex (== '(') str of
+            Nothing -> reverse acc
+            Just start ->
+              case findIndex (== ')') $ drop start str of
+                Nothing -> reverse acc
+                Just end ->
+                  let btnStr = take (end - 1) $ drop (start + 1) str
+                      trimmed = dropWhile isSpace $ reverse $ dropWhile isSpace $ reverse btnStr
+                      parsed = if null trimmed
+                               then []
+                               else map read $ words $ map (\c -> if c == ',' then ' ' else c) trimmed
+                  in parseButtons (drop (start + end + 1) str) (parsed : acc)
     
     -- Extract joltages: {3,5,4,7}
-    joltageRe = "\\{([^}]+)\\}" :: String
-    joltageMatch = line =~ joltageRe :: AllTextMatches [] String
-    joltages' = case getAllTextMatches joltageMatch of
-        [] -> []
-        (match:_) -> map read $ words $ map (\c -> if c == ',' then ' ' else c) match
+    joltageStart = maybe 0 id $ findIndex (== '{') line
+    joltageEnd = maybe 0 id $ findIndex (== '}') $ drop joltageStart line
+    joltages' = if joltageEnd > 0
+                then map read $ words $ map (\c -> if c == ',' then ' ' else c) $ take (joltageEnd - 1) $ drop (joltageStart + 1) line
+                else []
 
 gaussianEliminationGF2 :: [[Bool]] -> [Bool] -> Maybe Int
 gaussianEliminationGF2 matrix target =
@@ -110,15 +115,15 @@ solvePart2ILP buttons joltages =
             in if pruned then best
                else foldl (\bestResult presses ->
                    if maybe False (\b -> pressesSoFar + presses >= b) best then bestResult
-                   else let newJoltages = zipWith (+) currentJoltages
-                                             (map (\i -> if i `elem` (buttons !! buttonIdx) then presses else 0) [0..numLights-1])
-                             exceeds = any (\(a,b) -> a > b) (zip newJoltages joltages)
-                         in if exceeds then bestResult
-                        else let result = dfs (buttonIdx+1) newJoltages (pressesSoFar+presses) bestResult buttons joltages maxJoltage
-                             in case (result, bestResult) of
-                                 (Just r, Just br) -> Just (min br r)
-                                 (Just r, Nothing) -> Just r
-                                 _ -> bestResult
+                   else let newJoltages = zipWith (+) currentJoltages (map (\i -> if i `elem` (buttons !! buttonIdx) then presses else 0) [0..length joltages-1])
+                            exceeds = any (\(a,b) -> a > b) (zip newJoltages joltages)
+                        in if exceeds
+                            then bestResult
+                            else let result = dfs (buttonIdx+1) newJoltages (pressesSoFar+presses) bestResult buttons joltages maxJoltage
+                                 in case (result, bestResult) of
+                                     (Just r, Just br) -> Just (min br r)
+                                     (Just r, Nothing) -> Just r
+                                     _ -> bestResult
                   ) best [0..maxJoltage]
 
 solve :: String -> (String, String)
@@ -126,27 +131,28 @@ solve inputData =
     let lines' = filter (not . all isSpace) (lines inputData)
     in if null lines'
        then ("0", "0")
-       else foldl' (\(p1, p2) line ->
-           let parsed = parseLine line
-           in if null (targetPattern parsed)
-              then (p1, p2)
-              else let numLights = length (targetPattern parsed)
-                       -- Part 1: Build incidence matrix
-                       buttonMatrix = map (\btn -> map (`elem` btn) [0..numLights-1]) (buttons parsed)
-                       requiredToggles = targetPattern parsed
-                       result1 = gaussianEliminationGF2 buttonMatrix requiredToggles
-                       newP1 = p1 + fromMaybe 0 result1
-                       -- Part 2: ILP
-                       result2 = if length (joltages parsed) == numLights
-                                 then solvePart2ILP (buttons parsed) (joltages parsed)
-                                 else Nothing
-                       newP2 = p2 + fromMaybe 0 result2
-                   in (newP1, newP2)
-           ) (0, 0) lines'
+       else let (p1, p2) = foldl' (\(acc1, acc2) line ->
+                        let parsed = parseLine line
+                        in if null (targetPattern parsed)
+                           then (acc1, acc2)
+                           else let numLights = length (targetPattern parsed)
+                                    -- Part 1: Build incidence matrix
+                                    buttonMatrix = map (\btn -> map (`elem` btn) [0..numLights-1]) (buttons parsed)
+                                    requiredToggles = targetPattern parsed
+                                    result1 = gaussianEliminationGF2 buttonMatrix requiredToggles
+                                    newP1 = acc1 + fromMaybe 0 result1
+                                    -- Part 2: ILP
+                                    result2 = if length (joltages parsed) == numLights
+                                              then solvePart2ILP (buttons parsed) (joltages parsed)
+                                              else Nothing
+                                    newP2 = acc2 + fromMaybe 0 result2
+                                in (newP1, newP2)
+                    ) (0, 0) lines'
+            in (show p1, show p2)
 
 main :: IO ()
 main = do
-    data <- readFile "../data/input.txt"
-    let (part1, part2) = solve data
+    inputData <- readFile "../data/input.txt"
+    let (part1, part2) = solve inputData
     putStrLn $ "Part 1: " ++ show part1
     putStrLn $ "Part 2: " ++ show part2

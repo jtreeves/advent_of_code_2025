@@ -1,7 +1,3 @@
-function read_input_raw(file_path::String)::String
-    return read(file_path, String)
-end
-
 mutable struct ParseResult
     target_pattern::Vector{Bool}
     buttons::Vector{Vector{Int}}

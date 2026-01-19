@@ -2,14 +2,6 @@
 use strict;
 use warnings;
 
-sub read_input_raw {
-    my ($file_path) = @_;
-    open my $fh, '<', $file_path or die "Cannot open file: $!";
-    my $content = do { local $/; <$fh> };
-    close $fh;
-    return $content;
-}
-
 sub count_neighbors {
     my ($grid, $i, $j, $rows, $cols) = @_;
     my $neighbor_count = 0;
@@ -78,7 +70,9 @@ sub solve {
     return ($part1_count, $part2_count);
 }
 
-my $data = read_input_raw("../data/input.txt");
+open my $fh, '<', "../data/input.txt" or die "Cannot open file: $!";
+my $data = do { local $/; <$fh> };
+close $fh;
 my ($part1, $part2) = solve($data);
 print "Part 1: $part1\n";
 print "Part 2: $part2\n";

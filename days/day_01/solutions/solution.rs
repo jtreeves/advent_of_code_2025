@@ -1,12 +1,4 @@
-mod utils {
-    include!("../../../utilities/rust/get_input.rs");
-}
-
 use std::fs;
-
-fn read_input_raw(file_path: &str) -> String {
-    fs::read_to_string(file_path).expect("Failed to read file")
-}
 
 fn solve(lines: Vec<String>) -> (i32, i32) {
     // Part 1: Count times dial ends at 0 after a rotation
@@ -75,8 +67,8 @@ fn solve(lines: Vec<String>) -> (i32, i32) {
 }
 
 fn main() {
-    let content = read_input_raw("../data/input.txt");
-    let lines: Vec<String> = content
+    let lines: Vec<String> = fs::read_to_string("../data/input.txt")
+        .expect("Failed to read file")
         .trim()
         .lines()
         .map(|s| s.trim().to_string())

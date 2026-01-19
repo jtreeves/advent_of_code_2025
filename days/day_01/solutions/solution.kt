@@ -61,7 +61,13 @@ fun solve(lines: List<String>): Pair<Int, Int> {
 }
 
 fun main() {
-    val lines = getInput(1)
+    val file = java.io.File("../data/input.txt")
+    val lines = mutableListOf<String>()
+    java.io.BufferedReader(java.io.FileReader(file)).use { reader ->
+        reader.forEachLine { line ->
+            lines.add(line.trim())
+        }
+    }
     val (part1, part2) = solve(lines)
     println("Part 1: $part1")
     println("Part 2: $part2")

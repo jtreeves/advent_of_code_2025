@@ -7,14 +7,14 @@ This document captures patterns and approaches that have been successful across 
 ## Input Reading Pattern
 
 ### Pattern
-All solutions should use utility functions to read input:
-- `get_input()` or `read_input()` - Reads from `input.txt` or specified test file
-- Supports both official input (`input.txt`) and test cases (`test_1.txt`, `test_2.txt`, etc.)
-- Returns data in appropriate format (lines, raw string, parsed structure)
+All solutions should perform file I/O operations inline:
+- Read directly from `../data/input.txt` (or `../data/test_N.txt` for test cases)
+- Use language-appropriate file I/O mechanisms
+- Solutions should be self-contained with no external dependencies
 
 ### Implementation Guidelines
-- Utility functions should be in language-specific utility files
-- Solutions should NOT have inline file reading code
+- File I/O should be done inline within solution files
+- Solutions should NOT use external utility modules or functions
 - Error handling should be consistent across languages
 
 ## Two-Part Problem Pattern
@@ -76,8 +76,8 @@ def solve_part2(input_data):
     pass
 
 def main():
-    from utilities.language import get_input
-    input_data = get_input()
+    with open("../data/input.txt", 'r') as f:
+        input_data = f.read()
     part1 = solve_part1(input_data)
     part2 = solve_part2(input_data)
     print(f"Part 1: {part1}")

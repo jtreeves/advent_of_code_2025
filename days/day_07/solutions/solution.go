@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 	"strings"
-	"utils"
 )
 
 func solve(inputData string) (string, string) {
@@ -106,12 +105,12 @@ func solve(inputData string) (string, string) {
 }
 
 func main() {
-	inputData, err := utils.ReadInputRaw("../data/input.txt")
+	inputData, err := os.ReadFile("../data/input.txt")
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error reading input: %v\n", err)
 		os.Exit(1)
 	}
-	part1, part2 := solve(inputData)
+	part1, part2 := solve(string(inputData))
 	fmt.Printf("Part 1: %s\n", part1)
 	fmt.Printf("Part 2: %s\n", part2)
 }

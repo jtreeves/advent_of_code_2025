@@ -1,9 +1,5 @@
 require 'set'
 
-def read_input_raw(file_path)
-  File.read(file_path)
-end
-
 def solve(input_data)
   lines = input_data.strip.split("\n")
   return ["0", "0"] if lines.empty?
@@ -76,7 +72,7 @@ def solve(input_data)
   [split_count.to_s, bottom_beam_count.to_s]
 end
 
-content = read_input_raw("../data/input.txt")
+content = File.read("../data/input.txt")
 part1, part2 = solve(content)
 puts "Part 1: #{part1}"
 puts "Part 2: #{part2}"

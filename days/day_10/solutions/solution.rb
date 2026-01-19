@@ -1,9 +1,5 @@
 require 'set'
 
-def read_input_raw(file_path)
-  File.read(file_path)
-end
-
 def parse_line(line)
   # Extract pattern: [.##.]
   pattern_match = line.match(/\[([.#]+)\]/)
@@ -227,7 +223,7 @@ def solve(input_data)
   [part1_total.to_s, part2_total.to_s]
 end
 
-content = read_input_raw("../data/input.txt")
+content = File.read("../data/input.txt")
 part1, part2 = solve(content)
 puts "Part 1: #{part1}"
 puts "Part 2: #{part2}"

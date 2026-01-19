@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"sort"
 	"strconv"
 	"strings"
-	"utils"
 )
 
 type Range struct {
@@ -96,14 +96,11 @@ func solve(inputData string) (string, string) {
 }
 
 func main() {
-	// Read raw input
-	filePath := "../data/input.txt"
-	content, err := utils.ReadInputRaw(filePath)
+	content, err := os.ReadFile("../data/input.txt")
 	if err != nil {
 		panic(err)
 	}
-	
-	part1, part2 := solve(content)
+	part1, part2 := solve(string(content))
 	fmt.Printf("Part 1: %s\n", part1)
 	fmt.Printf("Part 2: %s\n", part2)
 }

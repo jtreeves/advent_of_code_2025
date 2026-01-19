@@ -1,10 +1,11 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strconv"
 	"strings"
-	"utils"
 )
 
 func solve(lines []string) (string, string) {
@@ -75,8 +76,17 @@ func solve(lines []string) (string, string) {
 }
 
 func main() {
-	lines, err := utils.GetInput(1)
+	file, err := os.Open("../data/input.txt")
 	if err != nil {
+		panic(err)
+	}
+	defer file.Close()
+	var lines []string
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		lines = append(lines, strings.TrimSpace(scanner.Text()))
+	}
+	if err := scanner.Err(); err != nil {
 		panic(err)
 	}
 

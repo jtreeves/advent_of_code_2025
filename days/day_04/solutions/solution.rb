@@ -1,5 +1,3 @@
-require_relative '../../../utilities/ruby/get_input.rb'
-
 def count_neighbors(grid, i, j, rows, cols)
   count = 0
   (-1..1).each do |di|
@@ -61,7 +59,7 @@ def solve(lines)
   [part1_count, part2_count]
 end
 
-lines = get_input(4)
+lines = File.readlines("../data/input.txt").map(&:strip)
 part1, part2 = solve(lines)
 puts "Part 1: #{part1}"
 puts "Part 2: #{part2}"

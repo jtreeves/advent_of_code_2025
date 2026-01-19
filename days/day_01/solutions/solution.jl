@@ -1,6 +1,3 @@
-# Import utilities
-include("../../../utilities/julia/get_input.jl")
-
 function solve(lines)
     # Part 1: Count times dial ends at 0 after a rotation
     position = 50
@@ -61,7 +58,7 @@ function solve(lines)
     return count_part1, count_part2
 end
 
-lines = get_input(1)
+lines = [strip(line) for line in readlines("../data/input.txt")]
 part1, part2 = solve(lines)
 println("Part 1: $(part1)")
 println("Part 2: $(part2)")

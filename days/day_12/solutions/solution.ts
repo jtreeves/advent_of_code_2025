@@ -1,10 +1,4 @@
 import * as fs from 'fs';
-import * as path from 'path';
-
-function readInputRaw(filePath: string): string {
-    const absPath = path.resolve(filePath);
-    return fs.readFileSync(absPath, 'utf-8');
-}
 
 function solve(inputData: string): [string, string] {
     const lines = inputData.trim().split('\n');
@@ -132,7 +126,7 @@ function solve(inputData: string): [string, string] {
 }
 
 if (require.main === module) {
-    const data = readInputRaw("../data/input.txt");
+    const data = fs.readFileSync("../data/input.txt", 'utf-8');
     const [part1, part2] = solve(data);
     console.log(`Part 1: ${part1}`);
     console.log(`Part 2: ${part2}`);

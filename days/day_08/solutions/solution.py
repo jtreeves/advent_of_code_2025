@@ -1,10 +1,3 @@
-from get_input import read_input_raw  # type: ignore
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve(
-).parent.parent.parent.parent / 'utilities' / 'python'))
-
-
 class UnionFind:
     """Union-Find (Disjoint Set Union) data structure."""
 
@@ -114,7 +107,8 @@ def solve(input_data: str) -> tuple[str, str]:
 
 
 if __name__ == "__main__":
-    input_data: str = str(read_input_raw("../data/input.txt"))  # type: ignore
+    with open("../data/input.txt", 'r') as f:
+        input_data = f.read()
     part1, part2 = solve(input_data)
     print(f"Part 1: {part1}")
     print(f"Part 2: {part2}")

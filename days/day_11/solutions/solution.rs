@@ -1,10 +1,6 @@
 use std::collections::HashMap;
 use std::fs;
 
-fn read_input_raw(file_path: &str) -> String {
-    fs::read_to_string(file_path).expect("Failed to read file")
-}
-
 fn solve(input_data: String) -> (i64, i64) {
     let lines: Vec<String> = input_data
         .trim()
@@ -117,7 +113,7 @@ fn solve(input_data: String) -> (i64, i64) {
 }
 
 fn main() {
-    let content = read_input_raw("../data/input.txt");
+    let content = fs::read_to_string("../data/input.txt").expect("Failed to read file");
     let (part1, part2) = solve(content);
     println!("Part 1: {}", part1);
     println!("Part 2: {}", part2);

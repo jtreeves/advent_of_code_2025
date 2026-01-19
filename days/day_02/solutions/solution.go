@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"strconv"
 	"strings"
-	"utils"
 )
 
 // Check if ID is invalid for Part 1: exactly two identical sequences
@@ -90,11 +90,11 @@ func solve(inputData string) (string, string) {
 }
 
 func main() {
-	data, err := utils.ReadInputRaw("../data/input.txt")
+	data, err := os.ReadFile("../data/input.txt")
 	if err != nil {
 		panic(err)
 	}
-	part1, part2 := solve(data)
+	part1, part2 := solve(string(data))
 	fmt.Printf("Part 1: %s\n", part1)
 	fmt.Printf("Part 2: %s\n", part2)
 }

@@ -1,7 +1,3 @@
-function read_input_raw(file_path::String)::String
-    return read(file_path, String)
-end
-
 function solve(input_data::String)::Tuple{String, String}
     lines = split(strip(input_data), '\n')
     if isempty(lines)
@@ -134,7 +130,7 @@ function solve(input_data::String)::Tuple{String, String}
 end
 
 if abspath(PROGRAM_FILE) == @__FILE__
-    data = read_input_raw("../data/input.txt")
+    data = read("../data/input.txt", String)
     part1, part2 = solve(data)
     println("Part 1: $part1")
     println("Part 2: $part2")

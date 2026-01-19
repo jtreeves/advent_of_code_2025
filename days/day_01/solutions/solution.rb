@@ -1,5 +1,3 @@
-require_relative '../../../utilities/ruby/get_input.rb'
-
 def solve(lines)
   # Part 1: Count times dial ends at 0 after a rotation
   position = 50
@@ -62,7 +60,7 @@ def solve(lines)
   [count_part1, count_part2]
 end
 
-lines = get_input(1)
+lines = File.readlines("../data/input.txt").map(&:strip)
 part1, part2 = solve(lines)
 puts "Part 1: #{part1}"
 puts "Part 2: #{part2}"

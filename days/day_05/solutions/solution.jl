@@ -1,7 +1,3 @@
-function read_input_raw(file_path::String)::String
-    return read(file_path, String)
-end
-
 function solve(input_data::String)::Tuple{Int64, Int64}
     lines = split(strip(input_data), '\n')
     
@@ -69,7 +65,7 @@ function solve(input_data::String)::Tuple{Int64, Int64}
     return (part1_count, part2_total)
 end
 
-content = read_input_raw("../data/input.txt")
+content = read("../data/input.txt", String)
 (part1, part2) = solve(content)
 println("Part 1: $(part1)")
 println("Part 2: $(part2)")

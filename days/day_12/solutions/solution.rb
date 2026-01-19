@@ -1,7 +1,3 @@
-def read_input_raw(file_path)
-  File.read(file_path)
-end
-
 def solve(input_data)
   lines = input_data.strip.split("\n")
   return ["0", "Final star"] if lines.empty?
@@ -110,7 +106,7 @@ def solve(input_data)
 end
 
 if __FILE__ == $0
-  data = read_input_raw("../data/input.txt")
+  data = File.read("../data/input.txt")
   part1, part2 = solve(data)
   puts "Part 1: #{part1}"
   puts "Part 2: #{part2}"

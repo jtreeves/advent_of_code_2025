@@ -1,5 +1,3 @@
-require_relative '../../../utilities/ruby/get_input.rb'
-
 def solve(input_data)
   lines = input_data.strip.split("\n")
   

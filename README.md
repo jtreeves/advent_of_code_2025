@@ -11,9 +11,6 @@ This repository contains solutions to the Advent of Code 2025 challenge problems
     - `data/` - Input files (`input.txt` is gitignored, `test_1.txt`, `test_2.txt`, etc. are committed)
     - `solutions/` - Solution files for each language
     - `specs/` - Spec-kit specifications, plans, and tasks (per-day)
-- `utilities/` - Common utility functions organized by language
-  - `get_input.*` - Input reading utilities (always use these instead of inline file reading)
-  - `parse.*` - Parsing utilities (integers, etc.)
 - `.cursor/` - Cursor IDE configurations (commands, rules, documentation)
 - `.specify/` - Spec-kit configurations (templates, scripts, memory)
 
@@ -135,18 +132,16 @@ The repository includes several Cursor commands for automating workflows:
 
 ### Running Solutions
 
-All solutions are located in `days/day_NN/solutions/solution.{ext}`. Solutions use utility functions from `utilities/<language>/` for file I/O operations.
+All solutions are located in `days/day_NN/solutions/solution.{ext}`. Solutions perform file I/O operations inline.
 
 **Important**: Solutions must be run from within the `solutions/` directory to ensure correct relative paths to `../data/input.txt`. As a result, the first step is always `cd days/day_NN/solutions`.
 
 #### C
 
 ```bash
-gcc solution.c ../../utilities/c/get_input.c -o solution -I../../utilities/c
+gcc solution.c -o solution
 ./solution
 ```
-
-**Note**: C solutions link against utility files in `utilities/c/`.
 
 #### Clojure
 
@@ -175,7 +170,7 @@ go run solution.go
 #### Haskell
 
 ```bash
-ghc solution.hs -i../../utilities/haskell -o solution
+ghc solution.hs -o solution
 ./solution
 ```
 
@@ -184,13 +179,13 @@ ghc solution.hs -i../../utilities/haskell -o solution
 #### Java
 
 ```bash
-javac -cp ../../utilities/java solution.java ../../utilities/java/get_input.java
-java -cp .:../../utilities/java Solution
+javac solution.java
+java Solution
 ```
 
 **On Windows**:
 ```bash
-java -cp .;../../utilities/java Solution
+java Solution
 ```
 
 **Requirements**: JDK 11+ with `javac` and `java` in PATH.
@@ -206,7 +201,7 @@ julia solution.jl
 #### Kotlin
 
 ```bash
-kotlinc solution.kt -include-runtime -d solution.jar -cp ../../utilities/kotlin
+kotlinc solution.kt -include-runtime -d solution.jar
 java -jar solution.jar
 ```
 
@@ -231,7 +226,7 @@ ruby solution.rb
 #### Rust
 
 ```bash
-rustc solution.rs --edition 2021 -L dependency=../../utilities/rust
+rustc solution.rs --edition 2021
 ./solution
 ```
 
@@ -266,15 +261,17 @@ ts-node solution.ts
 
 ### Running with Test Input
 
-All solutions can use test input files (`test_1.txt`, `test_2.txt`, etc.) by modifying the solution to use `get_test_input()` instead of `get_input()`. Test files are committed to git (unlike `input.txt` which is gitignored).
+All solutions can use test input files (`test_1.txt`, `test_2.txt`, etc.) by modifying the file path in the solution's I/O code. Test files are committed to git (unlike `input.txt` which is gitignored).
 
 Example in Python:
 ```python
 # For main input
-lines = get_input(1)
+with open("../data/input.txt", 'r') as f:
+    data = f.read()
 
 # For test input
-lines = get_test_input(1, 1)  # Day 1, test 1
+with open("../data/test_1.txt", 'r') as f:
+    data = f.read()
 ```
 
 ## Spec-Driven Development Workflow
@@ -327,12 +324,11 @@ If you've pulled the repo with existing solutions:
 - **Minimal Dependencies**: Use as few external libraries as possible (prefer standard library)
 - See `.cursor/rules/code_style.md` for detailed guidelines
 
-### Utility Usage
+### File I/O
 
-- **Always use utilities** for file I/O operations (never inline file reading)
-- Create utilities only for general-purpose functionality used across multiple days
-- Keep algorithm-specific code in solution files (even if reused later)
-- See `.cursor/rules/utility_usage.md` for detailed rules
+- **Perform file I/O inline** within solution files
+- Solutions should be self-contained with no external dependencies
+- Keep algorithm-specific code in solution files
 
 ### Input Files
 

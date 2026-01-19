@@ -1,5 +1,3 @@
-Code.load_file("../../../utilities/elixir/get_input.ex")
-
 defmodule Solution do
   def count_neighbors(grid, i, j, rows, cols) do
     Enum.sum(for di <- -1..1, dj <- -1..1, not (di == 0 and dj == 0) do
@@ -62,7 +60,7 @@ defmodule Solution do
   end
 end
 
-lines = GetInput.read_input("../data/input.txt")
+lines = "../data/input.txt" |> File.read!() |> String.trim() |> String.split("\n")
 {part1, part2} = Solution.solve(lines)
 IO.puts("Part 1: #{part1}")
 IO.puts("Part 2: #{part2}")

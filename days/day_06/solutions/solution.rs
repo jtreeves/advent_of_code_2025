@@ -1,17 +1,9 @@
-mod utils {
-    include!("../../../utilities/rust/get_input.rs");
-}
-
 use std::fs;
 
 struct Problem {
     start_col: usize,
     end_col: usize,
     op: char,
-}
-
-fn read_input_raw(file_path: &str) -> String {
-    fs::read_to_string(file_path).expect("Failed to read file")
 }
 
 fn solve(input_data: &str) -> (String, String) {
@@ -152,7 +144,7 @@ fn solve(input_data: &str) -> (String, String) {
 }
 
 fn main() {
-    let content = read_input_raw("../data/input.txt");
+    let content = fs::read_to_string("../data/input.txt").expect("Failed to read file");
     let (part1, part2) = solve(&content);
     println!("Part 1: {}", part1);
     println!("Part 2: {}", part2);

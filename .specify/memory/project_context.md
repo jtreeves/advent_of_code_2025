@@ -13,23 +13,12 @@ This repository solves Advent of Code 2025 problems in 12 different programming 
 - Each day has its own folder: `days/day_NN/`
 - Solutions, data, specs, and docs are co-located per day
 - Specs live in `days/day_NN/specs/` (not in root `specs/` folder)
-- Utilities are organized by language in `utilities/<language>/`
-
-### Utilities Organization
-Utilities are split into separate files by function category:
-- `get_input.go`, `get_input.py`, etc. - Input reading functions
-- `parse.go`, `parse.py`, etc. - Parsing utilities
-- `common.go`, `common.py`, etc. - Other shared utilities
-
-This organization makes it easier to:
-- Find specific utility functions
-- Understand dependencies
-- Maintain and update utilities independently
+- Solutions are self-contained with no external dependencies
 
 ### Test Data
 - Official input: `days/day_NN/data/input.txt` (gitignored, user-specific)
 - Test inputs: `days/day_NN/data/test_1.txt`, `test_2.txt`, etc. (committed to git)
-- Solutions can use utility functions to read from either input.txt or test_N.txt files
+- Solutions read directly from these files using inline file I/O operations
 
 ### Workflow
 1. Use Cursor commands (`.cursor/commands/`) for high-level workflows
@@ -40,6 +29,6 @@ This organization makes it easier to:
 ## Design Principles
 
 1. **Idiomatic Code**: Each solution should follow language-specific best practices
-2. **Modularity**: Utilities are split by function to improve maintainability
+2. **Self-Contained**: Solutions should have no external dependencies
 3. **Consistency**: Similar structure across all days and languages
 4. **Documentation**: ANALYSIS.md files compare implementations across languages

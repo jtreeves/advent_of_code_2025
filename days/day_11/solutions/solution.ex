@@ -1,9 +1,7 @@
-Code.load_file("../../../utilities/elixir/get_input.ex")
-
 defmodule Solution do
   def solve(input_data) do
     lines = String.trim(input_data) |> String.split("\n")
-    
+
     # Build graph: device -> list of outputs
     graph = Enum.reduce(lines, %{}, fn line, acc ->
       case String.split(line, ":", parts: 2) do
@@ -16,24 +14,24 @@ defmodule Solution do
           acc
       end
     end)
-    
+
     # Part 1: Count paths from "you" to "out"
     {part1_count, _} = if Map.has_key?(graph, "you") do
       count_paths_part1("you", graph, %{})
     else
       {0, %{}}
     end
-    
+
     # Part 2: Count paths from "svr" to "out" that include both "fft" and "dac"
     {part2_count, _} = if Map.has_key?(graph, "svr") do
       count_paths_part2("svr", false, false, graph, %{})
     else
       {0, %{}}
     end
-    
+
     {to_string(part1_count), to_string(part2_count)}
   end
-  
+
   defp count_paths_part1(node, graph, memo) do
     if node == "out" do
       {1, memo}
@@ -51,7 +49,7 @@ defmodule Solution do
       end
     end
   end
-  
+
   defp count_paths_part2(node, visited_fft, visited_dac, graph, memo) do
     if node == "out" do
       result = if visited_fft && visited_dac, do: 1, else: 0

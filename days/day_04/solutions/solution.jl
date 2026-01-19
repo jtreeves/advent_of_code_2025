@@ -1,6 +1,3 @@
-# Import utilities
-include("../../../utilities/julia/get_input.jl")
-
 function count_neighbors(grid, i, j, rows, cols)
     count = 0
     for di in -1:1
@@ -68,7 +65,7 @@ function solve(lines)
     return part1_count, part2_count
 end
 
-lines = get_input(4)
+lines = [strip(line) for line in readlines("../data/input.txt")]
 part1, part2 = solve(lines)
 println("Part 1: $(part1)")
 println("Part 2: $(part2)")

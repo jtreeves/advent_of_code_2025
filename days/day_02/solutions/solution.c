@@ -1,7 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../../../utilities/c/get_input.h"
+
+// Maximum line length
+#define MAX_LINE_LENGTH 1024
+
+// Structure to hold input lines
+typedef struct {
+    char **lines;
+    int count;
+    int capacity;
+} InputLines;
+
+#define INITIAL_CAPACITY 100
+
+
+void free_input_lines(InputLines* input) {
+    if (input == NULL) {
+        return;
+    }
+
+    for (int i = 0; i < input->count; i++) {
+        free(input->lines[i]);
+    }
+    free(input->lines);
+    free(input);
+}
 
 // Check if ID is invalid for Part 1: exactly two identical sequences
 int is_invalid_part1(const char* id_str) {
@@ -105,11 +129,33 @@ void solve(InputLines* lines, long long* part1_result, long long* part2_result) 
 }
 
 int main() {
-    InputLines* lines = get_input(2);
-    if (lines == NULL) {
+    FILE* file = fopen("../data/input.txt", "r");
+    if (file == NULL) {
         fprintf(stderr, "Error reading input\n");
         return 1;
     }
+
+    InputLines* lines = (InputLines*)malloc(sizeof(InputLines));
+    lines->count = 0;
+    lines->capacity = INITIAL_CAPACITY;
+    lines->lines = (char**)malloc(lines->capacity * sizeof(char*));
+
+    char line[MAX_LINE_LENGTH];
+    while (fgets(line, sizeof(line), file)) {
+        size_t len = strlen(line);
+        if (len > 0 && line[len - 1] == '\n') {
+            line[len - 1] = '\0';
+        }
+        if (lines->count >= lines->capacity) {
+            lines->capacity *= 2;
+            lines->lines = (char**)realloc(lines->lines, lines->capacity * sizeof(char*));
+        }
+        lines->lines[lines->count] = (char*)malloc((strlen(line) + 1) * sizeof(char));
+        strcpy(lines->lines[lines->count], line);
+        lines->count++;
+    }
+
+    fclose(file);
     
     long long part1, part2;
     solve(lines, &part1, &part2);

@@ -1,10 +1,3 @@
-from get_input import read_input_raw  # type: ignore
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve(
-).parent.parent.parent.parent / 'utilities' / 'python'))
-
-
 def solve(input_data: str) -> tuple[str, str]:
     """Solve Day 7 parts 1 and 2."""
     lines = input_data.strip().split('\n')
@@ -77,7 +70,8 @@ def solve(input_data: str) -> tuple[str, str]:
 
 
 if __name__ == "__main__":
-    data: str = read_input_raw("../data/input.txt")  # type: ignore
-    part1, part2 = solve(data)  # type: ignore
+    with open("../data/input.txt", 'r') as f:
+        data = f.read()
+    part1, part2 = solve(data)
     print(f"Part 1: {part1}")
     print(f"Part 2: {part2}")

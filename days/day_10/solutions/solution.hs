@@ -112,8 +112,8 @@ solvePart2ILP buttons joltages =
                    if maybe False (\b -> pressesSoFar + presses >= b) best then bestResult
                    else let newJoltages = zipWith (+) currentJoltages
                                              (map (\i -> if i `elem` (buttons !! buttonIdx) then presses else 0) [0..numLights-1])
-                         exceeds = any (\(a,b) -> a > b) (zip newJoltages joltages)
-                     in if exceeds then bestResult
+                             exceeds = any (\(a,b) -> a > b) (zip newJoltages joltages)
+                         in if exceeds then bestResult
                         else let result = dfs (buttonIdx+1) newJoltages (pressesSoFar+presses) bestResult buttons joltages maxJoltage
                              in case (result, bestResult) of
                                  (Just r, Just br) -> Just (min br r)

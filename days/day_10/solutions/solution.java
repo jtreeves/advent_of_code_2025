@@ -233,7 +233,7 @@ class Solution {
             
             List<Integer> newJoltages = new ArrayList<>(currentJoltages);
             for (int light : buttons.get(buttonIdx)) {
-                if (light >= 0 && light < numLights) {
+                if (light >= 0 && light < joltages.size()) {
                     newJoltages.set(light, newJoltages.get(light) + presses);
                 }
             }

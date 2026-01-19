@@ -1,3 +1,5 @@
+require 'set'
+
 def read_input_raw(file_path)
   File.read(file_path)
 end

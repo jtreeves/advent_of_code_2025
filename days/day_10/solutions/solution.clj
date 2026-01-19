@@ -127,8 +127,8 @@
                               (let [result (dfs (inc button-idx) new-joltages
                                                (+ presses-so-far presses) best-result)]
                                 (recur (inc presses) (if (and result (or (nil? best-result) (< result best-result)))
-                                                      result best-result)))))))))))]
-      (dfs 0 (vec (repeat num-lights 0)) 0 nil))))
+                                                      result best-result))))))))))
+      (dfs 0 (vec (repeat num-lights 0)) 0 nil)))
 
 (defn solve [input-data]
   (let [lines (str/split-lines input-data)

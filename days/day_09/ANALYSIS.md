@@ -29,9 +29,9 @@
 | Java       | [JAVA_SOLUTION]       |
 | Julia      | [JULIA_SOLUTION]      |
 | Kotlin     | [KOTLIN_SOLUTION]     |
-| Python     | [PYTHON_SOLUTION]     |
+| Python     | 4746238001           |
 | Ruby       | [RUBY_SOLUTION]       |
-| Rust       | [RUST_SOLUTION]       |
+| Rust       | 4746238001           |
 | TypeScript | [TYPESCRIPT_SOLUTION] |
 
 ### Part 2
@@ -47,7 +47,7 @@
 | Kotlin     | [KOTLIN_SOLUTION]     |
 | Python     | [PYTHON_SOLUTION]     |
 | Ruby       | [RUBY_SOLUTION]       |
-| Rust       | [RUST_SOLUTION]       |
+| Rust       | 1552139370           |
 | TypeScript | [TYPESCRIPT_SOLUTION] |
 
 ## Performance
@@ -65,7 +65,7 @@
 | Kotlin     | [KOTLIN_EXECUTION_TIME]     |
 | Python     | [PYTHON_EXECUTION_TIME]     |
 | Ruby       | [RUBY_EXECUTION_TIME]       |
-| Rust       | [RUST_EXECUTION_TIME]        |
+| Rust       | 2668                 |
 | TypeScript | [TYPESCRIPT_EXECUTION_TIME] |
 
 ### Part 2
@@ -81,7 +81,7 @@
 | Kotlin     | [KOTLIN_EXECUTION_TIME]     |
 | Python     | [PYTHON_EXECUTION_TIME]     |
 | Ruby       | [RUBY_EXECUTION_TIME]       |
-| Rust       | [RUST_EXECUTION_TIME]        |
+| Rust       | 2668                 |
 | TypeScript | [TYPESCRIPT_EXECUTION_TIME] |
 
 ## Implementation Differences

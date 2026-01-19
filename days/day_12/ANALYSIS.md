@@ -22,79 +22,24 @@ The solution approach:
 - **Time Complexity**: O(n) where n is the number of queries. Shape parsing is O(1) since there are only 6 shapes, each 3×3. Each query requires O(1) area calculation (just multiply and compare).
 - **Space Complexity**: O(1) for processing (fixed 6 integers for shape areas), O(n) for storing the input where n is the number of lines.
 
-## Solutions
-
-### Part 1
-| Language   | Initial Solution |
-|------------|------------------|
-| C          | 531              |
-| Clojure    | 531              |
-| Elixir     | 531              |
-| Go         | 531              |
-| Haskell    | 531              |
-| Java       | 531              |
-| Julia      | 531              |
-| Perl       | 531              |
-| Python     | 531              |
-| Ruby       | 531              |
-| Rust       | 531              |
-| TypeScript | 531              |
-
-### Part 2
-| Language   | Initial Solution |
-|------------|------------------|
-| C          | Final star       |
-| Clojure    | Final star       |
-| Elixir     | Final star       |
-| Go         | Final star       |
-| Haskell    | Final star       |
-| Java       | Final star       |
-| Julia      | Final star       |
-| Perl       | 531              |
-| Python     | Final star       |
-| Ruby       | Final star       |
-| Rust       | Final star       |
-| TypeScript | Final star       |
-
 All languages agree on both parts. Part 2 has no computational challenge - Day 12 is the finale, so completing Part 1 and collecting all previous stars earns the final star.
 
-## Performance
-
-### Part 1
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | 199                 |
-| Clojure    | [Needs fixing]      |
-| Elixir     | 574                 |
-| Go         | 704                 |
-| Haskell    | 411                 |
-| Java       | 101                 |
-| Julia      | 907                 |
-| Perl       | 54                  |
-| Python     | 59                  |
-| Ruby       | 142                 |
-| Rust       | 233                 |
-| TypeScript | 1775                |
-
-### Part 2
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | N/A                 |
-| Clojure    | [Needs fixing]      |
-| Elixir     | N/A                 |
-| Go         | N/A                 |
-| Haskell    | N/A                 |
-| Java       | N/A                 |
-| Julia      | N/A                 |
-| Perl       | 54                  |
-| Python     | N/A                 |
-| Ruby       | N/A                 |
-| Rust       | N/A                 |
-| TypeScript | N/A                 |
-
-**Note**: Execution times for compiled languages (C, Rust, Haskell, Java) include compilation time. For interpreted languages (Python, Ruby, TypeScript, Clojure, Elixir, Julia, Perl), times represent pure execution. Go times include compilation via `go run`. Part 1 and Part 2 have identical execution times since Part 2 is just a placeholder with no computation.
-
 ## Implementation Differences
+
+| Language   | Lines | Execution Time (ms)         |
+|------------|-------|-----------------------------|
+| C          | 191   | 199                         |
+| Clojure    | 79    | [Needs fixing]              |
+| Elixir     | 98    | 574                         |
+| Go         | 155   | 704                         |
+| Haskell    | 74    | 411                         |
+| Java       | 143   | 101                         |
+| Julia      | 137   | 907                         |
+| Perl       | 113   | 54                          |
+| Python     | 101   | 59                          |
+| Ruby       | 113   | 142                         |
+| Rust       | 134   | 233                         |
+| TypeScript | 133   | 1775                        |
 
 All implementations follow the same core algorithm: parse shapes to calculate areas, parse queries, and perform area checks. The differences lie in language-idiomatic patterns and data structures.
 

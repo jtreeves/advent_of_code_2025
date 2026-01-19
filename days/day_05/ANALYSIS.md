@@ -20,77 +20,22 @@ The core algorithm involves: (1) parsing input split by a blank line into ranges
   - Part 2: O(m log m) - dominated by sorting ranges. The merge pass is O(m) after sorting. Total is O(m log m).
 - **Space Complexity**: O(m + n) - storage for ranges (tuples/pairs) and IDs (integers). The merged ranges list is at most O(m) in worst case (no overlaps).
 
-## Solutions
-
-### Part 1
-| Language   | Initial Solution |
-|------------|------------------|
-| C          | 525              |
-| Clojure    | 525              |
-| Elixir     | 525              |
-| Go         | 525              |
-| Haskell    | 525              |
-| Java       | 525              |
-| Julia      | 525              |
-| Perl       | 525              |
-| Python     | 525              |
-| Ruby       | 525              |
-| Rust       | 525              |
-| TypeScript | 525              |
-
-### Part 2
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          | 333892124923577       |
-| Clojure    | 333892124923577       |
-| Elixir     | 333892124923577       |
-| Go         | 333892124923577       |
-| Haskell    | 333892124923577       |
-| Java       | 333892124923577       |
-| Julia      | 333892124923577       |
-| Perl       | 333892124923577       |
-| Python     | 333892124923577       |
-| Ruby       | 333892124923577       |
-| Rust       | 333892124923577       |
-| TypeScript | 333892124923577       |
-
-## Performance
-
-### Part 1
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | 202                |
-| Clojure    | 516                |
-| Elixir     | 364                |
-| Go         | 396                |
-| Haskell    | 352                |
-| Java       | 73                 |
-| Julia      | 511                |
-| Perl       | 83                 |
-| Python     | 55                 |
-| Ruby       | 105                |
-| Rust       | 267                |
-| TypeScript | 1412               |
-
-### Part 2
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | 202                |
-| Clojure    | 516                |
-| Elixir     | 364                |
-| Go         | 396                |
-| Haskell    | 352                |
-| Java       | 73                 |
-| Julia      | 511                |
-| Perl       | 83                 |
-| Python     | 55                 |
-| Ruby       | 105                |
-| Rust       | 267                |
-| TypeScript | 1412               |
-
-**Note**: Execution times for compiled languages (C, Rust, Haskell, Java) include compilation time. For interpreted languages (Python, Ruby, TypeScript, Clojure, Elixir, Julia, Perl), times represent pure execution. Go times include compilation via `go run`.
-
 ## Implementation Differences
+
+| Language   | Lines | Execution Time (ms)         |
+|------------|-------|-----------------------------|
+| C          | 184   | 202                         |
+| Clojure    | 46    | 516                         |
+| Elixir     | 65    | 364                         |
+| Go         | 106   | 396                         |
+| Haskell    | 56    | 352                         |
+| Java       | 86    | 73                          |
+| Julia      | 71    | 511                         |
+| Perl       | 86    | 83                          |
+| Python     | 62    | 55                          |
+| Ruby       | 68    | 105                         |
+| Rust       | 76    | 267                         |
+| TypeScript | 79    | 1412                        |
 
 ### C
 The C implementation uses manual memory management with dynamic allocation (`malloc`, `realloc`) for ranges and IDs arrays. String parsing manually splits lines by iterating through content and replacing newlines with null terminators to preserve blank lines (since `strtok` skips them). Uses `qsort` with a custom comparator for range sorting. Range merging modifies ranges in-place using pointers (`&merged[merged_count - 1]`). Uses `strtoll` for parsing large integers to `long long` (64-bit). Manual cleanup with `free()` for all allocated memory.

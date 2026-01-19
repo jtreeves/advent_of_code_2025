@@ -25,75 +25,22 @@ The core algorithm uses **Depth-First Search (DFS) with memoization** to efficie
   - Recursion stack: O(V) in worst case (longest path in graph)
   - Total: O(V + E)
 
-## Solutions
-
-### Part 1
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          | 497                   |
-| Clojure    | 497                   |
-| Elixir     | 497                   |
-| Go         | 497                   |
-| Haskell    | 497                   |
-| Java       | 497                   |
-| Julia      | 497                   |
-| Perl       | 497                   |
-| Python     | 497                   |
-| Ruby       | 497                   |
-| Rust       | 497                   |
-| TypeScript | 497                   |
-
-### Part 2
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          | 358564784931864       |
-| Clojure    | 358564784931864       |
-| Elixir     | 358564784931864       |
-| Go         | 358564784931864       |
-| Haskell    | 358564784931864       |
-| Java       | 358564784931864       |
-| Julia      | 358564784931864       |
-| Perl       | 497                   |
-| Python     | 358564784931864       |
-| Ruby       | 358564784931864       |
-| Rust       | 358564784931864       |
-| TypeScript | 358564784931864       |
-
-## Performance
-
-### Part 1
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | 330                 |
-| Clojure    | 889                 |
-| Elixir     | 873                 |
-| Go         | 587                 |
-| Haskell    | 529                 |
-| Java       | 121                 |
-| Julia      | 705                 |
-| Perl       | 53                  |
-| Python     | 77                  |
-| Ruby       | 150                 |
-| Rust       | 565                 |
-| TypeScript | 2087                |
-
-### Part 2
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | 330                 |
-| Clojure    | 889                 |
-| Elixir     | 873                 |
-| Go         | 587                 |
-| Haskell    | 529                 |
-| Java       | 121                 |
-| Julia      | 705                 |
-| Perl       | 53                  |
-| Python     | 77                  |
-| Ruby       | 150                 |
-| Rust       | 565                 |
-| TypeScript | 2087                |
-
 ## Implementation Differences
+
+| Language   | Lines | Execution Time (ms)         |
+|------------|-------|-----------------------------|
+| C          | 329   | 330                         |
+| Clojure    | 67    | 889                         |
+| Elixir     | 79    | 873                         |
+| Go         | 109   | 587                         |
+| Haskell    | 90    | 529                         |
+| Java       | 125   | 121                         |
+| Julia      | 87    | 705                         |
+| Perl       | 87    | 53                          |
+| Python     | 71    | 77                          |
+| Ruby       | 73    | 150                         |
+| Rust       | 120   | 565                         |
+| TypeScript | 105   | 2087                        |
 
 ### C
 The C implementation uses manual memory management with custom hash table implementations for both the graph and memoization. The graph is represented as a hash table of linked lists (separate chaining), where each bucket contains nodes with their adjacency lists. Memoization for Part 1 uses a string-keyed hash table, while Part 2 uses a struct-based key `(node, visited_fft, visited_dac)` with custom hash and equality functions. Memory is manually allocated with `malloc`/`realloc` and must be carefully managed to avoid leaks. The parsing uses `strtok` carefully to avoid nested calls.

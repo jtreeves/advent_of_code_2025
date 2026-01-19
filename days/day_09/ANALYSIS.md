@@ -38,75 +38,22 @@ The problem consists of two parts with significantly different complexity:
   - m is for flood-fill operations (m is the number of interior cells)
 - **Part 2 Space Complexity**: O(k²) for the compressed grid and prefix sum table
 
-## Solutions
-
-### Part 1
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          |                       |
-| Clojure    |                       |
-| Elixir     |                       |
-| Go         |                       |
-| Haskell    |                       |
-| Java       |                       |
-| Julia      |                       |
-| Perl       | N/A                   |
-| Python     | 4746238001            |
-| Ruby       |                       |
-| Rust       |                       |
-| TypeScript |                       |
-
-### Part 2
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          |                       |
-| Clojure    |                       |
-| Elixir     |                       |
-| Go         |                       |
-| Haskell    |                       |
-| Java       |                       |
-| Julia      |                       |
-| Perl       | N/A                   |
-| Python     | 1552139370            |
-| Ruby       |                       |
-| Rust       |                       |
-| TypeScript |                       |
-
-## Performance
-
-### Part 1
-| Language   | Execution Time (ms)         |
-|------------|-----------------------------|
-| C          |                             |
-| Clojure    |                             |
-| Elixir     |                             |
-| Go         |                             |
-| Haskell    |                             |
-| Java       |                             |
-| Julia      |                             |
-| Perl       | N/A                         |
-| Python     | 6530                        |
-| Ruby       |                             |
-| Rust       |                             |
-| TypeScript |                             |
-
-### Part 2
-| Language   | Execution Time (ms)         |
-|------------|-----------------------------|
-| C          |                             |
-| Clojure    |                             |
-| Elixir     |                             |
-| Go         |                             |
-| Haskell    |                             |
-| Java       |                             |
-| Julia      |                             |
-| Perl       | N/A                         |
-| Python     | 6530                        |
-| Ruby       |                             |
-| Rust       |                             |
-| TypeScript |                             |
-
 ## Implementation Differences
+
+| Language   | Lines | Execution Time (ms)         |
+|------------|-------|-----------------------------|
+| C          | 261   |                             |
+| Clojure    | 114   |                             |
+| Elixir     | 273   |                             |
+| Go         | 320   |                             |
+| Haskell    | 125   |                             |
+| Java       | 264   |                             |
+| Julia      | 225   |                             |
+| Perl       | 242   | N/A                         |
+| Python     | 193   | 6530                        |
+| Ruby       | 226   |                             |
+| Rust       | 257   |                             |
+| TypeScript | 226   |                             |
 
 ### C
 [How the C implementation differs (e.g., manual memory management, pointers)]

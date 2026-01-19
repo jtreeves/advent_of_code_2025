@@ -16,75 +16,22 @@
 - **Time Complexity**: O(...)
 - **Space Complexity**: O(...)
 
-## Solutions
-
-### Part 1
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          | [C_SOLUTION]          |
-| Clojure    | [CLOJURE_SOLUTION]    |
-| Elixir     | [ELIXIR_SOLUTION]     |
-| Go         | [GO_SOLUTION]         |
-| Haskell    | [HASKELL_SOLUTION]    |
-| Java       | [JAVA_SOLUTION]       |
-| Julia      | [JULIA_SOLUTION]      |
-| Perl       | [PERL_SOLUTION]       |
-| Python     | [PYTHON_SOLUTION]     |
-| Ruby       | [RUBY_SOLUTION]       |
-| Rust       | [RUST_SOLUTION]       |
-| TypeScript | [TYPESCRIPT_SOLUTION] |
-
-### Part 2
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          | [C_SOLUTION]          |
-| Clojure    | [CLOJURE_SOLUTION]    |
-| Elixir     | [ELIXIR_SOLUTION]     |
-| Go         | [GO_SOLUTION]         |
-| Haskell    | [HASKELL_SOLUTION]    |
-| Java       | [JAVA_SOLUTION]       |
-| Julia      | [JULIA_SOLUTION]      |
-| Perl       | [PERL_SOLUTION]       |
-| Python     | [PYTHON_SOLUTION]     |
-| Ruby       | [RUBY_SOLUTION]       |
-| Rust       | [RUST_SOLUTION]       |
-| TypeScript | [TYPESCRIPT_SOLUTION] |
-
-## Performance
-
-### Part 1
-| Language   | Execution Time (ms)         |
-|------------|-----------------------------|
-| C          | [C_EXECUTION_TIME]          |
-| Clojure    | [CLOJURE_EXECUTION_TIME]    |
-| Elixir     | [ELIXIR_EXECUTION_TIME]     |
-| Go         | [GO_EXECUTION_TIME]         |
-| Haskell    | [HASKELL_EXECUTION_TIME]    |
-| Java       | [JAVA_EXECUTION_TIME]       |
-| Julia      | [JULIA_EXECUTION_TIME]      |
-| Perl       | [PERL_EXECUTION_TIME]       |
-| Python     | [PYTHON_EXECUTION_TIME]     |
-| Ruby       | [RUBY_EXECUTION_TIME]       |
-| Rust       | [RUST_EXECUTION_TIME]       |
-| TypeScript | [TYPESCRIPT_EXECUTION_TIME] |
-
-### Part 2
-| Language   | Execution Time (ms)         |
-|------------|-----------------------------|
-| C          | [C_EXECUTION_TIME]          |
-| Clojure    | [CLOJURE_EXECUTION_TIME]    |
-| Elixir     | [ELIXIR_EXECUTION_TIME]     |
-| Go         | [GO_EXECUTION_TIME]         |
-| Haskell    | [HASKELL_EXECUTION_TIME]    |
-| Java       | [JAVA_EXECUTION_TIME]       |
-| Julia      | [JULIA_EXECUTION_TIME]      |
-| Perl       | [PERL_EXECUTION_TIME]       |
-| Python     | [PYTHON_EXECUTION_TIME]     |
-| Ruby       | [RUBY_EXECUTION_TIME]       |
-| Rust       | [RUST_EXECUTION_TIME]       |
-| TypeScript | [TYPESCRIPT_EXECUTION_TIME] |
-
 ## Implementation Differences
+
+| Language   | Lines | Execution Time (ms)         |
+|------------|-------|-----------------------------|
+| C          | [C_L] | [C_EXECUTION_TIME]          |
+| Clojure    | [C-L] | [CLOJURE_EXECUTION_TIME]    |
+| Elixir     | [E_L] | [ELIXIR_EXECUTION_TIME]     |
+| Go         | [G-L] | [GO_EXECUTION_TIME]         |
+| Haskell    | [H_L] | [HASKELL_EXECUTION_TIME]    |
+| Java       | [J_L] | [JAVA_EXECUTION_TIME]       |
+| Julia      | [J_L] | [JULIA_EXECUTION_TIME]      |
+| Perl       | [P_L] | [PERL_EXECUTION_TIME]       |
+| Python     | [P_L] | [PYTHON_EXECUTION_TIME]     |
+| Ruby       | [R_L] | [RUBY_EXECUTION_TIME]       |
+| Rust       | [R_L] | [RUST_EXECUTION_TIME]       |
+| TypeScript | [T_L] | [TYPESCRIPT_EXECUTION_TIME] |
 
 ### C
 [How the C implementation differs (e.g., manual memory management, pointers)]

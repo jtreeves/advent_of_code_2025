@@ -22,75 +22,22 @@ Part 1 is straightforward: apply each rotation and check if the final position e
   - Part 2: O(n × d) where n is the number of rotation lines and d is the average distance per rotation. This is because we must simulate each intermediate position during each rotation to count zeros. In the worst case, large rotations like R1000 require checking 1000 positions.
 - **Space Complexity**: O(1) - constant space regardless of input size. We only need a few integer variables to track the current position and counters for both parts. No additional data structures scale with input size.
 
-## Solutions
-
-### Part 1
-| Language   | Initial Solution |
-|------------|------------------|
-| C          | 1180             |
-| Clojure    | 1180             |
-| Elixir     | 1180             |
-| Go         | 1180             |
-| Haskell    | 1180             |
-| Java       | 1180             |
-| Julia      | 1180             |
-| Perl       | 1180             |
-| Python     | 1180             |
-| Ruby       | 1180             |
-| Rust       | 1180             |
-| TypeScript | 1180             |
-
-### Part 2
-| Language   | Initial Solution |
-|------------|------------------|
-| C          | 6892             |
-| Clojure    | 6892             |
-| Elixir     | 6892             |
-| Go         | 6892             |
-| Haskell    | 6892             |
-| Java       | 6892             |
-| Julia      | 6892             |
-| Perl       | 1180             |
-| Python     | 6892             |
-| Ruby       | 6892             |
-| Rust       | 6892             |
-| TypeScript | 6892             |
-
-## Performance
-
-### Part 1
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | 185                 |
-| Clojure    | 464                 |
-| Elixir     | 393                 |
-| Go         | 297                 |
-| Haskell    | 345                 |
-| Java       | 76                  |
-| Julia      | 4323                |
-| Perl       | 160                 |
-| Python     | 71                  |
-| Ruby       | 207                 |
-| Rust       | 202                 |
-| TypeScript | 3875                |
-
-### Part 2
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | 185                 |
-| Clojure    | 464                 |
-| Elixir     | 393                 |
-| Go         | 297                 |
-| Haskell    | 345                 |
-| Java       | 76                  |
-| Julia      | 4323                |
-| Perl       | 160                 |
-| Python     | 71                  |
-| Ruby       | 207                 |
-| Rust       | 202                 |
-| TypeScript | 3875                |
-
 ## Implementation Differences
+
+| Language   | Lines | Execution Time (ms)         |
+|------------|-------|-----------------------------|
+| C          | 131   | 185                         |
+| Clojure    | 57    | 464                         |
+| Elixir     | 71    | 393                         |
+| Go         | 96    | 297                         |
+| Haskell    | 61    | 345                         |
+| Java       | 76    | 76                          |
+| Julia      | 64    | 4323                        |
+| Perl       | 70    | 160                         |
+| Python     | 58    | 71                          |
+| Ruby       | 66    | 207                         |
+| Rust       | 80    | 202                         |
+| TypeScript | 73    | 3875                        |
 
 ### C
 The C implementation uses manual memory management through the `InputLines` utility structure and pointer-based parameter passing (`*part1_result`, `*part2_result`). String parsing uses `atoi()` to convert character arrays to integers. Modulo arithmetic requires explicit handling: `((position - distance) % 100 + 100) % 100` to ensure non-negative results for left rotations.

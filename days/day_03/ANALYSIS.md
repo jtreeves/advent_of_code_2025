@@ -22,75 +22,22 @@ The greedy approach is optimal: at each position i (0 to N-1), we select the lar
 
 - **Space Complexity**: O(1) per bank - we only need temporary variables for tracking positions and building the result. The result string/array is at most length N (2 or 12), which is constant. Total space complexity is O(n) if we store all banks, but typically we process them one at a time, requiring only O(1) additional space.
 
-## Solutions
-
-### Part 1
-| Language   | Initial Solution |
-|------------|------------------|
-| C          | 17535            |
-| Clojure    | 17535            |
-| Elixir     | 17535            |
-| Go         | 17535            |
-| Haskell    | 17535            |
-| Java       | 17535            |
-| Julia      | 17535            |
-| Perl       | 17535            |
-| Python     | 17535            |
-| Ruby       | 17535            |
-| Rust       | 17535            |
-| TypeScript | 17535            |
-
-### Part 2
-| Language   | Initial Solution |
-|------------|------------------|
-| C          | 173577199527257  |
-| Clojure    | 173577199527257  |
-| Elixir     | 173577199527257  |
-| Go         | 173577199527257  |
-| Haskell    | 173577199527257  |
-| Java       | 173577199527257  |
-| Julia      | 173577199527257  |
-| Perl       | 17535            |
-| Python     | 173577199527257  |
-| Ruby       | 173577199527257  |
-| Rust       | 173577199527257  |
-| TypeScript | 173577199527257  |
-
-## Performance
-
-### Part 1
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | 308                 |
-| Clojure    | 493                 |
-| Elixir     | 387                 |
-| Go         | 223                 |
-| Haskell    | 346                 |
-| Java       | 63                  |
-| Julia      | 679                 |
-| Perl       | 59                  |
-| Python     | 40                  |
-| Ruby       | 100                 |
-| Rust       | 360                 |
-| TypeScript | 1852                |
-
-### Part 2
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | 308                 |
-| Clojure    | 493                 |
-| Elixir     | 387                 |
-| Go         | 223                 |
-| Haskell    | 346                 |
-| Java       | 63                  |
-| Julia      | 679                 |
-| Perl       | 59                  |
-| Python     | 40                  |
-| Ruby       | 100                 |
-| Rust       | 360                 |
-| TypeScript | 1852                |
-
 ## Implementation Differences
+
+| Language   | Lines | Execution Time (ms)         |
+|------------|-------|-----------------------------|
+| C          | 69    | 308                         |
+| Clojure    | 37    | 493                         |
+| Elixir     | 48    | 387                         |
+| Go         | 71    | 223                         |
+| Haskell    | 31    | 346                         |
+| Java       | 64    | 63                          |
+| Julia      | 51    | 679                         |
+| Perl       | 67    | 59                          |
+| Python     | 64    | 40                          |
+| Ruby       | 56    | 100                         |
+| Rust       | 61    | 360                         |
+| TypeScript | 64    | 1852                        |
 
 ### C
 The C implementation uses manual string manipulation with character arrays. The `find_largest_subsequence` function uses `char` array indexing and `strlen()` for length checks. String building is done character-by-character into a `char result[16]` array, then converted to integer using `atoll()`. File I/O uses standard `fgets()` with `strcspn()` to remove newlines. The implementation is straightforward and imperative with no dynamic memory allocation for the greedy algorithm itself.

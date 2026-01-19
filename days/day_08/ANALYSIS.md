@@ -16,77 +16,22 @@ The problem requires connecting 3D junction boxes into circuits using a greedy a
 - **Time Complexity**: O(n² log n) where n = number of boxes - dominated by computing all pairwise distances (O(n²)) and sorting them (O(n² log n²) = O(n² log n))
 - **Space Complexity**: O(n²) for storing all pairs and distances, plus O(n) for Union-Find data structures
 
-## Solutions
-
-### Part 1
-| Language   | Initial Solution |
-|------------|------------------|
-| C          | 32103            |
-| Clojure    | 32103            |
-| Elixir     | 32103            |
-| Go         | 32103            |
-| Haskell    | 32103            |
-| Java       | 32103            |
-| Julia      | 32103            |
-| Perl       | 32103            |
-| Python     | 32103            |
-| Ruby       | 32103            |
-| Rust       | 32103            |
-| TypeScript | 32103            |
-
-### Part 2
-| Language   | Initial Solution |
-|------------|------------------|
-| C          | 8133642976       |
-| Clojure    | 8133642976       |
-| Elixir     | 8133642976       |
-| Go         | 8133642976       |
-| Haskell    | 8133642976       |
-| Java       | 8133642976       |
-| Julia      | 8133642976       |
-| Perl       | 32103            |
-| Python     | 8133642976       |
-| Ruby       | 8133642976       |
-| Rust       | 8133642976       |
-| TypeScript | 8133642976       |
-
-## Performance
-
-### Part 1
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | 324                 |
-| Clojure    | 6935                |
-| Elixir     | 2630                |
-| Go         | 616                 |
-| Haskell    | 2732                |
-| Java       | 355                 |
-| Julia      | 1019                |
-| Perl       | 1844                |
-| Python     | 696                 |
-| Ruby       | 574                 |
-| Rust       | 803                 |
-| TypeScript | 2202                |
-
-### Part 2
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | 324                 |
-| Clojure    | 6935                |
-| Elixir     | 2630                |
-| Go         | 616                 |
-| Haskell    | 2732                |
-| Java       | 355                 |
-| Julia      | 1019                |
-| Perl       | 1844                |
-| Python     | 696                 |
-| Ruby       | 574                 |
-| Rust       | 803                 |
-| TypeScript | 2202                |
-
-**Note**: Execution times are averaged over 3 runs. Times include compilation for compiled languages (C, Rust, Haskell, Java). The timing script measures total execution time for both parts combined. C and Java show excellent performance, while interpreted JVM languages (Clojure) and functional languages (Elixir, Haskell) show higher overhead.
-
 ## Implementation Differences
+
+| Language   | Lines | Execution Time (ms)         |
+|------------|-------|-----------------------------|
+| C          | 205   | 324                         |
+| Clojure    | 115   | 6935                        |
+| Elixir     | 158   | 2630                        |
+| Go         | 166   | 616                         |
+| Haskell    | 107   | 2732                        |
+| Java       | 151   | 355                         |
+| Julia      | 134   | 1019                        |
+| Perl       | 133   | 1844                        |
+| Python     | 114   | 696                         |
+| Ruby       | 113   | 574                         |
+| Rust       | 149   | 803                         |
+| TypeScript | 132   | 2202                        |
 
 ### C
 - **Manual memory management**: Uses `malloc`/`realloc`/`free` for dynamic arrays and Union-Find structures

@@ -22,75 +22,22 @@ This problem involves solving two related optimization problems on a system of l
 - **Part 2 Time Complexity**: Depends on Z3 solver performance, but divide-by-2 optimization reduces problem size logarithmically
 - **Part 2 Space Complexity**: O(n + m) for storing constraints and variables
 
-## Solutions
-
-### Part 1
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          | TOO LONG              |
-| Clojure    | NOT SOLVED            |
-| Elixir     | NOT SOLVED            |
-| Go         | TOO LONG              |
-| Haskell    | NOT SOLVED            |
-| Java       | TOO LONG              |
-| Julia      | TOO LONG              |
-| Perl       | N/A                   |
-| Python     | 459                   |
-| Ruby       | TOO LONG              |
-| Rust       | NOT SOLVED            |
-| TypeScript | NOT SOLVED            |
-
-### Part 2
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          | TOO LONG              |
-| Clojure    | NOT SOLVED            |
-| Elixir     | NOT SOLVED            |
-| Go         | TOO LONG              |
-| Haskell    | NOT SOLVED            |
-| Java       | TOO LONG              |
-| Julia      | TOO LONG              |
-| Perl       | N/A                   |
-| Python     | 18687                 |
-| Ruby       | TOO LONG              |
-| Rust       | NOT SOLVED            |
-| TypeScript | NOT SOLVED            |
-
-## Performance
-
-### Part 1
-| Language   | Execution Time (ms)         |
-|------------|-----------------------------|
-| C          | TOO LONG (>60000)           |
-| Clojure    | N/A (NOT SOLVED)            |
-| Elixir     | N/A (NOT SOLVED)            |
-| Go         | TOO LONG (>60000)           |
-| Haskell    | N/A (NOT SOLVED)            |
-| Java       | TOO LONG (>60000)           |
-| Julia      | TOO LONG (>60000)           |
-| Perl       | N/A                         |
-| Python     | 1587.6                      |
-| Ruby       | TOO LONG (>60000)           |
-| Rust       | N/A (NOT SOLVED)            |
-| TypeScript | N/A (NOT SOLVED)            |
-
-### Part 2
-| Language   | Execution Time (ms)         |
-|------------|-----------------------------|
-| C          | TOO LONG (>60000)           |
-| Clojure    | N/A (NOT SOLVED)            |
-| Elixir     | N/A (NOT SOLVED)            |
-| Go         | TOO LONG (>60000)           |
-| Haskell    | N/A (NOT SOLVED)            |
-| Java       | TOO LONG (>60000)           |
-| Julia      | TOO LONG (>60000)           |
-| Perl       | N/A                         |
-| Python     | 1587.6                      |
-| Ruby       | TOO LONG (>60000)           |
-| Rust       | N/A (NOT SOLVED)            |
-| TypeScript | N/A (NOT SOLVED)            |
-
 ## Implementation Differences
+
+| Language   | Lines | Execution Time (ms)         |
+|------------|-------|-----------------------------|
+| C          | 436   | TOO LONG (>60000)           |
+| Clojure    | 167   | N/A (NOT SOLVED)            |
+| Elixir     | 282   | N/A (NOT SOLVED)            |
+| Go         | 487   | TOO LONG (>60000)           |
+| Haskell    | 158   | N/A (NOT SOLVED)            |
+| Java       | 319   | TOO LONG (>60000)           |
+| Julia      | 353   | TOO LONG (>60000)           |
+| Perl       | 519   | N/A                         |
+| Python     | 455   | 1587.6                      |
+| Ruby       | 229   | TOO LONG (>60000)           |
+| Rust       | 364   | N/A (NOT SOLVED)            |
+| TypeScript | 331   | N/A (NOT SOLVED)            |
 
 ### C
 [How the C implementation differs (e.g., manual memory management, pointers)]

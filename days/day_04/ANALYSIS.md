@@ -19,75 +19,22 @@ The core algorithm involves neighbor counting using 8-directional checks (N, S, 
   - Part 2: O(rows × cols × k) where k is the number of removal rounds. Each round scans the entire grid to identify accessible rolls, and rounds continue until convergence (typically small, but worst case could approach rows×cols if removing one at a time).
 - **Space Complexity**: O(rows × cols) - we need to store the grid. For Part 2, we also need temporary storage for positions to remove, but this is bounded by O(rows × cols).
 
-## Solutions
-
-### Part 1
-| Language   | Initial Solution |
-|------------|------------------|
-| C          | 1587             |
-| Clojure    | 1587             |
-| Elixir     | 1587             |
-| Go         | 1587             |
-| Haskell    | 1587             |
-| Java       | 1587             |
-| Julia      | 1587             |
-| Perl       | 1587             |
-| Python     | 1587             |
-| Ruby       | 1587             |
-| Rust       | 1587             |
-| TypeScript | 1587             |
-
-### Part 2
-| Language   | Initial Solution |
-|------------|------------------|
-| C          | 8946             |
-| Clojure    | 8946             |
-| Elixir     | 8946             |
-| Go         | 8946             |
-| Haskell    | 8946             |
-| Java       | 8946             |
-| Julia      | 8946             |
-| Perl       | 1587             |
-| Python     | 8946             |
-| Ruby       | 8946             |
-| Rust       | 8946             |
-| TypeScript | 8946             |
-
-## Performance
-
-### Part 1
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | 257                 |
-| Clojure    | [Not measured]      |
-| Elixir     | [Not measured]      |
-| Go         | 1747                |
-| Haskell    | [Not measured]      |
-| Java       | 994                 |
-| Julia      | 9216                |
-| Perl       | 1313                |
-| Python     | 29290               |
-| Ruby       | 910                 |
-| Rust       | 3541                |
-| TypeScript | 1055                |
-
-### Part 2
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | 257                 |
-| Clojure    | [Not measured]      |
-| Elixir     | [Not measured]      |
-| Go         | 1747                |
-| Haskell    | [Not measured]      |
-| Java       | 994                 |
-| Julia      | 9216                |
-| Perl       | 1313                |
-| Python     | 29290               |
-| Ruby       | 910                 |
-| Rust       | 3541                |
-| TypeScript | 1055                |
-
 ## Implementation Differences
+
+| Language   | Lines | Execution Time (ms)         |
+|------------|-------|-----------------------------|
+| C          | 153   | 257                         |
+| Clojure    | 62    | [Not measured]              |
+| Elixir     | 66    | [Not measured]              |
+| Go         | 105   | 1747                        |
+| Haskell    | 55    | [Not measured]              |
+| Java       | 92    | 994                         |
+| Julia      | 71    | 9216                        |
+| Perl       | 78    | 1313                        |
+| Python     | 60    | 29290                       |
+| Ruby       | 65    | 910                         |
+| Rust       | 88    | 3541                        |
+| TypeScript | 78    | 1055                        |
 
 ### C
 [How the C implementation differs (e.g., manual memory management, pointers)]

@@ -15,78 +15,6 @@ The problem requires parsing a math worksheet with cephalopod math notation. For
 - **Time Complexity**: O(n × m) where n = number of rows, m = number of columns - need to scan all characters to identify problems and parse numbers
 - **Space Complexity**: O(n × m) for storing the grid/input, plus O(k) for storing problems and results where k = number of problems
 
-## Solutions
-
-### Part 1
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          | 5524274308182         |
-| Clojure    | 5524274308182         |
-| Elixir     | 5524274308182         |
-| Go         | 5524274308182         |
-| Haskell    | 5524274308182         |
-| Java       | 5524274308182         |
-| Julia      | 5524274308182         |
-| Perl       | 5524274308182         |
-| Python     | 5524274308182         |
-| Ruby       | 5524274308182         |
-| Rust       | 5524274308182         |
-| TypeScript | 5524274308182         |
-
-### Part 2
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          | 8843673199391         |
-| Clojure    | 8843673199391         |
-| Elixir     | 8843673199391         |
-| Go         | 8843673199391         |
-| Haskell    | 8843673199391         |
-| Java       | 8843673199391         |
-| Julia      | 8843673199391         |
-| Perl       | 5524274308182         |
-| Python     | 8843673199391         |
-| Ruby       | 8843673199391         |
-| Rust       | 8843673199391         |
-| TypeScript | 8843673199391         |
-
-**Note**: Part 2 proved significantly more challenging than Part 1, requiring a different parsing strategy. The original Python implementation attempted a complex column grouping approach that produced an incorrect result (`992008`). All languages now use a simpler transpose-and-parse approach, converging on the correct answer (`8843673199391`). See "Part 2 Implementation Challenges" section below for details.
-
-## Performance
-
-### Part 1
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | 197                 |
-| Clojure    | 618                 |
-| Elixir     | 1006                |
-| Go         | 376                 |
-| Haskell    | 552                 |
-| Java       | 103                 |
-| Julia      | 559                 |
-| Perl       | 63                  |
-| Python     | 55                  |
-| Ruby       | 98                  |
-| Rust       | 470                 |
-| TypeScript | 1458                |
-
-### Part 2
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | 214                 |
-| Clojure    | 633                 |
-| Elixir     | 1472                |
-| Go         | 501                 |
-| Haskell    | 641                 |
-| Java       | 120                 |
-| Julia      | 1080                |
-| Perl       | 63                  |
-| Python     | 59                  |
-| Ruby       | 112                 |
-| Rust       | 752                 |
-| TypeScript | 1699                |
-
-**Note**: Execution times for compiled languages (C, Rust, Haskell, Java) include compilation time. For interpreted languages (Python, Ruby, TypeScript, Clojure, Elixir, Julia, Perl), times represent pure execution. Go times include compilation via `go run`. Part 2 typically takes slightly longer than Part 1 due to the transpose operation required for column-based parsing.
-
 ## Part 2 Implementation Challenges
 
 **Part 2 proved significantly more difficult than Part 1**, requiring a fundamentally different parsing strategy. The challenge involved:
@@ -109,6 +37,21 @@ All Part 2 implementations follow the same core algorithm but use language-idiom
 5. **Apply operators**: Sum or multiply the parsed numbers
 
 ## Implementation Differences
+
+| Language   | Lines | Execution Time (ms)         |
+|------------|-------|-----------------------------|
+| C          | 313   | 197                         |
+| Clojure    | 91    | 618                         |
+| Elixir     | 129   | 1006                        |
+| Go         | 185   | 376                         |
+| Haskell    | 114   | 552                         |
+| Java       | 156   | 103                         |
+| Julia      | 132   | 559                         |
+| Perl       | 151   | 63                          |
+| Python     | 119   | 55                          |
+| Ruby       | 114   | 98                          |
+| Rust       | 151   | 470                         |
+| TypeScript | 144   | 1458                        |
 
 ### C
 - **Part 1**: Manual memory management with pointers; uses `malloc`/`realloc` for dynamic arrays

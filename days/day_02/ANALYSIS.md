@@ -21,75 +21,22 @@ The core algorithm involves: (1) parsing input ranges in the format `start-end, 
   - Part 2: O(n × m × k²) where k² comes from checking all divisors (2 to k) for each number, each requiring O(k) string comparison and O(k) string repetition construction.
 - **Space Complexity**: O(k) where k is the length of the longest number string - needed for string conversion, pattern extraction, and pattern repetition construction.
 
-## Solutions
-
-### Part 1
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          | [Needs fix]           |
-| Clojure    | 55916882972           |
-| Elixir     | [Needs fix]           |
-| Go         | 55916882972           |
-| Haskell    | 55916882972           |
-| Java       | 55916882972           |
-| Julia      | 55916882972           |
-| Perl       | 55916882972           |
-| Python     | 55916882972           |
-| Ruby       | 55916882972           |
-| Rust       | 55916882972           |
-| TypeScript | 55916882972           |
-
-### Part 2
-| Language   | Initial Solution      |
-|------------|-----------------------|
-| C          | [Needs fix]           |
-| Clojure    | 76169125915           |
-| Elixir     | [Needs fix]           |
-| Go         | 76169125915           |
-| Haskell    | 76169125915           |
-| Java       | 76169125915           |
-| Julia      | 76169125915           |
-| Perl       | 55916882972           |
-| Python     | 76169125915           |
-| Ruby       | 76169125915           |
-| Rust       | 76169125915           |
-| TypeScript | 76169125915           |
-
-## Performance
-
-### Part 1
-| Language   | Execution Time (ms)         |
-|------------|-----------------------------|
-| C          | [Needs fix]                 |
-| Clojure    | 1687                        |
-| Elixir     | [Needs fix]                 |
-| Go         | 863                         |
-| Haskell    | 12048                       |
-| Java       | 350                         |
-| Julia      | 1117                        |
-| Perl       | 4563                        |
-| Python     | 1310                        |
-| Ruby       | 2498                        |
-| Rust       | 783                         |
-| TypeScript | 2069                        |
-
-### Part 2
-| Language   | Execution Time (ms)         |
-|------------|-----------------------------|
-| C          | [Needs fix]                 |
-| Clojure    | 1687                        |
-| Elixir     | [Needs fix]                 |
-| Go         | 863                         |
-| Haskell    | 12048                       |
-| Java       | 350                         |
-| Julia      | 1117                        |
-| Perl       | 4563                        |
-| Python     | 1310                        |
-| Ruby       | 2498                        |
-| Rust       | 783                         |
-| TypeScript | 2069                        |
-
 ## Implementation Differences
+
+| Language   | Lines | Execution Time (ms)         |
+|------------|-------|-----------------------------|
+| C          | 168   | [Needs fix]                 |
+| Clojure    | 64    | 1687                        |
+| Elixir     | 82    | [Needs fix]                 |
+| Go         | 100   | 863                         |
+| Haskell    | 56    | 12048                       |
+| Java       | 92    | 350                         |
+| Julia      | 86    | 1117                        |
+| Perl       | 86    | 4563                        |
+| Python     | 73    | 1310                        |
+| Ruby       | 61    | 2498                        |
+| Rust       | 81    | 783                         |
+| TypeScript | 84    | 2069                        |
 
 ### C
 The C implementation uses manual memory management through the `InputLines` utility structure and pointer-based parameter passing for results. String parsing uses `strtok` to split by commas and dashes, and `atoll` for parsing large integers. String comparison uses `strncmp` for substring checks, and pattern repetition is checked by manually comparing each segment of the repeated pattern.

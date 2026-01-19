@@ -15,75 +15,22 @@ The solution processes the grid row-by-row, simulating tachyon beam propagation.
 - **Time Complexity**: O(rows × cols) - we process each cell at most once per row
 - **Space Complexity**: O(rows × cols) for Part 2 (beam count matrix), O(cols) for Part 1 (active beam set)
 
-## Solutions
-
-### Part 1
-| Language   | Initial Solution |
-|------------|------------------|
-| C          | 1622             |
-| Clojure    | 1622             |
-| Elixir     | 1622             |
-| Go         | 1622             |
-| Haskell    | 1622             |
-| Java       | 1622             |
-| Julia      | 1622             |
-| Perl       | 1622             |
-| Python     | 1622             |
-| Ruby       | 1622             |
-| Rust       | 1622             |
-| TypeScript | 1622             |
-
-### Part 2
-| Language   | Initial Solution    |
-|------------|---------------------|
-| C          | 10357305916520      |
-| Clojure    | 10357305916520      |
-| Elixir     | 10357305916520      |
-| Go         | 10357305916520      |
-| Haskell    | 10357305916520      |
-| Java       | 10357305916520      |
-| Julia      | 10357305916520      |
-| Perl       | 59                  |
-| Python     | 10357305916520      |
-| Ruby       | 10357305916520      |
-| Rust       | 10357305916520      |
-| TypeScript | 10357305916520      |
-
-## Performance
-
-### Part 1
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | 255                 |
-| Clojure    | 1167                |
-| Elixir     | 526                 |
-| Go         | 518                 |
-| Haskell    | 615                 |
-| Java       | 266                 |
-| Julia      | 790                 |
-| Perl       | 59                  |
-| Python     | 74                  |
-| Ruby       | 197                 |
-| Rust       | 323                 |
-| TypeScript | 2137                |
-
-### Part 2
-| Language   | Execution Time (ms) |
-|------------|---------------------|
-| C          | 255                 |
-| Clojure    | 1167                |
-| Elixir     | 526                 |
-| Go         | 518                 |
-| Haskell    | 615                 |
-| Java       | 266                 |
-| Julia      | 790                 |
-| Perl       | 59                  |
-| Python     | 74                  |
-| Ruby       | 197                 |
-| Rust       | 323                 |
-| TypeScript | 2137                |
-
 ## Implementation Differences
+
+| Language   | Lines | Execution Time (ms)         |
+|------------|-------|-----------------------------|
+| C          | 150   | 255                         |
+| Clojure    | 62    | 1167                        |
+| Elixir     | 117   | 526                         |
+| Go         | 116   | 518                         |
+| Haskell    | 84    | 615                         |
+| Java       | 104   | 266                         |
+| Julia      | 88    | 790                         |
+| Perl       | 99    | 59                          |
+| Python     | 77    | 74                          |
+| Ruby       | 78    | 197                         |
+| Rust       | 99    | 323                         |
+| TypeScript | 92    | 2137                        |
 
 ### C
 The C implementation uses manual memory management with `malloc`/`realloc` for dynamic arrays. For Part 1, active beams are tracked using integer arrays (`calloc`) where each index represents a column. For Part 2, uses a 2D `long long` array (`beam_counts`) allocated row-by-row for tracking beam counts. String parsing manually splits content by replacing newlines with null terminators. Uses `calloc` for zero-initialization of arrays. Manual cleanup with `free()` for all allocated memory.

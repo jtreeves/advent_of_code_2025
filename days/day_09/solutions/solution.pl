@@ -131,17 +131,17 @@ sub solve {
                     while (@stack) {
                         my $pos = pop @stack;
                         my ($x, $y) = @$pos;
-                        if ($x >= $width || $y >= $height || $grid[$x][$y]) {
+                        if ($x < 0 || $y < 0 || $x >= $width || $y >= $height || $grid[$x][$y]) {
                             next;
                         }
                         my $orig_x_val = $all_x[$x];
                         my $orig_y_val = $all_y[$y];
                         if (point_in_polygon($orig_x_val, $orig_y_val, \@red_tiles)) {
                             $grid[$x][$y] = 1;
-                            push @stack, [$x - 1, $y] if $x > 0;
-                            push @stack, [$x + 1, $y] if $x + 1 < $width;
-                            push @stack, [$x, $y - 1] if $y > 0;
-                            push @stack, [$x, $y + 1] if $y + 1 < $height;
+                            push @stack, [$x - 1, $y];
+                            push @stack, [$x + 1, $y];
+                            push @stack, [$x, $y - 1];
+                            push @stack, [$x, $y + 1];
                         }
                     }
                     $found_interior = 1;
@@ -206,7 +206,7 @@ sub solve {
         if ($valid_count == $expected_cells) {
             # Check corners to ensure rectangle doesn't extend beyond valid regions
             my $all_valid = 1;
-            for my $corner ([[$min_x, $min_y], [$min_x, $max_y], [$max_x, $min_y], [$max_x, $max_y]]) {
+            for my $corner ([$min_x, $min_y], [$min_x, $max_y], [$max_x, $min_y], [$max_x, $max_y]) {
                 my ($x, $y) = @$corner;
                 if (exists $x_to_cx{$x} && exists $y_to_cy{$y}) {
                     my $cx = $x_to_cx{$x};

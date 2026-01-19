@@ -1,9 +1,6 @@
 import java.io.File
 
 data class Problem(val startCol: Int, val endCol: Int, val op: Char)
-
-fun readInputRaw(filePath: String): String = File(filePath).readText()
-
 fun solve(inputData: String): Pair<Long, Long> {
     val lines = inputData.trim().split('\n')
     if (lines.isEmpty()) return Pair(0, 0)

@@ -1,11 +1,3 @@
-import java.io.File
-
-// Import utilities
-fun getInput(day: Int): List<String> {
-    val path = "../data/input.txt"
-    return File(path).readLines().map { it.trim() }.filter { it.isNotEmpty() }
-}
-
 fun countNeighbors(grid: List<String>, i: Int, j: Int, rows: Int, cols: Int): Int {
     var count = 0
     for (di in -1..1) {

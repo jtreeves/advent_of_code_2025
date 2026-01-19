@@ -1,9 +1,3 @@
-import java.io.File
-
-fun readInputRaw(filePath: String): String {
-    return File(filePath).readText()
-}
-
 fun solve(inputData: String): Pair<Long, Long> {
     val lines = inputData.trim().split('\n')
     

@@ -1,7 +1,6 @@
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
-import java.util.regex.Pattern;
 
 class Solution {
     static class Problem {

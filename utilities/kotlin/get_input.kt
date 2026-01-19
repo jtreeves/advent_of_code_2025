@@ -1,4 +1,6 @@
 import java.io.File
+import java.io.BufferedReader
+import java.io.FileReader
 
 /**
  * Input reading utilities for Kotlin solutions.
@@ -38,12 +40,30 @@ fun getTestInputPath(day: Int, testNum: Int): String {
  * Read input file and return lines as a list.
  */
 fun readInput(filePath: String): List<String> {
-    return File(filePath).readLines().map { it.trim() }
+    val file = File(filePath)
+    val lines = mutableListOf<String>()
+    BufferedReader(FileReader(file)).use { reader ->
+        reader.forEachLine { line ->
+            lines.add(line.trim())
+        }
+    }
+    return lines
 }
 
 /**
  * Read input file and return raw content.
  */
 fun readInputRaw(filePath: String): String {
-    return File(filePath).readText()
+    val file = File(filePath)
+    val sb = StringBuilder()
+    BufferedReader(FileReader(file)).use { reader ->
+        reader.forEachLine { line ->
+            sb.append(line).append("\n")
+        }
+    }
+    // Remove trailing newline if file ended with one
+    if (sb.isNotEmpty() && sb.last() == '\n') {
+        sb.deleteCharAt(sb.length - 1)
+    }
+    return sb.toString()
 }

@@ -1,8 +1,8 @@
+from get_input import read_input_raw  # type: ignore
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve(
 ).parent.parent.parent.parent / 'utilities' / 'python'))
-from get_input import read_input_raw  # type: ignore
 
 
 def count_neighbors(grid: list[str], i: int, j: int, rows: int, cols: int) -> int:
@@ -23,7 +23,7 @@ def solve(input_data: str) -> tuple[str, str]:
     lines = [line for line in input_data.strip().split('\n') if line.strip()]
     rows = len(lines)
     cols = len(lines[0]) if rows > 0 else 0
-    
+
     # Part 1: Count accessible rolls (fewer than 4 neighbors that are '@')
     part1_count = 0
     for i in range(rows):
@@ -32,29 +32,30 @@ def solve(input_data: str) -> tuple[str, str]:
                 neighbors = count_neighbors(lines, i, j, rows, cols)
                 if neighbors < 4:
                     part1_count += 1
-    
+
     # Part 2: Iteratively remove accessible rolls until none can be removed
     # Create mutable copy
     grid = [list(line) for line in lines]
     part2_count = 0
-    
+
     while True:
-        to_remove = []
+        to_remove: list[tuple[int, int]] = []
         for i in range(rows):
             for j in range(cols):
                 if grid[i][j] == '@':
-                    neighbors = count_neighbors([''.join(row) for row in grid], i, j, rows, cols)
+                    neighbors = count_neighbors(
+                        [''.join(row) for row in grid], i, j, rows, cols)
                     if neighbors < 4:
                         to_remove.append((i, j))
-        
+
         if not to_remove:
             break
-        
+
         # Remove all marked positions
         for i, j in to_remove:
             grid[i][j] = '.'
         part2_count += len(to_remove)
-    
+
     return str(part1_count), str(part2_count)
 
 

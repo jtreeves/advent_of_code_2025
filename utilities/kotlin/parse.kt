@@ -1,4 +1,5 @@
-import kotlin.text.Regex
+import java.util.regex.Pattern
+import java.util.regex.Matcher
 
 /**
  * Parsing utilities for Kotlin solutions.
@@ -8,6 +9,11 @@ import kotlin.text.Regex
  * Parse integers from a line of text.
  */
 fun parseInts(line: String): List<Int> {
-    val regex = Regex("-?\\d+")
-    return regex.findAll(line).map { it.value.toInt() }.toList()
+    val pattern = Pattern.compile("-?\\d+")
+    val matcher = pattern.matcher(line)
+    val result = mutableListOf<Int>()
+    while (matcher.find()) {
+        result.add(matcher.group().toInt())
+    }
+    return result
 }

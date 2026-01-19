@@ -1,11 +1,3 @@
-import java.io.File
-
-// Import utilities
-fun getInput(day: Int): List<String> {
-    val path = "../data/input.txt"
-    return File(path).readLines().map { it.trim() }
-}
-
 fun solve(lines: List<String>): Pair<Int, Int> {
     // Part 1: Count times dial ends at 0 after a rotation
     var position = 50

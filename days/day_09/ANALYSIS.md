@@ -51,7 +51,7 @@ The problem consists of two parts with significantly different complexity:
 | Java       |                       |
 | Julia      |                       |
 | Kotlin     |                       |
-| Python     | 4746238001           |
+| Python     | 4746238001            |
 | Ruby       |                       |
 | Rust       |                       |
 | TypeScript |                       |
@@ -67,7 +67,7 @@ The problem consists of two parts with significantly different complexity:
 | Java       |                       |
 | Julia      |                       |
 | Kotlin     |                       |
-| Python     | 1552139370           |
+| Python     | 1552139370            |
 | Ruby       |                       |
 | Rust       |                       |
 | TypeScript |                       |

@@ -1,22 +1,23 @@
-from typing import List, Tuple, Set
+from typing import Tuple
+
 
 def solve(input_data: str) -> Tuple[str, str]:
     """Solve Day 9 parts 1 and 2."""
     lines = input_data.strip().split('\n')
     lines = [line.strip() for line in lines if line.strip()]
-    
+
     # Parse coordinates
-    red_tiles = []
+    red_tiles: list[tuple[int, int]] = []
     for line in lines:
         if ',' in line:
             parts = line.split(',')
             x = int(parts[0])
             y = int(parts[1])
             red_tiles.append((x, y))
-    
+
     if len(red_tiles) < 2:
         return "0", "0"
-    
+
     # Part 1: Find largest rectangle area using any two red tiles as corners
     max_area_part1 = 0
     for i in range(len(red_tiles)):
@@ -27,40 +28,40 @@ def solve(input_data: str) -> Tuple[str, str]:
             height = abs(y1 - y2) + 1
             area = width * height
             max_area_part1 = max(max_area_part1, area)
-    
+
     # Part 2: Coordinate compression + flood-fill + prefix sums
     # Collect all x and y coordinates for compression
-    all_x_set = set()
-    all_y_set = set()
+    all_x_set: set[int] = set()
+    all_y_set: set[int] = set()
     for x, y in red_tiles:
         all_x_set.add(x)
         all_x_set.add(x + 1)
         all_y_set.add(y)
         all_y_set.add(y + 1)
-    
-    all_x = sorted(all_x_set)
-    all_y = sorted(all_y_set)
-    
+
+    all_x: list[int] = sorted(all_x_set)
+    all_y: list[int] = sorted(all_y_set)
+
     # Create compression maps
-    x_to_cx = {x: i for i, x in enumerate(all_x)}
-    y_to_cy = {y: i for i, y in enumerate(all_y)}
-    
+    x_to_cx: dict[int, int] = {x: i for i, x in enumerate(all_x)}
+    y_to_cy: dict[int, int] = {y: i for i, y in enumerate(all_y)}
+
     width = len(all_x)
     height = len(all_y)
-    
+
     # Build grid: False = outside/invalid, True = inside/valid
     grid = [[False] * height for _ in range(width)]
-    
+
     # Mark boundary (red + green tiles)
     for x, y in red_tiles:
         if x in x_to_cx and y in y_to_cy:
             grid[x_to_cx[x]][y_to_cy[y]] = True
-    
+
     # Connect consecutive red tiles with green tiles
     for i in range(len(red_tiles)):
         x1, y1 = red_tiles[i]
         x2, y2 = red_tiles[(i + 1) % len(red_tiles)]
-        
+
         if x1 == x2:
             start_y = min(y1, y2)
             end_y = max(y1, y2)
@@ -73,7 +74,7 @@ def solve(input_data: str) -> Tuple[str, str]:
             for x in range(start_x, end_x + 1):
                 if x in x_to_cx and y1 in y_to_cy:
                     grid[x_to_cx[x]][y_to_cy[y1]] = True
-    
+
     # Point-in-polygon check
     def point_in_polygon(px: int, py: int) -> bool:
         inside = False
@@ -81,11 +82,12 @@ def solve(input_data: str) -> Tuple[str, str]:
             x1, y1 = red_tiles[i]
             x2, y2 = red_tiles[(i + 1) % len(red_tiles)]
             if (y1 > py) != (y2 > py):
-                intersect_x = (py - y1) * (x2 - x1) / (y2 - y1) + x1 if y2 != y1 else px
+                intersect_x = (py - y1) * (x2 - x1) / \
+                    (y2 - y1) + x1 if y2 != y1 else px
                 if px < intersect_x:
                     inside = not inside
         return inside
-    
+
     # Flood fill interior
     found_interior = False
     for cx in range(width):
@@ -116,21 +118,21 @@ def solve(input_data: str) -> Tuple[str, str]:
                     break
         if found_interior:
             break
-    
+
     # Build 2D prefix sum for O(1) rectangle queries
     prefix = [[0] * (height + 1) for _ in range(width + 1)]
     for cx in range(width):
         for cy in range(height):
-            prefix[cx + 1][cy + 1] = (prefix[cx][cy + 1] + prefix[cx + 1][cy] 
+            prefix[cx + 1][cy + 1] = (prefix[cx][cy + 1] + prefix[cx + 1][cy]
                                       - prefix[cx][cy] + (1 if grid[cx][cy] else 0))
-    
+
     # Helper: get sum in rectangle [cx1, cx2] x [cy1, cy2] (inclusive)
     def rect_sum(cx1: int, cx2: int, cy1: int, cy2: int) -> int:
-        return (prefix[cx2 + 1][cy2 + 1] - prefix[cx1][cy2 + 1] 
+        return (prefix[cx2 + 1][cy2 + 1] - prefix[cx1][cy2 + 1]
                 - prefix[cx2 + 1][cy1] + prefix[cx1][cy1])
-    
+
     # Generate candidates sorted by area descending
-    candidates = []
+    candidates: list[tuple[int, int, int, int, int, int, int, int, int]] = []
     for i in range(len(red_tiles)):
         for j in range(i + 1, len(red_tiles)):
             x1, y1 = red_tiles[i]
@@ -140,27 +142,28 @@ def solve(input_data: str) -> Tuple[str, str]:
             min_y = min(y1, y2)
             max_y = max(y1, y2)
             area = (max_x - min_x + 1) * (max_y - min_y + 1)
-            
-            if (min_x in x_to_cx and max_x in x_to_cx and 
-                min_y in y_to_cy and max_y in y_to_cy):
+
+            if (min_x in x_to_cx and max_x in x_to_cx and
+                    min_y in y_to_cy and max_y in y_to_cy):
                 cx1 = x_to_cx[min_x]
                 cx2 = x_to_cx[max_x]
                 cy1 = y_to_cy[min_y]
                 cy2 = y_to_cy[max_y]
-                candidates.append((min_x, max_x, min_y, max_y, area, cx1, cx2, cy1, cy2))
-    
+                candidates.append(
+                    (min_x, max_x, min_y, max_y, area, cx1, cx2, cy1, cy2))
+
     candidates.sort(key=lambda x: x[4], reverse=True)
-    
+
     # Check candidates in descending area order
     max_area_part2 = 0
     for min_x, max_x, min_y, max_y, area, cx1, cx2, cy1, cy2 in candidates:
         if area <= max_area_part2:
             break
-        
+
         # Check if rectangle is fully contained using prefix sum
         valid_count = rect_sum(cx1, cx2, cy1, cy2)
         expected_cells = (cx2 - cx1 + 1) * (cy2 - cy1 + 1)
-        
+
         if valid_count == expected_cells:
             # Check corners to ensure rectangle doesn't extend beyond valid regions
             all_valid = True
@@ -174,11 +177,11 @@ def solve(input_data: str) -> Tuple[str, str]:
                     if not point_in_polygon(x, y):
                         all_valid = False
                         break
-            
+
             if all_valid:
                 max_area_part2 = area
                 break
-    
+
     return str(max_area_part1), str(max_area_part2)
 
 

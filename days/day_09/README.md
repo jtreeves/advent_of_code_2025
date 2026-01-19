@@ -21,7 +21,7 @@ For example, if the red tiles are at `(0,0)`, `(3,0)`, `(0,2)`, and `(3,2)`, you
 What is the area of the largest rectangle you can form using two red tiles as opposite corners?
 
 ### Solution
-[Answer will be populated after running solutions]
+4746238001
 
 ## Part 2
 
@@ -43,4 +43,4 @@ The challenge here is efficiently checking whether a rectangle is fully containe
 What is the area of the largest rectangle you can form that is entirely contained within the polygon boundary?
 
 ### Solution
-[Answer will be populated after running solutions]
+1552139370

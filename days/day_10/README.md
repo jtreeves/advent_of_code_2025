@@ -39,7 +39,7 @@ This means:
 All lights start OFF. To reach `[.##.]` (OFF, ON, ON, OFF), you need to find the minimum set of button presses.
 
 ### Solution
-[Answer will be populated after running solutions]
+459
 
 ## Part 2
 
@@ -67,4 +67,4 @@ This means:
 Using the joltage method, what is the minimum total button presses needed across all machines?
 
 ### Solution
-[Answer will be populated after running solutions]
+18687
